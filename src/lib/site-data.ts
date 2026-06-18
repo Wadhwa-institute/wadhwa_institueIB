@@ -1,20 +1,10 @@
-export type Topic = {
-  name: string;
-  videoCount: number;
-  noteCount: number;
-};
-
 export type Subject = {
   slug: string;
   name: string;
   description: string;
   shortDescription: string;
-  accent: string;
   difficulty: string;
-  passRate: number;
-  enrolledCount: number;
-  faculty: string[];
-  topics: Topic[];
+  topics: { title: string; detail: string }[];
   benefits: string[];
 };
 
@@ -25,19 +15,28 @@ export const subjects: Subject[] = [
     description:
       "Build confidence in literary analysis, language skills, and exam technique with guidance designed for IB learners.",
     shortDescription: "Literature, Language & Literature, and English B pathways",
-    accent: "from-emerald-500 to-emerald-300",
     difficulty: "Intermediate",
-    passRate: 92,
-    enrolledCount: 240,
-    faculty: [
-      "Aisha Patel — M.A. English Literature, Cambridge University",
-      "Rohan Mehta — IB English Examiner, 8 years of coaching",
-    ],
     topics: [
-      { name: "Close reading & textual analysis", videoCount: 9, noteCount: 12 },
-      { name: "Essay writing & argumentation", videoCount: 7, noteCount: 10 },
-      { name: "Paper 1 and Paper 2 strategy", videoCount: 6, noteCount: 8 },
-      { name: "Internal assessment support", videoCount: 5, noteCount: 7 },
+      {
+        title: "Close reading & textual analysis",
+        detail:
+          "Annotate unseen prose and poetry with purpose — identifying tone, diction, and structure to build a confident Paper 1 analysis.",
+      },
+      {
+        title: "Essay writing & argumentation",
+        detail:
+          "Shape a clear thesis and develop balanced, evidence-led arguments with strong topic sentences and smooth transitions.",
+      },
+      {
+        title: "Paper 1 and Paper 2 strategy",
+        detail:
+          "Plan and time both papers — guided analysis for Paper 1 and comparative essays for Paper 2 under exam conditions.",
+      },
+      {
+        title: "Internal assessment support",
+        detail:
+          "Choose a focused extract, craft a line of inquiry, and rehearse the individual oral with examiner-style feedback.",
+      },
     ],
     benefits: [
       "Structured writing workshops",
@@ -51,19 +50,28 @@ export const subjects: Subject[] = [
     description:
       "Strengthen oral fluency, comprehension, and writing through immersive, confidence-building lessons tailored to IB expectations.",
     shortDescription: "IB French B and advanced communication foundations",
-    accent: "from-sky-500 to-cyan-300",
     difficulty: "Beginner to Advanced",
-    passRate: 89,
-    enrolledCount: 180,
-    faculty: [
-      "Mélanie Laurent — DELF-certified language coach",
-      "Kavya Pillai — IB French mentor with 7 years experience",
-    ],
     topics: [
-      { name: "Oral fluency and pronunciation", videoCount: 8, noteCount: 9 },
-      { name: "Reading comprehension drills", videoCount: 6, noteCount: 7 },
-      { name: "Essay and email writing", videoCount: 5, noteCount: 6 },
-      { name: "Mock speaking exams", videoCount: 4, noteCount: 5 },
+      {
+        title: "Oral fluency and pronunciation",
+        detail:
+          "Daily speaking drills and pronunciation coaching to build natural rhythm and confidence for the individual oral.",
+      },
+      {
+        title: "Reading comprehension drills",
+        detail:
+          "Decode authentic French texts quickly using context clues, connectors, and targeted vocabulary building.",
+      },
+      {
+        title: "Essay and email writing",
+        detail:
+          "Master text types — emails, blogs, and articles — with the register, format, and connectors examiners reward.",
+      },
+      {
+        title: "Mock speaking exams",
+        detail:
+          "Full individual-oral simulations on a visual stimulus, with feedback on fluency, accuracy, and interaction.",
+      },
     ],
     benefits: [
       "Confidence-first speaking practice",
@@ -77,19 +85,28 @@ export const subjects: Subject[] = [
     description:
       "Make business concepts practical and memorable with case-based teaching, strategy frameworks, and performance-focused revision.",
     shortDescription: "Strategy, marketing, operations, and business ethics",
-    accent: "from-amber-500 to-yellow-300",
     difficulty: "Advanced",
-    passRate: 94,
-    enrolledCount: 215,
-    faculty: [
-      "Ishaan Verma — MBA candidate, strategic management specialist",
-      "Nina Rao — IB Business Management mentor with case analysis expertise",
-    ],
     topics: [
-      { name: "Marketing strategy & analysis", videoCount: 8, noteCount: 11 },
-      { name: "Finance, operations & leadership", videoCount: 7, noteCount: 9 },
-      { name: "Paper 1 case study handling", videoCount: 6, noteCount: 8 },
-      { name: "Exam-ready revision packs", videoCount: 5, noteCount: 7 },
+      {
+        title: "Marketing strategy & analysis",
+        detail:
+          "Apply the marketing mix, market research, and positioning to real cases with structured, evaluative answers.",
+      },
+      {
+        title: "Finance, operations & leadership",
+        detail:
+          "Work through ratio analysis, investment appraisal, and operations decisions with clear method and interpretation.",
+      },
+      {
+        title: "Paper 1 case study handling",
+        detail:
+          "Pre-read the case study, anticipate likely questions, and structure high-mark responses to the pre-released material.",
+      },
+      {
+        title: "Exam-ready revision packs",
+        detail:
+          "Condense each unit into model answers, command-term drills, and timed practice for Papers 1 and 2.",
+      },
     ],
     benefits: [
       "Case study speed drills",
@@ -103,19 +120,28 @@ export const subjects: Subject[] = [
     description:
       "Master diagrams, evaluation technique, and data interpretation to gain confidence in both theory and application-based questions.",
     shortDescription: "Microeconomics, macroeconomics, and global economy themes",
-    accent: "from-violet-500 to-fuchsia-300",
     difficulty: "Advanced",
-    passRate: 91,
-    enrolledCount: 196,
-    faculty: [
-      "Arjun Kapoor — Economics faculty with IB exam expertise",
-      "Dr. Kiran Menon — University tutor and mentor",
-    ],
     topics: [
-      { name: "Demand, supply & market equilibrium", videoCount: 7, noteCount: 9 },
-      { name: "Macroeconomics and policy analysis", videoCount: 8, noteCount: 10 },
-      { name: "Data-based essay writing", videoCount: 6, noteCount: 8 },
-      { name: "Revision workshops and past papers", videoCount: 6, noteCount: 7 },
+      {
+        title: "Demand, supply & market equilibrium",
+        detail:
+          "Draw accurate diagrams and explain market mechanisms, elasticity, and welfare with precise labelling.",
+      },
+      {
+        title: "Macroeconomics and policy analysis",
+        detail:
+          "Link fiscal, monetary, and supply-side policies to real-world outcomes with evaluation and trade-offs.",
+      },
+      {
+        title: "Data-based essay writing",
+        detail:
+          "Tackle Paper 1 essays and Paper 2 data response with diagrams, definitions, and structured evaluation.",
+      },
+      {
+        title: "Revision workshops and past papers",
+        detail:
+          "Timed past-paper practice with mark-scheme alignment and feedback on command terms.",
+      },
     ],
     benefits: [
       "Diagram mastery sessions",
@@ -129,19 +155,28 @@ export const subjects: Subject[] = [
     description:
       "Develop exam resilience with step-by-step problem solving, targeted practice, and high-impact revision routines.",
     shortDescription: "Algebra, calculus, statistics, and exam technique",
-    accent: "from-rose-500 to-orange-300",
     difficulty: "Advanced",
-    passRate: 90,
-    enrolledCount: 202,
-    faculty: [
-      "Sahil Chawla — Math mentor and problem-solving coach",
-      "Priya Desai — IB Mathematics specialist",
-    ],
     topics: [
-      { name: "Functions, algebra & modeling", videoCount: 9, noteCount: 12 },
-      { name: "Calculus and applications", videoCount: 8, noteCount: 10 },
-      { name: "Statistics and probability", videoCount: 7, noteCount: 9 },
-      { name: "Exam technique & timed drills", videoCount: 6, noteCount: 7 },
+      {
+        title: "Functions, algebra & modeling",
+        detail:
+          "Build fluency with functions and algebraic technique, then apply them to real modelling problems.",
+      },
+      {
+        title: "Calculus and applications",
+        detail:
+          "Differentiation and integration from first principles through to applied optimisation and kinematics.",
+      },
+      {
+        title: "Statistics and probability",
+        detail:
+          "Distributions, hypothesis testing, and the GDC skills needed for accurate, efficient answers.",
+      },
+      {
+        title: "Exam technique & timed drills",
+        detail:
+          "Method marks, clear working, and timed Paper 1 and Paper 2 practice to avoid careless loss.",
+      },
     ],
     benefits: [
       "Formula-first revision tracks",
@@ -152,180 +187,109 @@ export const subjects: Subject[] = [
 ];
 
 export const metrics = [
-  { value: "Premium", label: "Learning experience" },
-  { value: "95%", label: "IB pass rate" },
-  { value: "99.9%", label: "Uptime guarantee" },
-  { value: "15+", label: "Years of excellence" },
+  { value: "1:1", label: "Mentor-led attention" },
+  { value: "5", label: "IB subjects taught" },
+  { value: "7", label: "Perfect scores achieved" },
+  { value: "Free", label: "First consultation" },
 ];
 
 export const features = [
   {
-    title: "Expert faculty",
-    copy: "Learn from mentors trained in top universities and IB exam standards.",
+    title: "Mentor-led teaching",
+    copy: "Learn from IB-focused mentors using examiner-aligned methods and feedback.",
   },
   {
-    title: "Personalized learning paths",
-    copy: "Progress tracking, guided revisions, and support for every pace of learner.",
+    title: "Personalised learning paths",
+    copy: "Guided revision and support tuned to each learner's pace and target grade.",
   },
   {
     title: "Mobile-first app access",
     copy: "Unlock notes, videos, and offline revision directly from the app.",
   },
   {
-    title: "24/7 doubt resolution",
-    copy: "Stay supported through community learning and responsive mentor guidance.",
+    title: "Responsive doubt resolution",
+    copy: "Stay supported with prompt, mentor-led answers to your questions.",
   },
   {
-    title: "Comprehensive notes & video library",
-    copy: "Access premium resources curated by subject specialists across all programs.",
+    title: "Curated notes & resources",
+    copy: "Access focused resources prepared by subject specialists across every programme.",
   },
   {
-    title: "Real-time performance analytics",
-    copy: "Track improvement with clear milestones, question practice, and engagement insights.",
+    title: "Progress tracking",
+    copy: "Follow clear milestones, question practice, and steady improvement over time.",
   },
 ];
 
-const createStudentPortrait = (
-  name: string,
-  startColor: string,
-  endColor: string,
-) => {
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="320" height="280" viewBox="0 0 320 280">
-      <defs>
-        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="${startColor}" />
-          <stop offset="100%" stop-color="${endColor}" />
-        </linearGradient>
-      </defs>
-      <rect width="320" height="280" rx="28" fill="url(#bg)" />
-      <circle cx="160" cy="98" r="62" fill="#0f172a" opacity="0.16" />
-      <path d="M96 230c18-48 54-70 64-70s46 22 64 70" fill="#0f172a" opacity="0.12" />
-      <circle cx="160" cy="110" r="44" fill="#f8fafc" />
-      <path d="M130 104c8-19 23-30 30-30 7 0 22 11 30 30" fill="#0f172a" opacity="0.88" />
-      <path d="M128 130c7 12 23 18 32 18 9 0 25-6 32-18" fill="#0f172a" opacity="0.88" />
-      <circle cx="143" cy="106" r="3.5" fill="#0f172a" />
-      <circle cx="177" cy="106" r="3.5" fill="#0f172a" />
-      <path d="M146 132c5 4 11 6 14 6 3 0 9-2 14-6" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
-      <text x="160" y="238" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#f8fafc">${name}</text>
-    </svg>`;
-
-  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
-};
-
-export type StudentResult = {
-  name: string;
+export type Review = {
+  studentName: string;
   subject: string;
-  marks: string;
-  grade: string;
-  exam: string;
-  image: string;
-  note: string;
+  score: string;
+  quote: string;
 };
 
-export const studentResults: StudentResult[] = [
+export const reviews: Review[] = [
   {
-    name: "Aanya Shah",
-    subject: "English",
-    marks: "45/45",
-    grade: "7",
-    exam: "May 2026 Mock IA",
-    image: createStudentPortrait("Aanya", "#22c55e", "#0f172a"),
-    note: "Top scorer in literature and Paper 2 revision",
+    studentName: "Aryan Mehta",
+    subject: "IB Economics HL",
+    score: "7",
+    quote:
+      "I went from a predicted 5 to a final 7 in Economics. The way they break down Paper 3 calculations and essay structure is unlike anything I found elsewhere.",
   },
   {
-    name: "Kabir Menon",
-    subject: "Economics",
-    marks: "42/45",
-    grade: "6",
-    exam: "April 2026 Unit Test",
-    image: createStudentPortrait("Kabir", "#8b5cf6", "#0f172a"),
-    note: "Improved diagram-based answers and evaluation technique",
+    studentName: "Priya Sharma",
+    subject: "IB Business Management HL",
+    score: "7",
+    quote:
+      "Wadhwa Institute saved my IA. My Business IA went from a draft with no direction to a polished 7-scoring piece. The mentoring is genuinely exceptional.",
   },
   {
-    name: "Nisha Verma",
-    subject: "French",
-    marks: "41/45",
-    grade: "6",
-    exam: "Oral Proficiency Check",
-    image: createStudentPortrait("Nisha", "#38bdf8", "#0f172a"),
-    note: "Consistent speaking practice and grammar confidence",
+    studentName: "Kabir Thakur",
+    subject: "IB French SL",
+    score: "6",
+    quote:
+      "My French oral was my biggest fear. Three months of structured practice and I walked into the individual oral feeling completely prepared.",
   },
   {
-    name: "Arjun Khosla",
-    subject: "Business Management",
-    marks: "40/45",
-    grade: "6",
-    exam: "Case Study Assessment",
-    image: createStudentPortrait("Arjun", "#f59e0b", "#0f172a"),
-    note: "Strong case analysis and strategy framework application",
-  },
-  {
-    name: "Priya Iyer",
-    subject: "Mathematics",
-    marks: "43/45",
-    grade: "7",
-    exam: "Calculator & Non-calculator Revision",
-    image: createStudentPortrait("Priya", "#f43f5e", "#0f172a"),
-    note: "Focused on timed problem-solving and accuracy",
-  },
-  {
-    name: "Dev Gupta",
-    subject: "English",
-    marks: "39/45",
-    grade: "5",
-    exam: "Term-end Assessment",
-    image: createStudentPortrait("Dev", "#14b8a6", "#0f172a"),
-    note: "Made rapid progress with essay structure and feedback",
+    studentName: "Neha Gupta",
+    subject: "IB Mathematics AA HL",
+    score: "7",
+    quote:
+      "The GDC techniques and past paper strategies transformed my approach. I finally understood how to structure a 7-level response in Math.",
   },
 ];
 
-export const reviews = [
-  {
-    studentName: "Anya G.",
-    subject: "English",
-    rating: 5,
-    title: "My confidence jumped before the final exams",
-    body:
-      "The lessons made complex texts feel approachable and the feedback helped me improve faster than I expected.",
-    resultScore: "45/45",
-    verificationBadge: true,
-    engagement: "Verified enrollment",
-  },
-  {
-    studentName: "Rohit S.",
-    subject: "Economics",
-    rating: 5,
-    title: "Diagram practice and evaluation drills made a huge difference",
-    body:
-      "The revision structure helped me improve my writing and retain theory without feeling overwhelmed.",
-    resultScore: "42/45",
-    verificationBadge: true,
-    engagement: "+3 grade improvement",
-  },
-  {
-    studentName: "Mira K.",
-    subject: "Business Management",
-    rating: 4.8,
-    title: "Clear strategy guides and real-world case support",
-    body:
-      "The case study approach felt practical and taught me how to think like an IB student rather than just memorize.",
-    resultScore: "40/45",
-    verificationBadge: true,
-    engagement: "High-achiever spotlight",
-  },
-  {
-    studentName: "Sofia L.",
-    subject: "French",
-    rating: 5,
-    title: "My speaking confidence improved within weeks",
-    body:
-      "The speaking sessions and revision packs made it easy to prepare for oral exams and stay consistent.",
-    resultScore: "41/45",
-    verificationBadge: true,
-    engagement: "Verified enrollment",
-  },
-];
+/**
+ * Single source of truth for image assets. Each asset has a real target path
+ * and an SVG fallback that shows until the real file is added to `public/assets/`.
+ * Drop these files in to go live (no code change needed):
+ *   /assets/logo.png · /assets/result-1.jpg · /assets/result-2.jpg
+ */
+export const siteAssets = {
+  logo: "/assets/logo.png",
+  logoFallback: "/assets/logo.svg",
+  result1: "/assets/result-1.jpg",
+  result1Fallback: "/assets/result-1.svg",
+  result2: "/assets/result-2.jpg",
+  result2Fallback: "/assets/result-2.svg",
+};
+
+// Production domain. On Vercel, set NEXT_PUBLIC_SITE_URL to the live domain
+// (e.g. https://wadhwainstitute.in); otherwise this sensible default is used.
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://wadhwainstitute.in"
+).replace(/\/$/, "");
+
+export const siteContact = {
+  email: "bhavyawadhwa97@gmail.com",
+  phone: "+91 8010436968",
+  phoneHref: "+918010436968",
+  address: "A1/29, HUDA, Sushant Lok II, Sector 55, Gurugram, Haryana 122011",
+  addressLocality: "Gurugram",
+  addressRegion: "Haryana",
+  postalCode: "122011",
+  addressCountry: "IN",
+  mapsUrl: "https://maps.app.goo.gl/ewvzpggCAMQfC1Nj7",
+};
 
 export const navLinks = [
   { label: "Home", href: "/" },
@@ -333,5 +297,6 @@ export const navLinks = [
   { label: "Results", href: "/results" },
   { label: "Reviews", href: "/reviews" },
   { label: "App", href: "/app" },
+  { label: "Contact", href: "/#contact" },
   { label: "Legal", href: "/privacy-policy" },
 ];

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" role="img" aria-label="Wadhwa Institute">
+  <path d="M18 64 C 72 12, 188 12, 224 82" stroke="#7FD900" stroke-width="9" stroke-linecap="round"/>
+  <path d="M224 82 C 236 118, 150 158, 116 138" stroke="#7FD900" stroke-width="9" stroke-linecap="round" opacity="0.45"/>
+  <text x="120" y="138" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="112" font-weight="700" fill="#7FD900" letter-spacing="2">WI</text>
+</svg>

@@ -1,15 +1,39 @@
 @import "tailwindcss";
 
+/* ============================================================
+   WADHWA INSTITUTE — PREMIUM DARK VISUAL SYSTEM
+   ============================================================ */
+
 :root {
-  --background: #020617;
-  --foreground: #f8fafc;
+  --black: #050505;
+  --black-2: #0a0a0a;
+  --black-3: #111111;
+  --black-4: #1a1a1a;
+  --green: #7fd900;
+  --green-dim: #5fa800;
+  --green-glow: rgba(127, 217, 0, 0.18);
+  --green-faint: rgba(127, 217, 0, 0.06);
+  --white: #f5f5f0;
+  --white-dim: rgba(245, 245, 240, 0.66);
+  --white-faint: rgba(245, 245, 240, 0.14);
+
+  /* Font stacks are wired to the next/font CSS variables set in layout.tsx */
+  --serif: var(--font-serif), "Cormorant Garamond", Georgia, serif;
+  --sans: var(--font-sans), "Montserrat", system-ui, sans-serif;
+  --display: var(--font-display), "Bebas Neue", Impact, sans-serif;
+
+  /* Legacy aliases kept so Tailwind utilities resolve sensibly */
+  --background: var(--black);
+  --foreground: var(--white);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--black);
+  --color-foreground: var(--white);
+  --color-brand: var(--green);
+  --font-sans: var(--sans);
+  --font-serif: var(--serif);
+  --font-display: var(--display);
 }
 
 * {
@@ -21,14 +45,310 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at top, rgba(16, 185, 129, 0.16), transparent 25%),
-    linear-gradient(180deg, #020617 0%, #030712 100%);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: rgba(16, 185, 129, 0.35);
-  color: #ffffff;
+  background: var(--green);
+  color: var(--black);
+}
+
+/* ---------- Thin green scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black-2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 999px;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--green) var(--black-2);
+}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+.font-display {
+  font-family: var(--display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+}
+.font-serif-italic {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+}
+.label {
+  font-family: var(--sans);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--white-dim);
+}
+
+/* ---------- Section eyebrow (green line + uppercase label) ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: var(--sans);
+  font-size: 0.625rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  color: var(--green);
+}
+.eyebrow::before {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: var(--green);
+  display: inline-block;
+}
+
+/* ============================================================
+   NOISE TEXTURE OVERLAY
+   ============================================================ */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   GREEN GRID LINES (80px)
+   ============================================================ */
+.grid-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(127, 217, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(127, 217, 0, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+}
+
+/* ============================================================
+   RADIAL GLOW ORBS (pulsing)
+   ============================================================ */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(60px);
+  background: radial-gradient(circle, var(--green-glow), transparent 70%);
+  animation: orb-pulse 7s ease-in-out infinite;
+}
+@keyframes orb-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.18); }
+}
+
+/* ============================================================
+   CUSTOM CURSOR (fine-pointer devices only)
+   ============================================================ */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  will-change: transform;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+}
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--green);
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease,
+    border-color 0.25s ease;
+}
+.cursor-ready .cursor-dot,
+.cursor-ready .cursor-ring {
+  opacity: 1;
+}
+.cursor-ready.cursor-hover .cursor-ring {
+  width: 56px;
+  height: 56px;
+  background: var(--green-faint);
+  border-color: var(--green);
+}
+/* Hide native cursor only where a precise pointer + the custom cursor exist */
+@media (pointer: fine) {
+  .cursor-ready,
+  .cursor-ready a,
+  .cursor-ready button,
+  .cursor-ready [role="button"],
+  .cursor-ready select,
+  .cursor-ready input {
+    cursor: none;
+  }
+}
+
+/* ============================================================
+   REVEAL-ON-SCROLL (fadeUp via IntersectionObserver)
+   Content stays visible if JS never loads.
+   ============================================================ */
+.js-loaded .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.js-loaded .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js-loaded .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .glow-orb,
+  .pulse-arrow {
+    animation: none;
+  }
+}
+
+/* Anchor targets (e.g. #contact) clear the top edge when navigated to */
+:target {
+  scroll-margin-top: 28px;
+}
+
+/* ============================================================
+   BUTTONS (recolor + enhance; structure preserved by pages)
+   ============================================================ */
+.btn-primary {
+  background: var(--green);
+  color: var(--black);
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: var(--green);
+  box-shadow: 0 16px 44px var(--green-glow);
+}
+.btn-outline {
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.2s ease,
+    color 0.2s ease;
+}
+.btn-outline:hover {
+  transform: translateY(-2px);
+  background: var(--green-faint);
+  box-shadow: 0 14px 40px var(--green-glow);
+}
+
+/* ============================================================
+   CARDS — green animated top border on hover + lift
+   ============================================================ */
+.lift-card {
+  position: relative;
+  background: var(--black-4);
+  border: 1px solid var(--white-faint);
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  overflow: hidden;
+}
+.lift-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lift-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(127, 217, 0, 0.4);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+.lift-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Generic animated underline border (left -> right) ---------- */
+.accent-border {
+  position: relative;
+}
+.accent-border::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.accent-border:hover::after {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   STAR RATING (clip-path stars)
+   ============================================================ */
+.stars {
+  display: inline-flex;
+  gap: 4px;
+}
+.star {
+  width: 14px;
+  height: 14px;
+  background: var(--green);
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+}
+.star.dim {
+  background: var(--white-faint);
+}
+
+/* ---------- Pulsing arrow for the "Next could be you" card ---------- */
+.pulse-arrow {
+  display: inline-block;
+  animation: arrow-bounce 1.6s ease-in-out infinite;
+}
+@keyframes arrow-bounce {
+  0%, 100% { transform: translateX(0); opacity: 0.7; }
+  50% { transform: translateX(8px); opacity: 1; }
 }
