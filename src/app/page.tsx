@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { features, metrics, reviews, siteContact, subjects } from "@/lib/site-data";
+import { features, metrics, reviews, subjects } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   description:
@@ -38,7 +38,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-3 pt-1">
               <Link
-                href="/#contact"
+                href="/contact"
                 className="btn-primary rounded-full px-7 py-3 text-xs uppercase tracking-[0.2em]"
               >
                 Book a free consultation
@@ -200,65 +200,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------------- CONTACT ---------------- */}
-      <section
-        id="contact"
-        className="reveal relative overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-12 sm:px-10"
-      >
+      {/* ---------------- CONTACT CTA ---------------- */}
+      <section className="reveal relative overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-14 text-center sm:px-10">
         <div
           className="glow-orb"
-          style={{ width: 300, height: 300, top: -90, right: -60 }}
+          style={{ width: 320, height: 320, top: -90, left: "50%", marginLeft: -160 }}
         />
-        <div className="relative grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
-          <div className="space-y-4">
-            <p className="eyebrow">Get in touch</p>
-            <h2 className="font-display text-5xl uppercase text-[var(--white)] sm:text-6xl">
-              Your perfect 7 starts here
-            </h2>
-            <p className="max-w-md text-[13px] leading-8 text-[var(--white-dim)]">
-              Book a free consultation to map your IB subjects, timelines, and target
-              grades. We&rsquo;ll get back to you within one working day.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <a
-              href={`mailto:${siteContact.email}`}
-              className="lift-card flex items-center justify-between rounded-2xl px-5 py-5"
+        <div className="relative space-y-5">
+          <p className="eyebrow justify-center">Get in touch</p>
+          <h2 className="font-display text-5xl uppercase text-[var(--white)] sm:text-6xl">
+            Your perfect 7 starts here
+          </h2>
+          <p className="mx-auto max-w-md text-[13px] leading-8 text-[var(--white-dim)]">
+            Book a free consultation to map your IB subjects, timelines, and target
+            grades. We&rsquo;ll get back to you within one working day.
+          </p>
+          <div className="flex justify-center pt-1">
+            <Link
+              href="/contact"
+              className="btn-primary rounded-full px-7 py-3 text-xs uppercase tracking-[0.2em]"
             >
-              <span>
-                <span className="label">Email us</span>
-                <span className="mt-1 block text-[15px] text-[var(--white)]">
-                  {siteContact.email}
-                </span>
-              </span>
-              <span className="pulse-arrow text-[var(--green)]">→</span>
-            </a>
-            <a
-              href={`tel:${siteContact.phoneHref}`}
-              className="lift-card flex items-center justify-between rounded-2xl px-5 py-5"
-            >
-              <span>
-                <span className="label">Call / WhatsApp</span>
-                <span className="mt-1 block text-[15px] text-[var(--white)]">
-                  {siteContact.phone}
-                </span>
-              </span>
-              <span className="pulse-arrow text-[var(--green)]">→</span>
-            </a>
-            <a
-              href={siteContact.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="lift-card flex items-center justify-between rounded-2xl px-5 py-5"
-            >
-              <span>
-                <span className="label">Visit us</span>
-                <span className="mt-1 block text-[13px] leading-6 text-[var(--white)]">
-                  {siteContact.address}
-                </span>
-              </span>
-              <span className="pulse-arrow text-[var(--green)]">→</span>
-            </a>
+              Contact us
+            </Link>
           </div>
         </div>
       </section>

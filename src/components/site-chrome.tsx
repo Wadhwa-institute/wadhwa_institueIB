@@ -15,20 +15,38 @@ export default function SiteChrome() {
     const root = document.documentElement;
     root.classList.add("js-loaded");
 
+    let observerRef: IntersectionObserver | null = null;
+
     // ---- Reveal on scroll ----
     const revealEls = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
+
+    if (typeof IntersectionObserver === "undefined") {
+      // No IO support: never leave content hidden.
+      revealEls.forEach((el) => el.classList.add("is-visible"));
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
           }
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      );
+      // On load (incl. scroll-restored reloads), reveal anything already at or
+      // above the fold immediately; only observe what's still below it. This
+      // prevents sections above the restored scroll position staying invisible.
+      revealEls.forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add("is-visible");
+        } else {
+          observer.observe(el);
         }
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
-    );
-    revealEls.forEach((el) => observer.observe(el));
+      });
+      observerRef = observer;
+    }
 
     // ---- Custom cursor (fine pointers only) ----
     const finePointer = window.matchMedia("(pointer: fine)").matches;
@@ -71,7 +89,7 @@ export default function SiteChrome() {
     }
 
     return () => {
-      observer.disconnect();
+      observerRef?.disconnect();
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseover", onOver);
       cancelAnimationFrame(rafId);

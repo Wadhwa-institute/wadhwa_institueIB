@@ -28,7 +28,7 @@ export default function NotFound() {
             Back to home
           </Link>
           <Link
-            href="/#contact"
+            href="/contact"
             className="btn-outline rounded-full px-7 py-3 text-xs uppercase tracking-[0.2em]"
           >
             Contact us
