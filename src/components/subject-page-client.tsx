@@ -27,7 +27,7 @@ export default function SubjectPageClient({ subject }: { subject: Subject }) {
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/#contact"
+              href="/contact"
               className="btn-primary rounded-full px-6 py-3 text-xs uppercase tracking-[0.2em]"
             >
               Book a free consultation
@@ -110,7 +110,7 @@ export default function SubjectPageClient({ subject }: { subject: Subject }) {
               ))}
             </div>
             <Link
-              href="/#contact"
+              href="/contact"
               className="btn-primary mt-6 inline-flex rounded-full px-6 py-3 text-xs uppercase tracking-[0.2em]"
             >
               Start with a free consultation

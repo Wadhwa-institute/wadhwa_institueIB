@@ -40,7 +40,7 @@ export default function AppPage() {
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <Link
-              href="/#contact"
+              href="/contact"
               className="btn-primary rounded-full px-6 py-3 text-xs uppercase tracking-[0.2em]"
             >
               Get notified at launch

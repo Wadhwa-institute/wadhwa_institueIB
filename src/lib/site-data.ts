@@ -297,6 +297,6 @@ export const navLinks = [
   { label: "Results", href: "/results" },
   { label: "Reviews", href: "/reviews" },
   { label: "App", href: "/app" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
   { label: "Legal", href: "/privacy-policy" },
 ];

@@ -194,7 +194,7 @@ export default function RootLayout({
               <div className="space-y-3">
                 <p className="eyebrow">Quick links</p>
                 <div className="flex flex-col gap-2 text-[13px]">
-                  <Link href="/#contact" className="transition hover:text-[var(--green)]">
+                  <Link href="/contact" className="transition hover:text-[var(--green)]">
                     Enrol / Enquire
                   </Link>
                   <Link

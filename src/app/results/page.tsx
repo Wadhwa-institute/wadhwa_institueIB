@@ -79,7 +79,7 @@ export default function ResultsPage() {
               Join the students rewriting their IB story.
             </p>
             <Link
-              href="/#contact"
+              href="/contact"
               className="btn-primary rounded-full px-6 py-3 text-xs uppercase tracking-[0.2em]"
             >
               Enrol now
@@ -97,7 +97,7 @@ export default function ResultsPage() {
           with the written consent of the student (and, where applicable, their
           parent or guardian), in line with the CCPA Guidelines for Prevention of
           Misleading Advertisement in the Coaching Sector, 2024.{" "}
-          <Link href="/#contact" className="text-[var(--green)]">
+          <Link href="/contact" className="text-[var(--green)]">
             Book a free consultation →
           </Link>
         </p>
