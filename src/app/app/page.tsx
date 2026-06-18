@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { siteContact } from "@/lib/site-data";
+
+export const metadata: Metadata = {
+  title: "Download the App",
+  description:
+    "Download the Wadhwa Institute app to unlock premium IB notes, video lessons, and offline revision with progress tracking.",
+  alternates: { canonical: "/app" },
+};
 
 const stepList = [
   "Sign up on the website and verify your email address.",
@@ -16,37 +25,40 @@ const featureList = [
 
 export default function AppPage() {
   return (
-    <div className="space-y-10">
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <div className="space-y-5">
-          <p className="text-sm uppercase tracking-[0.35em] text-emerald-200">App download & unlock</p>
-          <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Download the Wadhwa Institute app and unlock premium learning access.
+    <div className="space-y-12 pb-12">
+      <section className="relative grid gap-10 overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-12 sm:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="grid-lines" />
+        <div className="glow-orb" style={{ width: 300, height: 300, bottom: -90, right: -50 }} />
+        <div className="relative space-y-5">
+          <p className="eyebrow">App download &amp; unlock</p>
+          <h1 className="font-display text-5xl uppercase text-[var(--white)] sm:text-6xl">
+            Download the app, unlock premium learning
           </h1>
-          <p className="max-w-2xl text-lg text-slate-200">
-            Designed for students and parents, the app combines downloadable content, progress insights, and secure access to premium resources.
+          <p className="max-w-2xl text-[13px] leading-8 text-[var(--white-dim)]">
+            Designed for students and parents, the app combines downloadable
+            content, progress insights, and secure access to premium resources.
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <Link
-              href="#"
-              className="rounded-full bg-emerald-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400"
+              href="/#contact"
+              className="btn-primary rounded-full px-6 py-3 text-xs uppercase tracking-[0.2em]"
             >
-              Download for Android
+              Get notified at launch
             </Link>
-            <Link
-              href="#"
-              className="rounded-full border border-emerald-200/70 px-5 py-3 text-sm font-semibold text-white transition hover:border-emerald-400"
-            >
-              Apple App Store (coming soon)
-            </Link>
+            <span className="inline-flex items-center rounded-full border border-[var(--white-faint)] px-6 py-3 text-xs uppercase tracking-[0.2em] text-[var(--white-dim)]">
+              iOS &amp; Android — coming soon
+            </span>
           </div>
         </div>
 
-        <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
-          <p className="text-sm uppercase tracking-[0.3em] text-slate-300">What you unlock</p>
+        <div className="relative rounded-[24px] border border-[var(--white-faint)] bg-[var(--black-3)] p-6">
+          <p className="label">What you unlock</p>
           <div className="mt-5 grid gap-3">
             {featureList.map((feature) => (
-              <div key={feature} className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm text-slate-100">
+              <div
+                key={feature}
+                className="rounded-2xl border border-[var(--white-faint)] bg-[var(--black-4)] px-4 py-3 text-[13px] text-[var(--white-dim)]"
+              >
                 {feature}
               </div>
             ))}
@@ -54,34 +66,53 @@ export default function AppPage() {
         </div>
       </section>
 
-      <section className="grid gap-8 lg:grid-cols-2">
-        <div className="rounded-[28px] border border-white/10 bg-slate-950/50 p-6">
-          <p className="text-sm uppercase tracking-[0.3em] text-emerald-200">Verification flow</p>
+      <section className="grid gap-6 lg:grid-cols-2">
+        <div className="rounded-[24px] border border-[var(--white-faint)] bg-[var(--black-3)] p-6">
+          <p className="eyebrow">Verification flow</p>
           <div className="mt-5 space-y-4">
             {stepList.map((step, index) => (
               <div key={step} className="flex gap-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-sm font-semibold text-emerald-100">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--green)] text-sm font-semibold text-[var(--green)]">
                   {index + 1}
                 </span>
-                <p className="text-sm leading-6 text-slate-100">{step}</p>
+                <p className="text-[13px] leading-7 text-[var(--white-dim)]">{step}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
-          <p className="text-sm uppercase tracking-[0.3em] text-slate-300">Free vs premium</p>
-          <div className="mt-5 space-y-4 text-sm text-slate-100">
-            <div className="rounded-2xl border border-emerald-400/40 bg-emerald-500/10 px-4 py-4">
-              <p className="font-semibold text-white">Free tier</p>
-              <p className="mt-2">One sample video and PDF preview per subject.</p>
+        <div className="rounded-[24px] border border-[var(--white-faint)] bg-[var(--black-3)] p-6">
+          <p className="label">Free vs premium</p>
+          <div className="mt-5 space-y-4">
+            <div className="rounded-2xl border border-[var(--green)] bg-[var(--green-faint)] px-4 py-4">
+              <p className="font-semibold text-[var(--white)]">Free tier</p>
+              <p className="mt-2 text-[13px] text-[var(--white-dim)]">
+                One sample video and PDF preview per subject.
+              </p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-4">
-              <p className="font-semibold text-white">Premium tier</p>
-              <p className="mt-2">Full video library, high-value notes, and progress analytics unlocked via the app.</p>
+            <div className="rounded-2xl border border-[var(--white-faint)] bg-[var(--black-4)] px-4 py-4">
+              <p className="font-semibold text-[var(--white)]">Premium tier</p>
+              <p className="mt-2 text-[13px] text-[var(--white-dim)]">
+                Full video library, high-value notes, and progress analytics unlocked via the app.
+              </p>
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="rounded-[24px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-7 sm:px-8">
+        <p className="eyebrow">Need help getting set up?</p>
+        <p className="mt-3 text-[13px] leading-7 text-[var(--white-dim)]">
+          Reach us at{" "}
+          <a href={`mailto:${siteContact.email}`} className="text-[var(--green)]">
+            {siteContact.email}
+          </a>{" "}
+          or{" "}
+          <a href={`tel:${siteContact.phoneHref}`} className="text-[var(--green)]">
+            {siteContact.phone}
+          </a>
+          .
+        </p>
       </section>
     </div>
   );

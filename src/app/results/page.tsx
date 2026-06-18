@@ -1,71 +1,105 @@
 import type { Metadata } from "next";
-import { studentResults } from "@/lib/site-data";
+import Link from "next/link";
+import { resolveAsset } from "@/lib/assets";
+import { siteAssets } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Results Gallery | Wadhwa Institute IB",
+  title: "Results & Achievements",
   description:
-    "A grid view of student results, marks, subjects, and academic achievements.",
+    "Student achievements at Wadhwa Institute — real perfect 7s and standout IB results from our coaching in Gurugram.",
+  alternates: { canonical: "/results" },
 };
+
+const achievementImages = [
+  {
+    src: resolveAsset(siteAssets.result1, siteAssets.result1Fallback),
+    alt: "Wadhwa Institute student achievement — perfect 7 in Business Management",
+  },
+  {
+    src: resolveAsset(siteAssets.result2, siteAssets.result2Fallback),
+    alt: "Wadhwa Institute student achievement — perfect 7 in Business Management",
+  },
+];
 
 export default function ResultsPage() {
   return (
-    <div className="space-y-10 pb-12">
-      <section className="rounded-[28px] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),_transparent_35%),linear-gradient(135deg,_#0a1122,_#020617_60%,_#07111f)] px-6 py-10 sm:px-8">
-        <div className="space-y-4">
-          <p className="text-sm uppercase tracking-[0.35em] text-sky-200">Results gallery</p>
-          <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Student results in a clean, inspiring grid view
+    <div className="space-y-14 pb-12">
+      {/* ---------------- HERO ---------------- */}
+      <section className="reveal relative overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-12 sm:px-10">
+        <div className="grid-lines" />
+        <div className="glow-orb" style={{ width: 300, height: 300, top: -90, left: -50 }} />
+        <div className="relative space-y-4">
+          <p className="eyebrow">Results &amp; achievements</p>
+          <h1 className="font-display text-5xl uppercase text-[var(--white)] sm:text-7xl">
+            Real students. Real perfect 7s.
           </h1>
-          <p className="max-w-3xl text-lg leading-8 text-slate-200">
-            Explore highlighted student outcomes across subjects, with achievement cards that showcase marks, grades, and exam context in a premium format.
+          <p className="max-w-2xl text-[13px] leading-8 text-[var(--white-dim)]">
+            A showcase of standout IB outcomes from Wadhwa Institute. Every result
+            reflects mentor-led preparation, structured revision, and exam-tested
+            strategy.
           </p>
         </div>
       </section>
 
-      <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {studentResults.map((student) => (
-          <article
-            key={student.name}
-            className="overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.03]"
-          >
-            <div className="relative">
+      {/* ---------------- FEATURED ACHIEVEMENTS (2 images + placeholder) ---------------- */}
+      <section className="reveal space-y-6">
+        <p className="eyebrow">Featured achievements</p>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {achievementImages.map((image, index) => (
+            <div
+              key={index}
+              className="lift-card group relative overflow-hidden rounded-[24px]"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={student.image}
-                alt={`${student.name} student result portrait`}
-                className="h-56 w-full object-cover"
+                src={image.src}
+                alt={image.alt}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[3/4] w-full object-cover"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent px-4 pb-4 pt-10">
-                <p className="text-sm uppercase tracking-[0.2em] text-sky-100">{student.subject}</p>
-                <p className="mt-2 text-xl font-semibold text-white">{student.name}</p>
-              </div>
-            </div>
-
-            <div className="space-y-4 px-4 py-4">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-sm text-slate-300">Marks</p>
-                  <p className="text-2xl font-semibold text-white">{student.marks}</p>
-                </div>
-                <span className="rounded-full bg-emerald-500/20 px-3 py-1 text-sm font-semibold text-emerald-100">
-                  Grade {student.grade}
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[var(--black)] via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100">
+                <span className="m-5 inline-flex items-center gap-2 rounded-full border border-[var(--green)] bg-[var(--black)]/70 px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--green)]">
+                  Perfect 7 · IB Business Management
                 </span>
               </div>
-
-              <div className="rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3">
-                <p className="text-sm text-slate-300">Exam context</p>
-                <p className="mt-1 text-sm leading-6 text-slate-100">{student.exam}</p>
-              </div>
-
-              <p className="text-sm leading-6 text-slate-200">{student.note}</p>
             </div>
-          </article>
-        ))}
+          ))}
+
+          {/* Blank "Next could be you" placeholder card */}
+          <div
+            className="flex aspect-[3/4] flex-col items-center justify-center gap-5 rounded-[24px] border border-dashed p-8 text-center"
+            style={{ background: "var(--black-3)", borderColor: "rgba(127,217,0,0.3)" }}
+          >
+            <span className="pulse-arrow text-5xl text-[var(--green)]">→</span>
+            <p className="font-serif-italic text-3xl leading-tight text-[var(--green)]">
+              Next could be you
+            </p>
+            <p className="text-[12px] leading-6 text-[var(--white-dim)]">
+              Join the students rewriting their IB story.
+            </p>
+            <Link
+              href="/#contact"
+              className="btn-primary rounded-full px-6 py-3 text-xs uppercase tracking-[0.2em]"
+            >
+              Enrol now
+            </Link>
+          </div>
+        </div>
       </section>
 
-      <section className="rounded-[24px] border border-emerald-400/30 bg-emerald-500/10 px-5 py-5 sm:px-6">
-        <p className="text-sm uppercase tracking-[0.35em] text-emerald-50">Why this page matters</p>
-        <p className="mt-3 text-sm leading-7 text-slate-100">
-          The results gallery is designed to highlight student achievements with clarity, visual hierarchy, and an optimistic academic feel while keeping the content easy to update as new results come in.
+      {/* ---------------- DISCLAIMER + CTA ---------------- */}
+      <section className="reveal rounded-[24px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-7 sm:px-8">
+        <p className="eyebrow">A note on results</p>
+        <p className="mt-3 max-w-3xl text-[12px] leading-7 text-[var(--white-dim)]">
+          Individual results vary by student effort, starting level, and exam
+          session. Student names, photographs, and testimonials are published only
+          with the written consent of the student (and, where applicable, their
+          parent or guardian), in line with the CCPA Guidelines for Prevention of
+          Misleading Advertisement in the Coaching Sector, 2024.{" "}
+          <Link href="/#contact" className="text-[var(--green)]">
+            Book a free consultation →
+          </Link>
         </p>
       </section>
     </div>

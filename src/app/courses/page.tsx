@@ -1,17 +1,28 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { subjects } from "@/lib/site-data";
 
+export const metadata: Metadata = {
+  title: "IB Courses",
+  description:
+    "Explore IB course pathways at Wadhwa Institute — English, French, Business Management, Economics, and Mathematics, with mentor-led teaching in Gurugram.",
+  alternates: { canonical: "/courses" },
+};
+
 export default function CoursesPage() {
   return (
-    <div className="space-y-10">
-      <section className="space-y-5">
-        <p className="text-sm uppercase tracking-[0.35em] text-emerald-200">Course pathways</p>
-        <div className="space-y-3">
-          <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Explore subject tracks designed for IB success.
+    <div className="space-y-12 pb-12">
+      <section className="relative overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-12 sm:px-10">
+        <div className="grid-lines" />
+        <div className="glow-orb" style={{ width: 300, height: 300, top: -90, left: -50 }} />
+        <div className="relative space-y-4">
+          <p className="eyebrow">Course pathways</p>
+          <h1 className="font-display text-5xl uppercase text-[var(--white)] sm:text-7xl">
+            Subject tracks built for IB success
           </h1>
-          <p className="max-w-2xl text-lg text-slate-200">
-            Each course page brings together curriculum guidance, success metrics, faculty insights, and premium unlock prompts in one place.
+          <p className="max-w-2xl text-[13px] leading-8 text-[var(--white-dim)]">
+            Each course brings together curriculum guidance, success metrics,
+            faculty insights, and exam strategy in one focused pathway.
           </p>
         </div>
       </section>
@@ -21,17 +32,20 @@ export default function CoursesPage() {
           <Link
             key={subject.slug}
             href={`/courses/${subject.slug}`}
-            className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5 transition duration-200 hover:-translate-y-1 hover:border-emerald-400/60"
+            className="lift-card rounded-[24px] p-6"
           >
-            <div className={`inline-flex rounded-full bg-gradient-to-r ${subject.accent} px-3 py-1 text-xs font-semibold text-slate-950`}>
+            <span className="inline-flex rounded-full border border-[var(--green)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--green)]">
               {subject.difficulty}
-            </div>
-            <h2 className="mt-4 text-2xl font-semibold text-white">{subject.name}</h2>
-            <p className="mt-3 text-sm leading-6 text-slate-200">{subject.shortDescription}</p>
-            <div className="mt-5 flex items-center justify-between text-sm text-slate-200">
-              <span>{subject.passRate}% pass rate</span>
-              <span>{subject.enrolledCount}+ enrolled</span>
-            </div>
+            </span>
+            <h2 className="font-display mt-4 text-3xl uppercase text-[var(--white)]">
+              {subject.name}
+            </h2>
+            <p className="mt-3 text-[13px] leading-7 text-[var(--white-dim)]">
+              {subject.shortDescription}
+            </p>
+            <span className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-[var(--green)]">
+              View pathway <span className="pulse-arrow">→</span>
+            </span>
           </Link>
         ))}
       </section>
