@@ -256,6 +256,34 @@ export const reviews: Review[] = [
     quote:
       "The GDC techniques and past paper strategies transformed my approach. I finally understood how to structure a 7-level response in Math.",
   },
+  {
+    studentName: "Ananya Reddy",
+    subject: "IB English HL",
+    score: "7",
+    quote:
+      "My Paper 2 comparative essays used to fall apart under time pressure. The structured frameworks and feedback here got me to a confident 7.",
+  },
+  {
+    studentName: "Vivaan Kapoor",
+    subject: "IB Mathematics AI HL",
+    score: "6",
+    quote:
+      "The Exploration felt impossible until my mentor broke it down step by step. I submitted a piece I was genuinely proud of and jumped two grades.",
+  },
+  {
+    studentName: "Saanvi Nair",
+    subject: "IB Economics SL",
+    score: "7",
+    quote:
+      "Diagrams and evaluation finally clicked. The way they teach you to plan a 15-marker in minutes is something I use in every exam now.",
+  },
+  {
+    studentName: "Arjun Malhotra",
+    subject: "IB Business Management SL",
+    score: "6",
+    quote:
+      "The case study drills and IA mentoring were brilliant. I walked into Paper 1 knowing exactly how to apply the tools — no more guessing.",
+  },
 ];
 
 /**
@@ -265,7 +293,7 @@ export const reviews: Review[] = [
  *   /assets/logo.png · /assets/result-1.jpg · /assets/result-2.jpg
  */
 export const siteAssets = {
-  logo: "/assets/logo.png",
+  logo: "/assets/logo.jpg",
   logoFallback: "/assets/logo.svg",
   result1: "/assets/result-1.jpg",
   result1Fallback: "/assets/result-1.svg",
@@ -273,11 +301,22 @@ export const siteAssets = {
   result2Fallback: "/assets/result-2.svg",
 };
 
-// Production domain. On Vercel, set NEXT_PUBLIC_SITE_URL to the live domain
-// (e.g. https://wadhwainstitute.in); otherwise this sensible default is used.
-export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://wadhwainstitute.in"
-).replace(/\/$/, "");
+// Canonical site URL used for metadata, canonicals, sitemap, robots, and JSON-LD.
+// Resolution order:
+//   1. NEXT_PUBLIC_SITE_URL  — set this to the real custom domain when you have one
+//   2. VERCEL_PROJECT_PRODUCTION_URL — Vercel's production domain (auto, build-time)
+//   3. fallback placeholder
+// This guarantees canonicals point at the actual live deployment so Google can
+// index it, even before a custom domain is connected.
+function resolveSiteUrl(): string {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (explicit) return explicit.replace(/\/$/, "");
+  const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  if (vercel) return `https://${vercel.replace(/\/$/, "")}`;
+  return "https://wadhwainstitute.in";
+}
+
+export const siteUrl = resolveSiteUrl();
 
 export const siteContact = {
   email: "bhavyawadhwa97@gmail.com",
