@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${siteUrl}/`, lastModified, changeFrequency: "monthly", priority: 1 },
+    { url: `${siteUrl}/ib-coaching-gurugram`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteUrl}/courses`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/results`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/reviews`, lastModified, changeFrequency: "monthly", priority: 0.7 },
