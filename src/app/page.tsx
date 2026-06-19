@@ -8,6 +8,43 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+const faqs = [
+  {
+    q: "Where is Wadhwa Institute located?",
+    a: "We are located at A1/29, HUDA, Sushant Lok II, Sector 55, Gurugram, Haryana 122011, and we also teach students online across India.",
+  },
+  {
+    q: "Which IB subjects does Wadhwa Institute coach?",
+    a: "We coach IB English, French, Business Management, Economics, and Mathematics (AA and AI) at both Standard Level (SL) and Higher Level (HL).",
+  },
+  {
+    q: "Do you offer online or in-person IB classes?",
+    a: "Both. You can attend in-person at our Gurugram centre or join live online classes from anywhere in India.",
+  },
+  {
+    q: "Do you help with the IB Internal Assessment (IA) and Extended Essay?",
+    a: "Yes. We provide structured, examiner-aligned mentoring for IAs, the Extended Essay, and other coursework, with feedback on drafts.",
+  },
+  {
+    q: "Can you help improve my predicted IB grade before the final exams?",
+    a: "Yes. Through targeted revision, past-paper practice, and exam strategy, many of our students move up by one or more grades toward a final 7.",
+  },
+  {
+    q: "How do I book a class or consultation?",
+    a: "Start with a free consultation — reach us via the Contact page by email or phone, and we'll respond within one working day.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function Home() {
   return (
     <div className="space-y-16 pb-12">
@@ -196,6 +233,28 @@ export default function Home() {
                 </p>
               </div>
             </article>
+          ))}
+        </div>
+      </section>
+
+      {/* ---------------- FAQ ---------------- */}
+      <section className="reveal space-y-6">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+        <div className="space-y-3">
+          <p className="eyebrow">Frequently asked</p>
+          <h2 className="font-display text-5xl uppercase text-[var(--white)] sm:text-6xl">
+            Questions, answered
+          </h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {faqs.map((item) => (
+            <div key={item.q} className="lift-card rounded-[24px] p-6">
+              <h3 className="text-base font-semibold text-[var(--white)]">{item.q}</h3>
+              <p className="mt-2 text-[13px] leading-7 text-[var(--white-dim)]">{item.a}</p>
+            </div>
           ))}
         </div>
       </section>
