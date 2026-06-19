@@ -61,19 +61,28 @@ export const metadata: Metadata = {
     siteName: "Wadhwa Institute",
     title: "Wadhwa Institute — Premium IB Coaching in Gurugram",
     description,
-    images: [{ url: "/assets/logo.png", alt: "Wadhwa Institute" }],
+    images: [{ url: siteAssets.logo, width: 1200, height: 880, alt: "Wadhwa Institute" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Wadhwa Institute — Premium IB Coaching in Gurugram",
     description,
-    images: ["/assets/logo.png"],
+    images: [siteAssets.logo],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+  // Optional: set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel to add the
+  // Search Console verification meta tag automatically.
+  verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
   icons: { icon: "/favicon.ico" },
 };
 
@@ -86,30 +95,43 @@ export const viewport: Viewport = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["EducationalOrganization", "LocalBusiness"],
-  name: "Wadhwa Institute",
-  description,
-  url: siteUrl,
-  email: siteContact.email,
-  telephone: `+${siteContact.phoneHref.replace(/^\+/, "")}`,
-  image: `${siteUrl}/assets/logo.png`,
-  logo: `${siteUrl}/assets/logo.png`,
-  hasMap: siteContact.mapsUrl,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "A1/29, HUDA, Sushant Lok II",
-    addressLocality: siteContact.addressLocality,
-    addressRegion: siteContact.addressRegion,
-    postalCode: siteContact.postalCode,
-    addressCountry: siteContact.addressCountry,
-  },
-  areaServed: "Gurugram, Haryana, India",
-  knowsAbout: [
-    "IB Economics",
-    "IB Business Management",
-    "IB Mathematics",
-    "IB English",
-    "IB French",
+  "@graph": [
+    {
+      "@type": ["EducationalOrganization", "LocalBusiness"],
+      "@id": `${siteUrl}/#organization`,
+      name: "Wadhwa Institute",
+      description,
+      url: siteUrl,
+      email: siteContact.email,
+      telephone: `+${siteContact.phoneHref.replace(/^\+/, "")}`,
+      image: `${siteUrl}${siteAssets.logo}`,
+      logo: `${siteUrl}${siteAssets.logo}`,
+      hasMap: siteContact.mapsUrl,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "A1/29, HUDA, Sushant Lok II",
+        addressLocality: siteContact.addressLocality,
+        addressRegion: siteContact.addressRegion,
+        postalCode: siteContact.postalCode,
+        addressCountry: siteContact.addressCountry,
+      },
+      areaServed: "Gurugram, Haryana, India",
+      knowsAbout: [
+        "IB Economics",
+        "IB Business Management",
+        "IB Mathematics",
+        "IB English",
+        "IB French",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Wadhwa Institute",
+      inLanguage: "en-IN",
+      publisher: { "@id": `${siteUrl}/#organization` },
+    },
   ],
 };
 

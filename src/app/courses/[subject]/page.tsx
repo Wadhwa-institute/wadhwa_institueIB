@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SubjectPageClient from "@/components/subject-page-client";
-import { subjects } from "@/lib/site-data";
+import { siteUrl, subjects } from "@/lib/site-data";
 
 export function generateStaticParams() {
   return subjects.map((subject) => ({ subject: subject.slug }));
@@ -43,5 +43,40 @@ export default async function SubjectPage({
     notFound();
   }
 
-  return <SubjectPageClient subject={currentSubject} />;
+  const courseUrl = `${siteUrl}/courses/${currentSubject.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Course",
+        name: `${currentSubject.name} — IB Coaching`,
+        description: currentSubject.description,
+        url: courseUrl,
+        provider: {
+          "@type": "EducationalOrganization",
+          name: "Wadhwa Institute",
+          "@id": `${siteUrl}/#organization`,
+          url: siteUrl,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: "Courses", item: `${siteUrl}/courses` },
+          { "@type": "ListItem", position: 3, name: currentSubject.name, item: courseUrl },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <SubjectPageClient subject={currentSubject} />
+    </>
+  );
 }
