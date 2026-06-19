@@ -116,4 +116,174 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "ib-maths-aa-vs-ai-which-to-choose",
+    title: "IB Maths AA vs AI: Which Should You Choose?",
+    description:
+      "IB Mathematics AA or AI, SL or HL? A clear guide to choosing the right IB Maths course for your university plans and strengths, from Wadhwa Institute.",
+    date: "2026-06-16",
+    readMins: 6,
+    intro:
+      "Choosing between IB Mathematics: Analysis & Approaches (AA) and Applications & Interpretation (AI) — and between SL and HL — is one of the most important decisions IB students make. Pick wrong and you risk a lower grade or a closed university door. Here is how to choose with confidence.",
+    sections: [
+      {
+        heading: "AA vs AI — the core difference",
+        paragraphs: [
+          "AA is the more abstract, algebraic course, with a strong focus on calculus, proof, and pure mathematics. AI is more applied and data-driven, with statistics, modelling, and real-world contexts at its centre.",
+          "Neither is universally 'harder' — they reward different strengths. AA suits students who enjoy manipulating equations and abstract reasoning; AI suits students who prefer interpreting data and applying maths to real problems.",
+        ],
+      },
+      {
+        heading: "Let your university course decide first",
+        paragraphs: [
+          "Before personal preference, check your target degree. Engineering, physics, mathematics, computer science, and many economics programmes typically expect (or strongly prefer) AA HL. Always confirm requirements on the university's website.",
+          "If you are heading toward business, social sciences, design, or life sciences, AI can be a strong, well-aligned choice — and a higher grade in the right course beats a struggling one in the wrong course.",
+        ],
+      },
+      {
+        heading: "SL vs HL — be honest about workload",
+        paragraphs: [
+          "HL Maths is one of the most demanding IB subjects and needs consistent weekly practice. If maths is not central to your degree, a confident 7 at SL is usually better than a stressed 5 at HL.",
+        ],
+        bullets: [
+          "Does my degree require HL Maths?",
+          "How much weekly time can I realistically give it?",
+          "Do I enjoy the topics in this course, or just tolerate them?",
+        ],
+      },
+      {
+        heading: "How coaching helps either way",
+        paragraphs: [
+          "Whichever path you choose, the skills that lift a grade are the same: fluent technique, clean working for method marks, GDC mastery, and timed exam practice. A specialist mentor can also help you scope a strong Exploration (IA).",
+          "At Wadhwa Institute we coach both AA and AI at SL and HL — book a free consultation and we'll help you choose and then aim for a 7.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ib-extended-essay-guide",
+    title: "A Simple Guide to the IB Extended Essay",
+    description:
+      "How to plan, research, and write a strong IB Extended Essay (EE) — choosing a subject, framing a research question, and avoiding common mistakes.",
+    date: "2026-06-17",
+    readMins: 6,
+    intro:
+      "The Extended Essay is a 4,000-word independent research project and a core part of the IB Diploma. Done well, it can be one of the most rewarding pieces of work you produce — and it contributes to your core points. Here is a simple roadmap.",
+    sections: [
+      {
+        heading: "Choose a subject you actually enjoy",
+        paragraphs: [
+          "You will spend months with this topic, so pick a subject and area you find genuinely interesting and where you can access reliable sources. Strong EEs are usually narrow and deep rather than broad and shallow.",
+        ],
+      },
+      {
+        heading: "Get the research question right",
+        paragraphs: [
+          "The single biggest predictor of a strong EE is a focused, answerable research question. It should be specific, analytical (not merely descriptive), and realistic to investigate within 4,000 words.",
+          "Test your question by asking whether it invites analysis and evaluation — if it can be answered with a simple fact, narrow it further.",
+        ],
+      },
+      {
+        heading: "Plan structure and manage your time",
+        paragraphs: [
+          "Work backwards from your school deadlines and build in time for drafts and reflection sessions with your supervisor. A clear structure — introduction, methodology where relevant, analysis, and conclusion — keeps you within the word count.",
+        ],
+        bullets: [
+          "Start early; the best EEs are not written the week before",
+          "Keep a running bibliography from day one",
+          "Use your supervisor meetings — they feed the reflection marks",
+        ],
+      },
+      {
+        heading: "Avoid the common pitfalls",
+        paragraphs: [
+          "The most frequent issues are a vague research question, description instead of analysis, weak source evaluation, and poor referencing. Each is fixable with early feedback.",
+          "Wadhwa Institute mentors guide students through topic selection, research questions, and drafts — within academic-integrity rules. Reach out for a free consultation if you'd like structured EE support.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ib-business-management-ia-top-marks",
+    title: "IB Business Management IA: How to Score Top Marks",
+    description:
+      "A step-by-step guide to the IB Business Management Internal Assessment — choosing a real business issue, applying tools, and scoring in the top band.",
+    date: "2026-06-18",
+    readMins: 6,
+    intro:
+      "The IB Business Management IA rewards real analysis of a real organisation. Many students lose marks by being too descriptive or choosing a question they cannot properly research. Here is how to build an IA that lands in the top band.",
+    sections: [
+      {
+        heading: "Pick a real, researchable business issue",
+        paragraphs: [
+          "Choose an actual organisation and a current decision or problem it faces — ideally one where you can gather genuine supporting documents. A focused issue beats a broad 'how can company X improve' question every time.",
+        ],
+      },
+      {
+        heading: "Frame a sharp research question",
+        paragraphs: [
+          "Your research question should be forward-looking and decision-oriented, allowing you to apply business tools and reach a justified recommendation. Phrase it so it can be answered with analysis, not just a description of the company.",
+        ],
+      },
+      {
+        heading: "Apply tools with purpose",
+        paragraphs: [
+          "Select a few relevant tools — such as SWOT, financial ratios, investment appraisal, or decision trees — and apply them directly to your evidence. Examiners reward integrated analysis that leads somewhere, not tools used in isolation.",
+        ],
+        bullets: [
+          "Use supporting documents as genuine evidence, not decoration",
+          "Show calculations and interpret what they mean",
+          "End with a clear, justified recommendation",
+        ],
+      },
+      {
+        heading: "Evaluate and conclude",
+        paragraphs: [
+          "Top-band IAs weigh limitations, consider stakeholders, and reach a balanced judgement. Keep within the word count and make sure every section serves the research question.",
+          "Wadhwa Institute mentors students through Business Management IAs from topic to final draft with examiner-aligned feedback. Book a free consultation to get started.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ib-french-individual-oral-tips",
+    title: "How to Prepare for the IB French Individual Oral",
+    description:
+      "Practical tips to prepare for the IB French B Individual Oral — describing the stimulus, structuring your response, and building fluency and confidence.",
+    date: "2026-06-19",
+    readMins: 5,
+    intro:
+      "For many students the IB French Individual Oral is the most nerve-wracking part of the course. The good news: it is highly preparable. With the right structure and consistent practice, you can walk in calm and confident.",
+    sections: [
+      {
+        heading: "Understand exactly what's assessed",
+        paragraphs: [
+          "The oral assesses your ability to describe a visual stimulus, link it to the target culture, and then hold a natural conversation. You are marked on language, message, and interaction — not on having a 'perfect' opinion.",
+        ],
+      },
+      {
+        heading: "Build a flexible description framework",
+        paragraphs: [
+          "Practise a reusable structure for the stimulus: describe what you see, infer the context and message, and connect it to a theme and the French-speaking world. A framework means you never freeze, whatever image appears.",
+        ],
+        bullets: [
+          "Learn connectors and opinion phrases until they're automatic",
+          "Prepare vocabulary across all five themes",
+          "Practise speaking aloud daily, even for a few minutes",
+        ],
+      },
+      {
+        heading: "Train the conversation, not just the monologue",
+        paragraphs: [
+          "Students often over-prepare the description and under-prepare the discussion. Rehearse answering follow-up questions and developing your answers with reasons and examples, so the conversation flows.",
+        ],
+      },
+      {
+        heading: "Simulate the real thing",
+        paragraphs: [
+          "Mock orals under timed conditions, with feedback on fluency and accuracy, are the fastest way to build confidence. At Wadhwa Institute we run full individual-oral simulations — book a free consultation to practise with a mentor.",
+        ],
+      },
+    ],
+  },
 ];
