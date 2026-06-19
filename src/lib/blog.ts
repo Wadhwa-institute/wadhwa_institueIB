@@ -286,4 +286,173 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "ib-vs-cbse-which-board-is-right",
+    title: "IB vs CBSE: Which Board Is Right for Your Child?",
+    description:
+      "IB or CBSE? A balanced comparison of curriculum, assessment, university outcomes, and workload to help Gurugram parents choose the right board.",
+    date: "2026-06-09",
+    readMins: 7,
+    intro:
+      "Choosing between the IB Diploma and CBSE is one of the biggest decisions a parent makes. Both can lead to excellent universities — they simply suit different learners. Here is a balanced, jargon-free comparison.",
+    sections: [
+      {
+        heading: "Teaching and learning style",
+        paragraphs: [
+          "The IB emphasises inquiry, critical thinking, research, and application — students write essays, conduct investigations, and connect subjects. CBSE is more structured and content-focused, with a strong emphasis on core concepts and board exams.",
+          "Neither is 'better' — a curious, self-driven student often thrives in the IB, while a student who prefers clear structure and defined syllabi may prefer CBSE.",
+        ],
+      },
+      {
+        heading: "Assessment",
+        paragraphs: [
+          "IB blends final exams with continuous internal assessment (IAs), the Extended Essay, and TOK, so consistent effort across two years matters. CBSE places more weight on year-end board examinations.",
+        ],
+      },
+      {
+        heading: "University outcomes",
+        paragraphs: [
+          "Both boards are accepted widely in India and abroad. The IB is particularly well-recognised by international universities and develops research and writing skills that help in undergraduate study. CBSE aligns neatly with many Indian entrance exams.",
+        ],
+        bullets: [
+          "Planning to study abroad? The IB's global recognition is a strong fit.",
+          "Targeting Indian entrance exams? CBSE's structure aligns well.",
+          "Either way, strong subject grades matter most.",
+        ],
+      },
+      {
+        heading: "Workload and support",
+        paragraphs: [
+          "The IB is demanding, especially at Higher Level — time management and good mentoring make a real difference. Many Gurugram families choose specialist IB coaching to stay on top of IAs, the EE, and exam technique.",
+          "Wadhwa Institute supports IB students across English, French, Business Management, Economics, and Mathematics. Book a free consultation if you'd like help mapping the right path.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ib-grading-system-explained",
+    title: "How the IB Grading System Works (1–7 Explained)",
+    description:
+      "Understand the IB grading scale, the 45-point total, core points from TOK and the Extended Essay, and what you need to pass the IB Diploma.",
+    date: "2026-06-11",
+    readMins: 5,
+    intro:
+      "The IB scoring system confuses many students and parents at first. Here is a clear breakdown of how the points add up and what the numbers actually mean.",
+    sections: [
+      {
+        heading: "Each subject is graded 1 to 7",
+        paragraphs: [
+          "You take six subjects, each graded from 1 (lowest) to 7 (highest). A 7 represents top-band performance. Three or four subjects are taken at Higher Level (HL) and the rest at Standard Level (SL).",
+        ],
+      },
+      {
+        heading: "The 45-point total",
+        paragraphs: [
+          "Six subjects give a maximum of 42 points. The final 3 'core' points come from Theory of Knowledge (TOK) and the Extended Essay (EE) combined, making the maximum total 45.",
+          "A score around the high-30s is strong; 40+ is excellent and competitive for top universities.",
+        ],
+      },
+      {
+        heading: "Passing the Diploma",
+        paragraphs: [
+          "To earn the full Diploma you must meet a minimum points total and satisfy specific conditions across HL/SL subjects, TOK, the EE, and CAS. Your school will confirm the exact requirements for your cohort.",
+        ],
+        bullets: [
+          "Don't neglect TOK and the EE — those core points are easy to underestimate",
+          "A balanced profile across subjects is safer than relying on one strong score",
+        ],
+      },
+      {
+        heading: "How to push toward a 7",
+        paragraphs: [
+          "Top scores come from mastering command terms, exam technique, and the internal assessments — not just content. Targeted practice and feedback are the fastest route up the scale.",
+          "Wadhwa Institute coaches students toward their target grades with structured revision and examiner-aligned feedback. Reach out for a free consultation.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ib-tok-essay-guide",
+    title: "IB TOK Essay: How to Get a Good Grade",
+    description:
+      "A clear guide to the IB Theory of Knowledge (TOK) essay — choosing a title, using knowledge questions, real-life examples, and balanced argument.",
+    date: "2026-06-13",
+    readMins: 6,
+    intro:
+      "The TOK essay rewards clear, balanced thinking about how we know what we know. It feels abstract at first, but a few principles make it very manageable.",
+    sections: [
+      {
+        heading: "Choose your prescribed title carefully",
+        paragraphs: [
+          "You answer one of the prescribed titles set by the IB. Pick the one where you can explore at least two areas of knowledge with strong, contrasting real-life examples — not just the title that sounds easiest.",
+        ],
+      },
+      {
+        heading: "Build the essay around knowledge questions",
+        paragraphs: [
+          "A strong TOK essay analyses how knowledge is produced and justified, not the topic itself. Keep returning to knowledge questions and compare perspectives across areas of knowledge.",
+        ],
+      },
+      {
+        heading: "Use precise, real examples",
+        paragraphs: [
+          "Vague, generic examples weaken TOK essays. Use specific, well-chosen real-life situations and explain exactly how each one illuminates your argument.",
+        ],
+        bullets: [
+          "Two contrasting areas of knowledge work better than one",
+          "Always weigh counterclaims — balance scores well",
+          "Link every example back to a knowledge question",
+        ],
+      },
+      {
+        heading: "Plan, then refine",
+        paragraphs: [
+          "Outline your claims, counterclaims, and examples before writing, and leave time to refine clarity. TOK marks reward a coherent, evaluative line of argument.",
+          "Wadhwa Institute helps students structure and sharpen TOK essays. Book a free consultation for guidance.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "time-management-tips-for-ib-students",
+    title: "Top Time-Management Tips for IB Students",
+    description:
+      "Beat IB stress with practical time-management strategies — balancing IAs, the EE, CAS, and exam prep without burning out.",
+    date: "2026-06-15",
+    readMins: 5,
+    intro:
+      "The IB workload is real, but it is manageable with a system. These are the habits that consistently separate calm, high-scoring students from overwhelmed ones.",
+    sections: [
+      {
+        heading: "Work backwards from deadlines",
+        paragraphs: [
+          "Put every IA, EE milestone, and internal deadline into one calendar at the start of the term, then schedule backwards. Surprises cause most IB stress, and a single shared calendar removes them.",
+        ],
+      },
+      {
+        heading: "Protect time for the big-ticket tasks",
+        paragraphs: [
+          "IAs and the Extended Essay carry serious weight but are easy to postpone. Block regular, protected time for them early — small, steady progress beats last-minute panic.",
+        ],
+        bullets: [
+          "Batch similar tasks together to reduce switching",
+          "Use short, focused study blocks with breaks",
+          "Review past-paper questions weekly, not only before exams",
+        ],
+      },
+      {
+        heading: "Don't let CAS slip",
+        paragraphs: [
+          "CAS is easy to forget until it becomes a scramble. Log activities and reflections as you go so it never threatens your Diploma.",
+        ],
+      },
+      {
+        heading: "Ask for help early",
+        paragraphs: [
+          "The students who cope best reach out before small gaps become big ones. A mentor can help you prioritise and keep momentum across all six subjects.",
+          "Wadhwa Institute offers structured support and accountability for IB students. Book a free consultation to build a plan that fits your schedule.",
+        ],
+      },
+    ],
+  },
 ];
