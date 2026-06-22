@@ -43,3 +43,9 @@ next-env.d.ts
 # large local archives / not part of the app
 project.zip
 *.zip
+
+# Google service-account keys — NEVER commit
+gsc-key.json
+*-key.json
+gsc-*.json
+service-account*.json
