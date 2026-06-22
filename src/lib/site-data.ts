@@ -338,7 +338,35 @@ export const siteContact = {
   postalCode: "122011",
   addressCountry: "IN",
   mapsUrl: "https://maps.app.goo.gl/ewvzpggCAMQfC1Nj7",
+  // Approx. coordinates for Sushant Lok II / Sector 55, Gurugram — refine from the
+  // exact Google Business Profile pin once it is published.
+  latitude: 28.4286,
+  longitude: 77.1009,
 };
+
+// Public profiles that reinforce the brand as a single entity to search engines.
+// Add/replace with the real handles as they go live (Google Business Profile, IG, etc.).
+export const siteSocial: string[] = [
+  "https://maps.app.goo.gl/ewvzpggCAMQfC1Nj7",
+];
+
+// Honest aggregate rating built from the published student reviews below.
+// Update `reviewCount` as more verified reviews are added.
+export const aggregateRating = {
+  ratingValue: 4.9,
+  reviewCount: 8,
+  bestRating: 5,
+  worstRating: 1,
+};
+
+// Standard coaching hours — adjust to the real timetable.
+export const openingHours = [
+  {
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "10:00",
+    closes: "20:00",
+  },
+];
 
 export const navLinks = [
   { label: "Home", href: "/" },

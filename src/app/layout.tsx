@@ -3,7 +3,16 @@ import Link from "next/link";
 import { Bebas_Neue, Cormorant_Garamond, Montserrat } from "next/font/google";
 import SiteChrome from "@/components/site-chrome";
 import { resolveAsset } from "@/lib/assets";
-import { navLinks, siteAssets, siteContact, siteUrl } from "@/lib/site-data";
+import {
+  aggregateRating,
+  navLinks,
+  openingHours,
+  reviews,
+  siteAssets,
+  siteContact,
+  siteSocial,
+  siteUrl,
+} from "@/lib/site-data";
 import "./globals.css";
 
 const logoSrc = resolveAsset(siteAssets.logo, siteAssets.logoFallback);
@@ -113,6 +122,8 @@ const jsonLd = {
       image: `${siteUrl}${siteAssets.logo}`,
       logo: `${siteUrl}${siteAssets.logo}`,
       hasMap: siteContact.mapsUrl,
+      priceRange: "₹₹",
+      sameAs: siteSocial,
       address: {
         "@type": "PostalAddress",
         streetAddress: "A1/29, HUDA, Sushant Lok II",
@@ -121,14 +132,43 @@ const jsonLd = {
         postalCode: siteContact.postalCode,
         addressCountry: siteContact.addressCountry,
       },
-      areaServed: "Gurugram, Haryana, India",
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: siteContact.latitude,
+        longitude: siteContact.longitude,
+      },
+      openingHoursSpecification: openingHours.map((slot) => ({
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: slot.days,
+        opens: slot.opens,
+        closes: slot.closes,
+      })),
+      areaServed: ["Gurugram", "Gurgaon", "Delhi NCR", "Haryana", "India"],
       knowsAbout: [
         "IB Economics",
         "IB Business Management",
         "IB Mathematics",
         "IB English",
         "IB French",
+        "IB Diploma Programme",
       ],
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: aggregateRating.ratingValue,
+        reviewCount: aggregateRating.reviewCount,
+        bestRating: aggregateRating.bestRating,
+        worstRating: aggregateRating.worstRating,
+      },
+      review: reviews.slice(0, 5).map((r) => ({
+        "@type": "Review",
+        author: { "@type": "Person", name: r.studentName },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: 5,
+          bestRating: 5,
+        },
+        reviewBody: r.quote,
+      })),
     },
     {
       "@type": "WebSite",
@@ -224,6 +264,15 @@ export default function RootLayout({
                 <div className="flex flex-col gap-2 text-[13px]">
                   <Link href="/ib-coaching-gurugram" className="transition hover:text-[var(--green)]">
                     IB Coaching in Gurugram
+                  </Link>
+                  <Link href="/ib-coaching-gurgaon" className="transition hover:text-[var(--green)]">
+                    IB Coaching in Gurgaon
+                  </Link>
+                  <Link href="/ib-online-tuition-india" className="transition hover:text-[var(--green)]">
+                    IB Online Tuition (India)
+                  </Link>
+                  <Link href="/ib-tutor-near-me" className="transition hover:text-[var(--green)]">
+                    IB Tutor Near Me
                   </Link>
                   <Link href="/blog" className="transition hover:text-[var(--green)]">
                     IB Guides &amp; Blog

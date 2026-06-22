@@ -455,4 +455,164 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "how-to-choose-an-ib-coaching-centre-in-gurugram",
+    title: "How to Choose an IB Coaching Centre in Gurugram",
+    description:
+      "A parent's checklist for choosing the best IB coaching in Gurugram — what to look for in tutors, batch size, IA support, and results before you enrol.",
+    date: "2026-06-18",
+    readMins: 6,
+    intro:
+      "Gurugram has plenty of tutoring options, but the IB is unlike the CBSE or ICSE most centres are built around. Choosing the right IB coaching centre matters more than most parents realise. Here is a practical checklist before you enrol.",
+    sections: [
+      {
+        heading: "1. Are the tutors IB specialists?",
+        paragraphs: [
+          "The IB rewards command terms, mark-scheme language, and skills like evaluation — not rote learning. Ask whether tutors teach the IB syllabus specifically, or whether they mainly teach other boards and treat IB as an add-on.",
+        ],
+      },
+      {
+        heading: "2. How small are the batches?",
+        paragraphs: [
+          "Essays, IAs, and past papers only improve with feedback. A 30-student batch cannot give that. Look for small groups or one-on-one attention.",
+        ],
+        bullets: [
+          "Ask how many students are in a typical batch",
+          "Ask how often written work is marked and returned",
+        ],
+      },
+      {
+        heading: "3. Do they support the IA and Extended Essay?",
+        paragraphs: [
+          "Internal Assessments are worth 20–30% per subject and the Extended Essay sits in the IB core. Strong centres mentor these properly — within academic-integrity rules — rather than leaving you to figure them out alone.",
+        ],
+      },
+      {
+        heading: "4. Can they show real results?",
+        paragraphs: [
+          "Ask about grade improvements and outcomes. Wadhwa Institute, in Sector 55, coaches IB English, French, Business Management, Economics, and Maths (AA/AI) in small groups, online and in-person — with structured IA and exam support. Book a free consultation to see if it fits.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ib-economics-ia-commentary-guide",
+    title: "IB Economics IA: How to Write a 7-Scoring Commentary",
+    description:
+      "Step-by-step guide to the IB Economics Internal Assessment — choosing articles, applying diagrams and concepts, evaluation, and staying within the word count.",
+    date: "2026-06-19",
+    readMins: 7,
+    intro:
+      "The IB Economics IA is three commentaries worth a significant share of your grade — and it is almost entirely within your control. Here is how top-band students approach it.",
+    sections: [
+      {
+        heading: "Pick the right articles",
+        paragraphs: [
+          "Choose recent news articles (ideally within the last year) that clearly map to a single part of the syllabus. Each of your three commentaries should cover a different unit — for example one micro, one macro, one global.",
+        ],
+        bullets: [
+          "Use a real, dated news source — not an opinion blog",
+          "Make sure the article has enough economics to analyse",
+        ],
+      },
+      {
+        heading: "Apply a diagram and a key concept",
+        paragraphs: [
+          "Each commentary should be anchored by an accurate, fully labelled diagram and an explicit link to a key concept. This is where many students lose easy marks — the diagram is either missing, generic, or never referenced in the writing.",
+        ],
+      },
+      {
+        heading: "Evaluate, don't just describe",
+        paragraphs: [
+          "The top band needs genuine evaluation: short vs long run, stakeholder effects, assumptions questioned, and a justified judgement. Describing the article is not enough.",
+        ],
+      },
+      {
+        heading: "Respect the word count and rubric",
+        paragraphs: [
+          "Stay within 800 words per commentary and check your work against the official rubric before submitting. Wadhwa Institute mentors the full IA process for IB Economics students in Gurugram and online — book a free consultation for structured feedback.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ib-maths-aa-vs-ai-sl-which-to-pick",
+    title: "IB Maths AA SL vs AI SL: Which Should You Pick?",
+    description:
+      "A clear comparison of IB Maths AA SL and AI SL — content, difficulty, calculator use, and which universities and courses prefer each route.",
+    date: "2026-06-20",
+    readMins: 6,
+    intro:
+      "At Standard Level, the choice between Analysis & Approaches (AA SL) and Applications & Interpretation (AI SL) shapes your workload and can affect university options. Here is how to decide.",
+    sections: [
+      {
+        heading: "What's the core difference?",
+        paragraphs: [
+          "AA SL leans toward algebra, functions, and calculus with a more abstract, pure-maths flavour. AI SL leans toward data, statistics, and real-world modelling, with heavier calculator use throughout.",
+        ],
+      },
+      {
+        heading: "Which is 'harder'?",
+        paragraphs: [
+          "Neither is universally harder — it depends on you. Students who enjoy algebraic manipulation and calculus often prefer AA SL; students who think in data and applications often do better in AI SL.",
+        ],
+      },
+      {
+        heading: "University considerations",
+        paragraphs: [
+          "Some degrees — engineering, maths, physics, economics at competitive universities — may prefer or require Analysis & Approaches, sometimes at HL. Always check the specific entry requirements for your target courses before deciding.",
+        ],
+        bullets: [
+          "STEM and quantitative economics → often favour AA",
+          "Social sciences, business, design → AI is frequently accepted",
+        ],
+      },
+      {
+        heading: "Still unsure?",
+        paragraphs: [
+          "Wadhwa Institute coaches both AA and AI at SL and HL and advises students on the right route based on strengths and university plans. Book a free consultation before you commit.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ib-business-management-paper-1-case-study-tips",
+    title: "IB Business Management Paper 1: Case Study Tips",
+    description:
+      "How to prepare for the IB Business Management pre-released case study — annotation, tool selection, timed practice, and applying analysis under exam pressure.",
+    date: "2026-06-21",
+    readMins: 6,
+    intro:
+      "Paper 1 in IB Business Management is built around a pre-released case study. Because you get it in advance, it is one of the most preparable papers in the IB — if you work it properly.",
+    sections: [
+      {
+        heading: "Annotate the case study early",
+        paragraphs: [
+          "Read the pre-released statement many times and annotate it: stakeholders, objectives, problems, and which tools could apply. The earlier you start, the more familiar the context feels in the exam.",
+        ],
+      },
+      {
+        heading: "Map tools to the context",
+        paragraphs: [
+          "Don't memorise tools in the abstract — decide which ones genuinely fit this case (SWOT, Ansoff, BCG, financial ratios) and practise applying them to the specific business.",
+        ],
+      },
+      {
+        heading: "Practise under timed conditions",
+        paragraphs: [
+          "Application and evaluation marks are lost when you run out of time. Do timed past-paper questions on the current case study so your structure is automatic.",
+        ],
+        bullets: [
+          "Plan each answer for 1–2 minutes before writing",
+          "Always apply theory to the case, never generically",
+        ],
+      },
+      {
+        heading: "Get feedback that matters",
+        paragraphs: [
+          "Wadhwa Institute runs dedicated case-study sessions for IB Business Management students in Gurugram and online, with timed practice and detailed marking. Book a free consultation to prepare with structure.",
+        ],
+      },
+    ],
+  },
 ];
