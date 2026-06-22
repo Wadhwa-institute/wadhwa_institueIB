@@ -9,6 +9,7 @@ search data for the first few weeks — that's normal.
 **What this file will show each week:**
 
 - A plain-English summary (how many times you appeared in Google + clicks)
+- ✅ **Do this next** — auto-suggested action items (which page to improve, what to add)
 - 🔑 Top search terms people used to find you (with your ranking position)
 - 📄 Top pages in Google
 

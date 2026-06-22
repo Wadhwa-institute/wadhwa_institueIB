@@ -155,11 +155,69 @@ if (totalImpr === 0) {
     `1 is better).`;
 }
 
+// ── Recommendation engine ───────────────────────────────────────────────────
+// Turns the raw numbers into a plain-English "do this next" list.
+//   - "Almost there" = ranking 5–20 with real impressions: closest wins. A small
+//     content/title tweak can push these onto page 1 (positions 1–10).
+//   - "Getting clicks but ranking low" = position > 10 yet already earning clicks:
+//     high demand, worth a dedicated page.
+//   - "High demand, no page yet" = lots of impressions, very weak position (> 20):
+//     a search people want that you don't really cover — candidate for a new page.
+function buildActions(queryRows) {
+  const actions = [];
+
+  const almostThere = queryRows
+    .filter((r) => r.position > 4.5 && r.position <= 20 && r.impressions >= 5)
+    .sort((a, b) => b.impressions - a.impressions)
+    .slice(0, 3);
+
+  for (const r of almostThere) {
+    actions.push(
+      `**Push "${r.keys[0]}" onto page 1.** You're ranking around position ${pos(r.position)} ` +
+        `with ${fmt(r.impressions)} impressions — close. Add this exact phrase to a page's title ` +
+        `and an early heading, and write a focused paragraph answering it.`
+    );
+  }
+
+  const deepDemand = queryRows
+    .filter((r) => r.position > 20 && r.impressions >= 10)
+    .sort((a, b) => b.impressions - a.impressions)
+    .slice(0, 2);
+
+  for (const r of deepDemand) {
+    actions.push(
+      `**Create/strengthen a page for "${r.keys[0]}".** People search this (${fmt(r.impressions)} ` +
+        `impressions) but you rank far down (position ${pos(r.position)}) — a dedicated landing ` +
+        `page or blog post targeting this phrase would capture it.`
+    );
+  }
+
+  return actions;
+}
+
+const actions = buildActions(queries);
+let actionBlock;
+if (totalImpr === 0) {
+  actionBlock =
+    "**This week:** make sure the sitemap is submitted in Search Console and request " +
+    "indexing on your key pages. There's no ranking data to act on yet — check back next week.";
+} else if (actions.length === 0) {
+  actionBlock =
+    "Nothing urgent stands out this week. Keep publishing blog posts targeting the search " +
+    "terms above, and keep an eye on any term creeping up toward position 10.";
+} else {
+  actionBlock = actions.map((a, i) => `${i + 1}. ${a}`).join("\n");
+}
+
 const report = `# 📈 Weekly SEO Report — Wadhwa Institute
 
 _Generated ${generated} · data from ${range.startDate} to ${range.endDate} · source: Google Search Console_
 
 ${summary}
+
+## ✅ Do this next (auto-suggested)
+
+${actionBlock}
 
 ## 🔑 Top search terms people used to find you
 
