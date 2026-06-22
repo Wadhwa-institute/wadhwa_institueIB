@@ -153,35 +153,45 @@ export const subjects: Subject[] = [
     slug: "mathematics",
     name: "IB Maths AI and AA SL",
     description:
-      "Develop exam resilience with step-by-step problem solving, targeted practice, and high-impact revision routines.",
-    shortDescription: "Algebra, calculus, statistics, and exam technique",
-    difficulty: "Advanced",
+      "Focused coaching for both IB Maths SL routes — Analysis & Approaches (AA SL) and Applications & Interpretation (AI SL) — with step-by-step problem solving, GDC mastery, and exam-ready revision.",
+    shortDescription: "AA SL & AI SL — algebra, calculus, statistics & GDC technique",
+    difficulty: "Standard Level",
     topics: [
       {
-        title: "Functions, algebra & modeling",
+        title: "Choosing AA SL vs AI SL",
         detail:
-          "Build fluency with functions and algebraic technique, then apply them to real modelling problems.",
+          "We help you pick the right Maths SL route for your strengths and university plans — Analysis & Approaches for stronger algebra and calculus, or Applications & Interpretation for data, modelling, and real-world maths.",
       },
       {
-        title: "Calculus and applications",
+        title: "Number, algebra & functions",
         detail:
-          "Differentiation and integration from first principles through to applied optimisation and kinematics.",
+          "Master sequences, exponents and logs, and the function toolkit (linear, quadratic, exponential) common to both AA SL and AI SL.",
       },
       {
-        title: "Statistics and probability",
+        title: "Calculus (AA SL focus)",
         detail:
-          "Distributions, hypothesis testing, and the GDC skills needed for accurate, efficient answers.",
+          "Differentiation and integration with applications to gradients, optimisation, and areas — the core calculus required for Analysis & Approaches SL.",
+      },
+      {
+        title: "Statistics & probability (AI SL focus)",
+        detail:
+          "Data analysis, correlation and regression, probability and distributions — the statistics-heavy content that AI SL rewards most.",
+      },
+      {
+        title: "GDC & calculator-active papers",
+        detail:
+          "Build fluency on the graphing display calculator for Paper 2 — solving equations, regression, and distributions quickly and accurately.",
       },
       {
         title: "Exam technique & timed drills",
         detail:
-          "Method marks, clear working, and timed Paper 1 and Paper 2 practice to avoid careless loss.",
+          "Method marks, clear working, and timed Paper 1 and Paper 2 practice for both AA SL and AI SL to avoid careless loss.",
       },
     ],
     benefits: [
-      "Formula-first revision tracks",
-      "Practice-heavy problem solving",
-      "Confidence-building mock exams",
+      "Dedicated AA SL and AI SL tracks",
+      "GDC and calculator-paper mastery",
+      "Practice-heavy mock exams",
     ],
   },
 ];
