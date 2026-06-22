@@ -229,7 +229,7 @@ export default function RootLayout({
                     IB Guides &amp; Blog
                   </Link>
                   <Link href="/contact" className="transition hover:text-[var(--green)]">
-                    Enrol / Enquire
+                    Enrol / Enquiry
                   </Link>
                   <Link
                     href="/privacy-policy"

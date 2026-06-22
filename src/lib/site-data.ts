@@ -151,7 +151,7 @@ export const subjects: Subject[] = [
   },
   {
     slug: "mathematics",
-    name: "IB Mathematics",
+    name: "IB Maths AI and AA SL",
     description:
       "Develop exam resilience with step-by-step problem solving, targeted practice, and high-impact revision routines.",
     shortDescription: "Algebra, calculus, statistics, and exam technique",
