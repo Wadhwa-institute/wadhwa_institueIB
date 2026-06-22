@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog";
+import { landings } from "@/lib/landings";
 import { siteUrl, subjects } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -31,5 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...subjectRoutes, ...blogRoutes];
+  const landingRoutes: MetadataRoute.Sitemap = landings.map((l) => ({
+    url: `${siteUrl}/${l.slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
+  return [...staticRoutes, ...landingRoutes, ...subjectRoutes, ...blogRoutes];
 }

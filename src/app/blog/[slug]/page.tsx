@@ -47,6 +47,7 @@ export default async function BlogPostPage({
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
   const url = `${siteUrl}/blog/${post.slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
@@ -133,6 +134,22 @@ export default async function BlogPostPage({
           </Link>
         </div>
       </section>
+
+      {related.length > 0 && (
+        <section className="reveal mx-auto max-w-3xl space-y-5">
+          <p className="eyebrow">Keep reading</p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {related.map((r) => (
+              <Link key={r.slug} href={`/blog/${r.slug}`} className="lift-card rounded-[20px] p-5">
+                <p className="text-sm font-medium leading-6 text-[var(--white)]">{r.title}</p>
+                <p className="mt-2 text-[11px] uppercase tracking-[0.14em] text-[var(--green)]">
+                  {r.readMins} min read →
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </article>
   );
 }
