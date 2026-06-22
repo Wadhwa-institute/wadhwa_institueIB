@@ -1,0 +1,39 @@
+name: Weekly SEO Report
+
+# Runs every Monday at 06:00 UTC (~11:30 AM IST) and can also be run on demand
+# from the Actions tab (the "Run workflow" button).
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write # allow committing the updated report back to the repo
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate SEO report
+        env:
+          GSC_KEY_JSON: ${{ secrets.GSC_KEY_JSON }}
+          GSC_SITE_URL: https://www.wadhwa-institue-ib.com
+        run: npm run seo:report
+
+      - name: Commit report if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain seo-report.md)" ]]; then
+            git add seo-report.md
+            git commit -m "chore(seo): weekly Search Console report [skip ci]"
+            git push
+          else
+            echo "No change in seo-report.md — nothing to commit."
+          fi
