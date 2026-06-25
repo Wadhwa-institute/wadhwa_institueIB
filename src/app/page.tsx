@@ -170,10 +170,7 @@ export default function Home() {
               href={`/courses/${subject.slug}`}
               className="lift-card rounded-[24px] p-6"
             >
-              <span className="inline-flex rounded-full border border-[var(--green)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--green)]">
-                {subject.difficulty}
-              </span>
-              <h3 className="font-display mt-4 text-3xl uppercase text-[var(--white)]">
+              <h3 className="font-display text-3xl uppercase text-[var(--white)]">
                 {subject.name}
               </h3>
               <p className="mt-3 text-[13px] leading-7 text-[var(--white-dim)]">

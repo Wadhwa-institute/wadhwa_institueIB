@@ -372,7 +372,7 @@ def main():
     promo_poster(logo)
     teacher_poster(
         logo, f"{CUT}/teacher-maths-cutout.png",
-        "Maths Mentor", "IB Mathematics  ·  AA SL & AI SL",
+        "Harshika Lakhina", "IB Mathematics  ·  AA SL & AI SL",
         ["Maths AA SL", "Maths AI SL"],
         "Builds real understanding that holds up under exam pressure, across both AA SL and AI SL.",
         "maths-mentor.png",

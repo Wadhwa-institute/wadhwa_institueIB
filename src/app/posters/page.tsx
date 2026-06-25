@@ -21,7 +21,7 @@ const posters = [
     file: "wadhwa-institute-quote.png",
   },
   {
-    title: "IB Maths Mentor",
+    title: "Harshika Lakhina, IB Maths",
     note: "Maths specialist across AA SL and AI SL.",
     src: "/assets/posters/maths-mentor.png",
     file: "wadhwa-institute-maths-mentor.png",
