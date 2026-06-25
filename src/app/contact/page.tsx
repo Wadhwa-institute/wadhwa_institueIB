@@ -1,11 +1,30 @@
 import type { Metadata } from "next";
-import { siteContact } from "@/lib/site-data";
+import { siteContact, siteUrl } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Contact Wadhwa Institute, Gurugram — book a free IB coaching consultation by email or phone, or visit us in Sector 55.",
   alternates: { canonical: "/contact" },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      url: `${siteUrl}/contact`,
+      name: "Contact Wadhwa Institute",
+      about: { "@id": `${siteUrl}/#organization` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: "Contact", item: `${siteUrl}/contact` },
+      ],
+    },
+  ],
 };
 
 const methods = [
@@ -32,6 +51,10 @@ const methods = [
 export default function ContactPage() {
   return (
     <div className="space-y-12 pb-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* HERO */}
       <section className="reveal relative overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-12 sm:px-10">
         <div className="grid-lines" />
