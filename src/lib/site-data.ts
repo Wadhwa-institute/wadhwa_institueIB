@@ -296,6 +296,73 @@ export const reviews: Review[] = [
   },
 ];
 
+export type Teacher = {
+  /** kebab id used for anchors */
+  id: string;
+  name: string;
+  /** short role line under the name */
+  role: string;
+  /** subjects taught — drives the pill tags */
+  subjects: string[];
+  /** headline credential, e.g. "15+ years" — shown as a stat badge */
+  stat?: { value: string; label: string };
+  photo: string;
+  photoFallback: string;
+  /** persuasive, benefit-led short pitch (1–2 lines) used in cards */
+  pitch: string;
+  /** longer, psychologically framed bio paragraphs for the faculty page */
+  bio: string[];
+  /** crisp "what you'll get with this mentor" proof points */
+  highlights: string[];
+};
+
+export const teachers: Teacher[] = [
+  {
+    id: "maths-mentor",
+    name: "Your IB Maths Mentor",
+    role: "IB Mathematics Specialist · AA SL & AI SL",
+    subjects: ["Maths AA SL", "Maths AI SL"],
+    stat: { value: "AA + AI", label: "Both SL routes" },
+    photo: "/assets/teacher-maths.jpg",
+    photoFallback: "/assets/teacher-maths.jpg",
+    pitch:
+      "Turns “I’m just not a maths person” into confident, exam-ready problem solving — across both AA SL and AI SL.",
+    bio: [
+      "Some students arrive convinced maths isn’t for them. They leave solving past-paper questions they once skipped. That shift — from fear to fluency — is the whole point.",
+      "An IB Mathematics specialist in both Analysis & Approaches (AA SL) and Applications & Interpretation (AI SL), she builds the one thing that actually moves grades: genuine conceptual understanding. Not memorised steps that collapse under exam pressure, but a real feel for why the method works — so you can adapt it to any question the IB throws at you.",
+      "Her lessons meet you where you are. Different students learn differently, so the explanation, the pace, and the practice are shaped around you — until the click happens and the marks follow.",
+    ],
+    highlights: [
+      "Clear guidance on choosing AA SL vs AI SL",
+      "Concept-first teaching that survives exam pressure",
+      "Tailored to how you personally learn best",
+      "Confident, examiner-aligned IB assessment prep",
+    ],
+  },
+  {
+    id: "himani-anand",
+    name: "Himani Anand",
+    role: "IB French Language Teacher · 15+ years",
+    subjects: ["French Ab Initio", "French B", "French A"],
+    stat: { value: "15+", label: "Years teaching" },
+    photo: "/assets/teacher-french.jpg",
+    photoFallback: "/assets/teacher-french.jpg",
+    pitch:
+      "15+ years turning nervous beginners into confident French speakers — Ab Initio, B, and A, all IB-aligned.",
+    bio: [
+      "For more than fifteen years, Himani Anand has done one thing exceptionally well: made students believe they can actually speak French — and then proven it in their results.",
+      "A dedicated, passionate French Language Teacher with experience across Classes 6–12, she specialises in IB French — French Ab Initio, Language A, and Language B. She knows the IB curriculum inside out, and uses a genuinely student-centred approach to build all four pillars together: speaking, listening, reading, and writing.",
+      "Her lessons are tailored to each learner’s needs — so progress feels natural, not forced. The result is more than a grade: it’s real confidence in the language, and a deeper appreciation of French culture that stays with students long after the exam.",
+    ],
+    highlights: [
+      "15+ years of IB French teaching experience",
+      "Expert across Ab Initio, Language B, and Language A",
+      "Builds speaking, listening, reading & writing together",
+      "Individually tailored, confidence-first lessons",
+    ],
+  },
+];
+
 /**
  * Single source of truth for image assets. Each asset has a real target path
  * and an SVG fallback that shows until the real file is added to `public/assets/`.
@@ -337,9 +404,18 @@ export const siteContact = {
   addressRegion: "Haryana",
   postalCode: "122011",
   addressCountry: "IN",
-  mapsUrl: "https://maps.app.goo.gl/ewvzpggCAMQfC1Nj7",
-  // Approx. coordinates for Sushant Lok II / Sector 55, Gurugram — refine from the
-  // exact Google Business Profile pin once it is published.
+  // IMPORTANT: use a *place* URL, not the maps.app.goo.gl short link.
+  // The short link resolved to a directions URL with a hard-coded start point
+  // (saddr=28.42…,77.10…&dirflg=d), so it showed everyone a fixed travel time
+  // ("1 min away"). This place URL just searches the exact address and drops the
+  // pin on the centre — correct for every visitor, on every device.
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=A1%2F29%2C+HUDA%2C+Sushant+Lok+II%2C+Sector+55%2C+Gurugram%2C+Haryana+122011",
+  // "Get directions" URL — destination is the centre, start is left blank so Google
+  // uses the *visitor's own* location automatically (no fake fixed travel time).
+  directionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=A1%2F29%2C+HUDA%2C+Sushant+Lok+II%2C+Sector+55%2C+Gurugram%2C+Haryana+122011",
+  // Exact coordinates of the centre's pin (from the resolved Google Maps place).
   latitude: 28.4286,
   longitude: 77.1009,
 };
@@ -371,6 +447,7 @@ export const openingHours = [
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Courses", href: "/courses" },
+  { label: "Faculty", href: "/faculty" },
   { label: "Results", href: "/results" },
   { label: "Reviews", href: "/reviews" },
   { label: "Blog", href: "/blog" },
