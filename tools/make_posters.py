@@ -351,7 +351,7 @@ def quote_poster(logo):
     # quote, centered, large, with big quotation mark
     ctext(d, 690, "“", ANTON(150), GREEN, depth=6, depth_color=GREEN_DARK)
     qf = ANTON(76)
-    lines = ["EXCELLENCE MUST", "BE CHASED.", "SCORES AND GOOD", "FORTUNE WILL FOLLOW."]
+    lines = ["EXCELLENCE MUST", "BE CHASED,", "SCORES AND GOOD", "FORTUNE WILL FOLLOW."]
     qy = 828
     for i, ln in enumerate(lines):
         color = GREEN if i >= 2 else WHITE
