@@ -98,7 +98,7 @@ export const metadata: Metadata = {
   // Optional: set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel to add the
   // Search Console verification meta tag automatically.
   verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
-  icons: { icon: "/favicon.ico" },
+  // Favicon + apple-icon are auto-detected from src/app/icon.tsx & apple-icon.tsx.
 };
 
 export const viewport: Viewport = {
@@ -264,6 +264,12 @@ export default function RootLayout({
                 <div className="flex flex-col gap-2 text-[13px]">
                   <Link href="/ib-coaching-gurugram" className="transition hover:text-[var(--green)]">
                     IB Coaching in Gurugram
+                  </Link>
+                  <Link href="/faculty" className="transition hover:text-[var(--green)]">
+                    Meet Our Faculty
+                  </Link>
+                  <Link href="/posters" className="transition hover:text-[var(--green)]">
+                    Shareable Posters
                   </Link>
                   <Link href="/ib-coaching-gurgaon" className="transition hover:text-[var(--green)]">
                     IB Coaching in Gurgaon

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { features, metrics, reviews, subjects } from "@/lib/site-data";
+import { features, metrics, reviews, subjects, teachers } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   description:
@@ -181,6 +181,51 @@ export default function Home() {
               </p>
               <span className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-[var(--green)]">
                 Explore {subject.name} <span className="pulse-arrow">→</span>
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ---------------- FACULTY TEASER ---------------- */}
+      <section className="reveal space-y-6">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div className="space-y-3">
+            <p className="eyebrow">The mentors</p>
+            <h2 className="font-display text-5xl uppercase text-[var(--white)] sm:text-6xl">
+              Taught by specialists, not strangers
+            </h2>
+          </div>
+          <Link href="/faculty" className="text-xs uppercase tracking-[0.2em] text-[var(--green)]">
+            Meet the faculty <span className="pulse-arrow">→</span>
+          </Link>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {teachers.map((t) => (
+            <Link
+              key={t.id}
+              href={`/faculty#${t.id}`}
+              className="lift-card group flex items-center gap-5 rounded-[24px] p-5"
+            >
+              <span className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-[var(--black-3)]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={t.photo}
+                  alt={`${t.name} — ${t.role}`}
+                  className="h-full w-full object-cover object-top"
+                  loading="lazy"
+                />
+              </span>
+              <span className="space-y-1.5">
+                <span className="block font-display text-2xl uppercase leading-none text-[var(--white)]">
+                  {t.name}
+                </span>
+                <span className="block text-[11px] uppercase tracking-[0.14em] text-[var(--green)]">
+                  {t.role}
+                </span>
+                <span className="block text-[12px] leading-6 text-[var(--white-dim)]">
+                  {t.pitch}
+                </span>
               </span>
             </Link>
           ))}

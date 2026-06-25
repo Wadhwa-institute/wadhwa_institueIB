@@ -96,14 +96,24 @@ export default function ContactPage() {
           <div className="relative space-y-3">
             <p className="eyebrow">Our centre</p>
             <p className="text-[15px] leading-8 text-[var(--white)]">{siteContact.address}</p>
-            <a
-              href={siteContact.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline mt-2 inline-flex rounded-full px-6 py-3 text-xs uppercase tracking-[0.2em]"
-            >
-              Open in Google Maps →
-            </a>
+            <div className="mt-2 flex flex-wrap gap-3">
+              <a
+                href={siteContact.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline inline-flex rounded-full px-6 py-3 text-xs uppercase tracking-[0.2em]"
+              >
+                View on Maps →
+              </a>
+              <a
+                href={siteContact.directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex rounded-full px-6 py-3 text-xs uppercase tracking-[0.2em]"
+              >
+                Get directions →
+              </a>
+            </div>
           </div>
         </div>
       </section>
