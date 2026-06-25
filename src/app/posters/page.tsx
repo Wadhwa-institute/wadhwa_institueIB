@@ -10,25 +10,25 @@ export const metadata: Metadata = {
 const posters = [
   {
     title: "IB Coaching Promo",
-    note: "General poster: “Score your perfect 7”. Great for any group or status.",
+    note: "“Score your perfect 7”. Great for any group or status.",
     src: "/assets/posters/promo.png",
     file: "wadhwa-institute-promo.png",
   },
   {
     title: "Excellence Quote",
-    note: "“Excellence must be chased. Scores and good fortune will follow.” A clean, brand-led motivational poster.",
+    note: "“Excellence must be chased, scores and good fortune will follow.”",
     src: "/assets/posters/quote.png",
     file: "wadhwa-institute-quote.png",
   },
   {
     title: "IB Maths Mentor",
-    note: "Maths specialist (AA SL and AI SL) introduction poster.",
+    note: "Maths specialist across AA SL and AI SL.",
     src: "/assets/posters/maths-mentor.png",
     file: "wadhwa-institute-maths-mentor.png",
   },
   {
     title: "Himani Anand, IB French",
-    note: "French teacher (15+ years) introduction poster.",
+    note: "French teacher with 15+ years of experience.",
     src: "/assets/posters/himani-anand.png",
     file: "wadhwa-institute-himani-anand.png",
   },
