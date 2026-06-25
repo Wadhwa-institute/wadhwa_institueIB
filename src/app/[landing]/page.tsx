@@ -167,6 +167,30 @@ export default async function LandingPage({
         </div>
       </section>
 
+      {/* RELATED SEARCHES (internal linking) */}
+      <section className="reveal space-y-4">
+        <p className="eyebrow">Related searches</p>
+        <div className="flex flex-wrap gap-3">
+          {landings
+            .filter((l) => l.slug !== landing.slug)
+            .map((l) => (
+              <Link
+                key={l.slug}
+                href={`/${l.slug}`}
+                className="rounded-full border border-[var(--white-faint)] px-4 py-2 text-xs uppercase tracking-[0.12em] text-[var(--white-dim)] transition hover:border-[var(--green)] hover:text-[var(--green)]"
+              >
+                {l.h1}
+              </Link>
+            ))}
+          <Link
+            href="/ib-coaching-gurugram"
+            className="rounded-full border border-[var(--white-faint)] px-4 py-2 text-xs uppercase tracking-[0.12em] text-[var(--white-dim)] transition hover:border-[var(--green)] hover:text-[var(--green)]"
+          >
+            IB Coaching in Gurugram
+          </Link>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="reveal relative overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-12 text-center sm:px-10">
         <div className="glow-orb" style={{ width: 320, height: 320, top: -90, left: "50%", marginLeft: -160 }} />

@@ -49,6 +49,15 @@ export default async function BlogPostPage({
 
   const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
   const url = `${siteUrl}/blog/${post.slug}`;
+  const wordCount =
+    post.intro.split(/\s+/).length +
+    post.sections.reduce(
+      (n, s) =>
+        n +
+        s.paragraphs.join(" ").split(/\s+/).length +
+        (s.bullets ? s.bullets.join(" ").split(/\s+/).length : 0),
+      0
+    );
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -60,8 +69,15 @@ export default async function BlogPostPage({
         dateModified: post.date,
         mainEntityOfPage: url,
         url,
+        image: `${url}/opengraph-image`,
+        inLanguage: "en-IN",
+        wordCount,
+        articleSection: "IB Diploma Programme",
+        keywords: post.title,
+        timeRequired: `PT${post.readMins}M`,
         author: { "@type": "Organization", name: "Wadhwa Institute", "@id": `${siteUrl}/#organization` },
         publisher: { "@id": `${siteUrl}/#organization` },
+        speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", "h2"] },
       },
       {
         "@type": "BreadcrumbList",
