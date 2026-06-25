@@ -307,8 +307,68 @@ def teacher_poster(logo, cut_file, name, role, subjects, line, out_name):
     print(out_name)
 
 
+def center_logo(img, logo, height, top):
+    lh = height
+    lw = int(logo.width * (lh / logo.height))
+    img.alpha_composite(logo.resize((lw, lh), Image.LANCZOS), ((W - lw) // 2, top))
+    return top + lh
+
+
+def ctext(d, cy, text, f, fill, **kw):
+    tw = d.textlength(text, font=f)
+    text_3d(d, ((W - tw) // 2, cy), text, f, fill, **kw)
+
+
+def quote_poster(logo):
+    img = Image.new("RGBA", (W, H), BLACK + (255,))
+    # vertical tone + soft centered glow (kept gentle so edges stay clean)
+    grad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(grad)
+    for y in range(H):
+        g = int(12 * (1 - y / H))
+        gd.line([(0, y), (W, y)], fill=(6, 10 + g, 6, 255))
+    img.alpha_composite(grad)
+    img.alpha_composite(radial((W, H), (W // 2, int(H * 0.40)), 760, GREEN, 34))
+    img.alpha_composite(vignette((W, H), 180))
+    ImageDraw.Draw(img).rounded_rectangle([16, 16, W - 16, H - 16], radius=30, outline=GREEN + (120,), width=3)
+
+    # The perfect logo, large and centered, with a soft glow halo behind it.
+    lw = 330
+    lh = int(logo.height * (lw / logo.width))
+    big = logo.resize((lw, lh), Image.LANCZOS)
+    glow_src = Image.new("RGBA", big.size, GREEN + (0,))
+    glow_src.paste(Image.new("RGBA", big.size, GREEN + (255,)), (0, 0), big.split()[3])
+    glow_src = glow_src.filter(ImageFilter.GaussianBlur(30))
+    glow_src.putalpha(glow_src.split()[3].point(lambda p: int(p * 0.45)))
+    logo_top = 130
+    img.alpha_composite(glow_src, ((W - lw) // 2, logo_top))
+    img.alpha_composite(big, ((W - lw) // 2, logo_top))
+
+    d = ImageDraw.Draw(img)
+    ctext(d, logo_top + lh + 26, "WADHWA INSTITUTE", MONT_SB(34), WHITE, shadow=True, stroke=1, stroke_fill=(0, 0, 0))
+    ctext(d, logo_top + lh + 80, "PREMIUM IB COACHING   ·   GURUGRAM", MONT(20), GREEN, shadow=True)
+
+    # quote, centered, large, with big quotation mark
+    ctext(d, 690, "“", ANTON(150), GREEN, depth=6, depth_color=GREEN_DARK)
+    qf = ANTON(76)
+    lines = ["EXCELLENCE MUST", "BE CHASED.", "SCORES AND GOOD", "FORTUNE WILL FOLLOW."]
+    qy = 828
+    for i, ln in enumerate(lines):
+        color = GREEN if i >= 2 else WHITE
+        ctext(d, qy, ln, qf, color, depth=5, depth_color=(30, 30, 30) if color == WHITE else GREEN_DARK)
+        qy += 94
+
+    qy += 24
+    d.line([(W // 2 - 44, qy), (W // 2 + 44, qy)], fill=GREEN, width=6)
+    ctext(d, qy + 26, "wadhwa-institue-ib.com", MONT(28), DIM)
+
+    img.convert("RGB").save(f"{OUT}/quote.png")
+    print("quote.png")
+
+
 def main():
     logo = Image.open(f"{CUT}/logo-mark.png").convert("RGBA")
+    quote_poster(logo)
     promo_poster(logo)
     teacher_poster(
         logo, f"{CUT}/teacher-maths-cutout.png",

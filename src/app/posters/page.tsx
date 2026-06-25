@@ -15,6 +15,12 @@ const posters = [
     file: "wadhwa-institute-promo.png",
   },
   {
+    title: "Excellence Quote",
+    note: "“Excellence must be chased. Scores and good fortune will follow.” A clean, brand-led motivational poster.",
+    src: "/assets/posters/quote.png",
+    file: "wadhwa-institute-quote.png",
+  },
+  {
     title: "IB Maths Mentor",
     note: "Maths specialist (AA SL and AI SL) introduction poster.",
     src: "/assets/posters/maths-mentor.png",
