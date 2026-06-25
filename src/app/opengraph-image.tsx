@@ -1,13 +1,13 @@
 import { ImageResponse } from "next/og";
-import { logoDataUrl } from "@/lib/logo-data";
+import { logoMarkDataUrl } from "@/lib/logo-data";
 
-export const alt = "Wadhwa Institute — Premium IB Coaching in Gurugram";
+export const alt = "Wadhwa Institute, Premium IB Coaching in Gurugram";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 // Branded social share card (statically generated at build time).
 export default function OpengraphImage() {
-  const logo = logoDataUrl();
+  const logo = logoMarkDataUrl();
   return new ImageResponse(
     (
       <div
@@ -26,9 +26,9 @@ export default function OpengraphImage() {
         }}
       >
         {/* Top: brand row */}
-        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 26 }}>
           {logo ? (
-            <img src={logo} alt="Wadhwa Institute" width={120} height={88} style={{ objectFit: "contain" }} />
+            <img src={logo} alt="Wadhwa Institute" width={150} height={112} style={{ objectFit: "contain" }} />
           ) : null}
           <div
             style={{
