@@ -13,9 +13,6 @@ export default function SubjectPageClient({ subject }: { subject: Subject }) {
         <div className="grid-lines" />
         <div className="glow-orb" style={{ width: 300, height: 300, top: -90, left: -50 }} />
         <div className="relative space-y-6">
-          <span className="inline-flex items-center rounded-full border border-[var(--green)] px-4 py-1 text-xs uppercase tracking-[0.16em] text-[var(--green)]">
-            {subject.difficulty}
-          </span>
           <div>
             <p className="eyebrow">Premium IB learning pathway</p>
             <h1 className="font-display mt-4 text-5xl uppercase text-[var(--white)] sm:text-7xl">

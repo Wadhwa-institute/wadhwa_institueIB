@@ -3,7 +3,6 @@ export type Subject = {
   name: string;
   description: string;
   shortDescription: string;
-  difficulty: string;
   topics: { title: string; detail: string }[];
   benefits: string[];
 };
@@ -15,7 +14,6 @@ export const subjects: Subject[] = [
     description:
       "Build confidence in literary analysis, language skills, and exam technique with guidance designed for IB learners.",
     shortDescription: "Literature, Language & Literature, and English B pathways",
-    difficulty: "Intermediate",
     topics: [
       {
         title: "Close reading & textual analysis",
@@ -50,7 +48,6 @@ export const subjects: Subject[] = [
     description:
       "Strengthen oral fluency, comprehension, and writing through immersive, confidence-building lessons tailored to IB expectations.",
     shortDescription: "IB French B and advanced communication foundations",
-    difficulty: "Beginner to Advanced",
     topics: [
       {
         title: "Oral fluency and pronunciation",
@@ -85,7 +82,6 @@ export const subjects: Subject[] = [
     description:
       "Make business concepts practical and memorable with case-based teaching, strategy frameworks, and performance-focused revision.",
     shortDescription: "Strategy, marketing, operations, and business ethics",
-    difficulty: "Advanced",
     topics: [
       {
         title: "Marketing strategy & analysis",
@@ -120,7 +116,6 @@ export const subjects: Subject[] = [
     description:
       "Master diagrams, evaluation technique, and data interpretation to gain confidence in both theory and application-based questions.",
     shortDescription: "Microeconomics, macroeconomics, and global economy themes",
-    difficulty: "Advanced",
     topics: [
       {
         title: "Demand, supply & market equilibrium",
@@ -155,7 +150,6 @@ export const subjects: Subject[] = [
     description:
       "Focused coaching for both IB Maths SL routes — Analysis & Approaches (AA SL) and Applications & Interpretation (AI SL) — with step-by-step problem solving, GDC mastery, and exam-ready revision.",
     shortDescription: "AA SL & AI SL — algebra, calculus, statistics & GDC technique",
-    difficulty: "Standard Level",
     topics: [
       {
         title: "Choosing AA SL vs AI SL",
@@ -319,7 +313,7 @@ export type Teacher = {
 export const teachers: Teacher[] = [
   {
     id: "maths-mentor",
-    name: "Your IB Maths Mentor",
+    name: "Harshika Lakhina",
     role: "IB Mathematics Specialist · AA SL & AI SL",
     subjects: ["Maths AA SL", "Maths AI SL"],
     stat: { value: "AA + AI", label: "Both SL routes" },
@@ -329,7 +323,7 @@ export const teachers: Teacher[] = [
       "Turns “I’m just not a maths person” into confident, exam-ready problem solving — across both AA SL and AI SL.",
     bio: [
       "Some students arrive convinced maths isn’t for them. They leave solving past-paper questions they once skipped. That shift — from fear to fluency — is the whole point.",
-      "An IB Mathematics specialist in both Analysis & Approaches (AA SL) and Applications & Interpretation (AI SL), she builds the one thing that actually moves grades: genuine conceptual understanding. Not memorised steps that collapse under exam pressure, but a real feel for why the method works — so you can adapt it to any question the IB throws at you.",
+      "Harshika is an IB Mathematics specialist in both Analysis & Approaches (AA SL) and Applications & Interpretation (AI SL). She builds the one thing that actually moves grades: genuine conceptual understanding. Not memorised steps that collapse under exam pressure, but a real feel for why the method works, so you can adapt it to any question the IB throws at you.",
       "Her lessons meet you where you are. Different students learn differently, so the explanation, the pace, and the practice are shaped around you — until the click happens and the marks follow.",
     ],
     highlights: [
@@ -364,18 +358,17 @@ export const teachers: Teacher[] = [
 ];
 
 /**
- * Single source of truth for image assets. Each asset has a real target path
- * and an SVG fallback that shows until the real file is added to `public/assets/`.
- * Drop these files in to go live (no code change needed):
- *   /assets/logo.png · /assets/result-1.jpg · /assets/result-2.jpg
+ * Single source of truth for image assets. These are the real files in
+ * public/assets/. The `*Fallback` fields point at the same file (kept so the
+ * server-side resolveAsset() safety check still has a second argument).
  */
 export const siteAssets = {
   logo: "/assets/logo.jpg",
-  logoFallback: "/assets/logo.svg",
+  logoFallback: "/assets/logo.jpg",
   result1: "/assets/result-1.jpg",
-  result1Fallback: "/assets/result-1.svg",
+  result1Fallback: "/assets/result-1.jpg",
   result2: "/assets/result-2.jpg",
-  result2Fallback: "/assets/result-2.svg",
+  result2Fallback: "/assets/result-2.jpg",
 };
 
 // Canonical site URL used for metadata, canonicals, sitemap, robots, and JSON-LD.

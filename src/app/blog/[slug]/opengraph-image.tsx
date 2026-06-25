@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { blogPosts } from "@/lib/blog";
+import { logoDataUrl } from "@/lib/logo-data";
 
 export const alt = "Wadhwa Institute — IB guide";
 export const size = { width: 1200, height: 630 };
@@ -15,6 +16,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   const title = post?.title ?? "IB Guides";
+  const logo = logoDataUrl();
 
   return new ImageResponse(
     (
@@ -34,22 +36,9 @@ export default async function Image({ params }: { params: Promise<{ slug: string
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 84,
-              height: 84,
-              borderRadius: 18,
-              border: "3px solid #7FD900",
-              color: "#7FD900",
-              fontSize: 46,
-              fontWeight: 800,
-            }}
-          >
-            WI
-          </div>
+          {logo ? (
+            <img src={logo} alt="Wadhwa Institute" width={108} height={80} style={{ objectFit: "contain" }} />
+          ) : null}
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ display: "flex", fontSize: 26, letterSpacing: 6, textTransform: "uppercase" }}>
               Wadhwa Institute
