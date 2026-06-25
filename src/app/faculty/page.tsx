@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { resolveAsset } from "@/lib/assets";
 import { siteContact, siteUrl, teachers } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -16,20 +15,14 @@ export const metadata: Metadata = {
   },
 };
 
-// Resolve photos at build time so the correct src is baked into the HTML.
-const resolved = teachers.map((t) => ({
-  ...t,
-  src: resolveAsset(t.photo, t.photoFallback),
-}));
-
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    ...resolved.map((t) => ({
+    ...teachers.map((t) => ({
       "@type": "Person",
       name: t.name,
       jobTitle: t.role,
-      image: `${siteUrl}${t.photo}`,
+      image: `${siteUrl}/assets/posters/${t.id}.png`,
       worksFor: { "@id": `${siteUrl}/#organization` },
       knowsAbout: t.subjects,
     })),
@@ -72,7 +65,7 @@ export default function FacultyPage() {
       </section>
 
       {/* TEACHER PROFILES */}
-      {resolved.map((t, i) => (
+      {teachers.map((t, i) => (
         <section
           key={t.id}
           id={t.id}
@@ -83,26 +76,15 @@ export default function FacultyPage() {
               i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
             }`}
           >
-            {/* PHOTO */}
-            <div className="relative min-h-[360px] overflow-hidden bg-[var(--black-3)] sm:min-h-[460px]">
+            {/* POSTER */}
+            <div className="flex items-center justify-center bg-[var(--black-3)] p-5 sm:p-7">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={t.src}
-                alt={`${t.name} — ${t.role}`}
-                className="h-full w-full object-cover object-top"
+                src={`/assets/posters/${t.id}.png`}
+                alt={`${t.name}, ${t.role}`}
+                className="w-full max-w-[360px] rounded-[18px] border border-[var(--white-faint)] shadow-[0_18px_60px_rgba(0,0,0,0.55)]"
                 loading={i === 0 ? "eager" : "lazy"}
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--black-2)] via-transparent to-transparent" />
-              {t.stat ? (
-                <div className="absolute bottom-4 left-4 rounded-2xl border border-[var(--green)] bg-[var(--black)]/80 px-4 py-2 backdrop-blur">
-                  <p className="font-display text-3xl leading-none text-[var(--green)]">
-                    {t.stat.value}
-                  </p>
-                  <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[var(--white-dim)]">
-                    {t.stat.label}
-                  </p>
-                </div>
-              ) : null}
             </div>
 
             {/* TEXT */}
