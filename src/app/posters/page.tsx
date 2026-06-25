@@ -45,11 +45,6 @@ export default function PostersPage() {
           <h1 className="font-display text-5xl uppercase text-[var(--white)] sm:text-7xl">
             Shareable posters
           </h1>
-          <p className="max-w-2xl text-[13px] leading-8 text-[var(--white-dim)]">
-            Ready-made posters (4:5, perfect for WhatsApp &amp; Instagram). On a phone,
-            <strong> tap and hold</strong> an image to save it, or use the download button.
-            Then share to your groups and status.
-          </p>
         </div>
       </section>
 
