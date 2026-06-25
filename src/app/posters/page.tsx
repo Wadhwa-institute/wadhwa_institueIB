@@ -9,21 +9,21 @@ export const metadata: Metadata = {
 
 const posters = [
   {
-    title: "IB Coaching — Promo",
-    note: "General poster — 'Score your perfect 7'. Great for any group or status.",
-    src: "/posters/promo/opengraph-image",
+    title: "IB Coaching Promo",
+    note: "General poster: “Score your perfect 7”. Great for any group or status.",
+    src: "/assets/posters/promo.png",
     file: "wadhwa-institute-promo.png",
   },
   {
     title: "IB Maths Mentor",
-    note: "Maths specialist (AA SL & AI SL) introduction poster.",
-    src: "/posters/maths-mentor/opengraph-image",
+    note: "Maths specialist (AA SL and AI SL) introduction poster.",
+    src: "/assets/posters/maths-mentor.png",
     file: "wadhwa-institute-maths-mentor.png",
   },
   {
-    title: "Himani Anand — IB French",
+    title: "Himani Anand, IB French",
     note: "French teacher (15+ years) introduction poster.",
-    src: "/posters/himani-anand/opengraph-image",
+    src: "/assets/posters/himani-anand.png",
     file: "wadhwa-institute-himani-anand.png",
   },
 ];
