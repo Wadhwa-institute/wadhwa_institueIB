@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { blogPosts } from "@/lib/blog";
+import { siteUrl } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "IB Guides & Blog",
@@ -16,11 +17,44 @@ const formatDate = (iso: string) =>
     day: "numeric",
   });
 
+// Additive JSON-LD: a Blog with an ItemList of its posts + breadcrumb.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Blog",
+      "@id": `${siteUrl}/blog#blog`,
+      name: "Wadhwa Institute IB Guides",
+      url: `${siteUrl}/blog`,
+      publisher: { "@id": `${siteUrl}/#organization` },
+      blogPost: blogPosts.map((p) => ({
+        "@type": "BlogPosting",
+        headline: p.title,
+        description: p.description,
+        datePublished: p.date,
+        url: `${siteUrl}/blog/${p.slug}`,
+        image: `${siteUrl}/blog/${p.slug}/opengraph-image`,
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+      ],
+    },
+  ],
+};
+
 export default function BlogPage() {
   const posts = [...blogPosts].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <div className="space-y-12 pb-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="reveal relative overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-12 sm:px-10">
         <div className="grid-lines" />
         <div className="glow-orb" style={{ width: 300, height: 300, top: -90, left: -50 }} />

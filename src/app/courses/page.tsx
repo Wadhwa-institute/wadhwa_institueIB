@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { subjects } from "@/lib/site-data";
+import { siteUrl, subjects } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "IB Courses",
@@ -9,9 +9,42 @@ export const metadata: Metadata = {
   alternates: { canonical: "/courses" },
 };
 
+// Additive JSON-LD: an ItemList of the Course offerings + breadcrumb.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      name: "IB Courses at Wadhwa Institute",
+      itemListElement: subjects.map((s, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "Course",
+          name: s.name,
+          description: s.shortDescription,
+          url: `${siteUrl}/courses/${s.slug}`,
+          provider: { "@id": `${siteUrl}/#organization` },
+        },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: "Courses", item: `${siteUrl}/courses` },
+      ],
+    },
+  ],
+};
+
 export default function CoursesPage() {
   return (
     <div className="space-y-12 pb-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="relative overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-12 sm:px-10">
         <div className="grid-lines" />
         <div className="glow-orb" style={{ width: 300, height: 300, top: -90, left: -50 }} />

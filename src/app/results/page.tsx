@@ -1,13 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { resolveAsset } from "@/lib/assets";
-import { siteAssets } from "@/lib/site-data";
+import { siteAssets, siteUrl } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Results & Achievements",
   description:
     "Student achievements at Wadhwa Institute — real perfect 7s and standout IB results from our coaching in Gurugram.",
   alternates: { canonical: "/results" },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: "Results", item: `${siteUrl}/results` },
+      ],
+    },
+  ],
 };
 
 const achievementImages = [
@@ -24,6 +37,10 @@ const achievementImages = [
 export default function ResultsPage() {
   return (
     <div className="space-y-14 pb-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ---------------- HERO ---------------- */}
       <section className="reveal relative overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)] px-6 py-12 sm:px-10">
         <div className="grid-lines" />
