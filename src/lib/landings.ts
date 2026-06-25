@@ -183,6 +183,81 @@ export const landings: Landing[] = [
     relatedSubjects: ["economics", "business-management", "mathematics", "english", "french"],
     serviceType: "Online IB Diploma Programme tuition across India",
   },
+  {
+    slug: "ib-french-tuition-gurugram",
+    metaTitle: "IB French Tutor in Gurugram (Ab Initio, B, A)",
+    metaDescription:
+      "IB French tuition in Gurugram with a teacher of 15+ years. Ab Initio, Language B, and Language A, with strong oral and writing practice. Online and in person. Free consultation.",
+    h1: "IB French Tutor in Gurugram",
+    tagline: "Speak, write, and score with confidence",
+    intro: [
+      "Wadhwa Institute offers specialist IB French tuition in Gurugram across Ab Initio, Language B, and Language A. Our French teacher brings more than fifteen years of experience and a genuinely student centred approach.",
+      "We build all four skills together, speaking, listening, reading, and writing, with focused practice for the individual oral and the written tasks that decide your grade.",
+    ],
+    highlights: [
+      { title: "Ab Initio to Language A", copy: "The right level and pace for true beginners through to near native readers." },
+      { title: "Individual oral prep", copy: "Structured practice so the oral feels familiar, not frightening." },
+      { title: "Writing that scores", copy: "Text types, register, and grammar drilled to the mark scheme." },
+      { title: "Online and in person", copy: "Attend in Gurugram or join live online from anywhere." },
+    ],
+    faqs: [
+      { q: "Which IB French levels do you teach?", a: "Ab Initio, Language B, and Language A, at SL and HL where applicable." },
+      { q: "Can you help with the French individual oral?", a: "Yes. We run targeted oral practice with feedback so you walk in prepared and confident." },
+      { q: "Is this for complete beginners too?", a: "Yes. Ab Initio is built for students starting French, and we pace lessons to your level." },
+    ],
+    relatedSubjects: ["french"],
+    serviceType: "IB French tuition (Ab Initio, Language B, Language A)",
+  },
+  {
+    slug: "ib-english-tuition-gurugram",
+    metaTitle: "IB English Tutor in Gurugram (Lang & Lit, Lit)",
+    metaDescription:
+      "IB English tuition in Gurugram. Master Paper 1 unseen analysis, Paper 2 comparative essays, the IO, and the HL essay with a specialist tutor. SL and HL, online and in person.",
+    h1: "IB English Tutor in Gurugram",
+    tagline: "Analysis, structure, and essays that hold up",
+    intro: [
+      "Wadhwa Institute provides focused IB English tuition in Gurugram for Language and Literature and Literature, at SL and HL. We turn vague reading into sharp, well structured analysis that earns marks.",
+      "From the unseen texts in Paper 1 to comparative essays in Paper 2, the Individual Oral, and the HL essay, we give you repeatable frameworks and real feedback on your writing.",
+    ],
+    highlights: [
+      { title: "Paper 1 unseen analysis", copy: "A reliable method for analysing any unseen text under time pressure." },
+      { title: "Paper 2 comparative essays", copy: "Structures that compare works clearly and argue a real thesis." },
+      { title: "IO and HL essay", copy: "Guided preparation for the oral and the higher level essay." },
+      { title: "Feedback on every draft", copy: "Marked work with specific, actionable comments." },
+    ],
+    faqs: [
+      { q: "Do you teach both English courses?", a: "Yes, both Language and Literature and Literature, at SL and HL." },
+      { q: "Can you help with Paper 1 and Paper 2?", a: "Yes. We coach unseen analysis for Paper 1 and comparative essay technique for Paper 2." },
+      { q: "What about the Individual Oral and HL essay?", a: "We prepare both, from choosing texts and a global issue to structuring the final piece." },
+    ],
+    relatedSubjects: ["english"],
+    serviceType: "IB English tuition (Language and Literature, Literature)",
+  },
+  {
+    slug: "ib-coaching-sector-55-gurugram",
+    metaTitle: "IB Coaching in Sector 55, Gurugram",
+    metaDescription:
+      "IB coaching in Sector 55, Gurugram at Wadhwa Institute. Mentor led tuition for English, French, Business, Economics, and Maths (AA and AI), online and in person. Free consultation.",
+    h1: "IB Coaching in Sector 55, Gurugram",
+    tagline: "Your IB centre, right in Sector 55",
+    intro: [
+      "Wadhwa Institute is an IB coaching centre in Sector 55, Gurugram, at A1/29, HUDA, Sushant Lok II. We are convenient for families across Sushant Lok, DLF, Golf Course Road, and South City.",
+      "We coach the full IB Diploma, English, French, Business Management, Economics, and Maths (AA and AI), with small groups and one on one mentoring, in person and live online.",
+    ],
+    highlights: [
+      { title: "Right in Sector 55", copy: "Easy to reach for Sushant Lok, DLF, Golf Course Road, and nearby." },
+      { title: "All five IB subjects", copy: "One trusted centre for your whole Diploma." },
+      { title: "Small groups and 1 on 1", copy: "Real attention on your essays, IAs, and past papers." },
+      { title: "In person or online", copy: "Choose what fits your schedule." },
+    ],
+    faqs: [
+      { q: "Where exactly is the centre?", a: "A1/29, HUDA, Sushant Lok II, Sector 55, Gurugram, Haryana 122011." },
+      { q: "Which areas do you serve from Sector 55?", a: "Sushant Lok, DLF Phases 1 to 5, Golf Course Road, Sohna Road, South City, and nearby, plus online across India." },
+      { q: "Do you offer a free consultation?", a: "Yes. Tell us your subjects and target grades and we will map a plan within one working day." },
+    ],
+    relatedSubjects: ["economics", "business-management", "mathematics", "english", "french"],
+    serviceType: "IB Diploma Programme tuition in Sector 55, Gurugram",
+  },
 ];
 
 export function getLanding(slug: string): Landing | undefined {

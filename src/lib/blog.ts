@@ -615,4 +615,164 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "how-to-choose-your-ib-subjects",
+    title: "How to Choose Your IB Subjects (Without Regret)",
+    description:
+      "A clear guide to picking IB subjects and levels that fit your strengths and university plans, from Wadhwa Institute in Gurugram.",
+    date: "2026-06-22",
+    readMins: 6,
+    intro:
+      "Subject choice is one of the first big IB decisions, and it shapes your next two years. Pick well and the Diploma feels manageable. Pick badly and you fight an uphill battle. Here is how to choose with a clear head.",
+    sections: [
+      {
+        heading: "Start with the university course, not the subject",
+        paragraphs: [
+          "Work backwards. Look up the entry requirements for the degrees you might want, then make sure your choices keep those doors open. Some courses require specific subjects at Higher Level.",
+        ],
+      },
+      {
+        heading: "Be honest about your strengths",
+        paragraphs: [
+          "Higher Level subjects demand real time and energy. Choose HL where you are genuinely strong or genuinely interested, because motivation carries you through the hard weeks.",
+        ],
+        bullets: [
+          "Pick HL subjects you can sustain for two years",
+          "Balance heavy essay subjects with problem based ones",
+        ],
+      },
+      {
+        heading: "Mind the workload balance",
+        paragraphs: [
+          "Six subjects plus the core is a lot. Avoid stacking three essay heavy HLs if writing under time pressure is your weak spot. A balanced timetable protects your overall score.",
+        ],
+      },
+      {
+        heading: "Get a second opinion early",
+        paragraphs: [
+          "Talk to mentors before you lock choices in. Wadhwa Institute advises students on subject and level choices across English, French, Business, Economics, and Maths. Book a free consultation before you decide.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ib-economics-hl-vs-sl",
+    title: "IB Economics HL vs SL: What Actually Changes",
+    description:
+      "The real differences between IB Economics HL and SL, including Paper 3, workload, and how to decide which is right for you.",
+    date: "2026-06-23",
+    readMins: 6,
+    intro:
+      "Choosing between Higher and Standard Level Economics is not just about difficulty. It changes what you study, how you are assessed, and how much time the subject takes. Here is what really differs.",
+    sections: [
+      {
+        heading: "The extra content at HL",
+        paragraphs: [
+          "HL covers everything SL does, plus deeper theory and additional topics, especially in the global economy and quantitative areas. There is simply more to learn and apply.",
+        ],
+      },
+      {
+        heading: "Paper 3 is the big one",
+        paragraphs: [
+          "The defining HL difference is Paper 3, a calculation and policy paper. It is highly improvable because the question types repeat, but it needs dedicated practice that SL students never face.",
+        ],
+        bullets: [
+          "Build a personal formula sheet for Paper 3",
+          "Drill timed calculations until the method is automatic",
+        ],
+      },
+      {
+        heading: "Which should you take",
+        paragraphs: [
+          "Take HL if you enjoy economics, want it for university, or like the quantitative side. Take SL if your HL energy is better spent elsewhere. Neither choice is wrong if it fits your plan.",
+        ],
+      },
+      {
+        heading: "Get the calculations right",
+        paragraphs: [
+          "Wadhwa Institute coaches both HL and SL Economics in Gurugram and online, with focused Paper 3 practice for HL students. Book a free consultation to build a plan around your level.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ib-results-day-guide",
+    title: "IB Results Day: What to Do With Any Grade",
+    description:
+      "A calm, practical guide to IB results day, including how enquiry upon results and remarks work, and your options if grades are lower than expected.",
+    date: "2026-06-24",
+    readMins: 5,
+    intro:
+      "Results day brings relief for some and worry for others. Whatever your grades, you have options, and panic helps no one. Here is a clear plan for the day and the week after.",
+    sections: [
+      {
+        heading: "First, breathe and check carefully",
+        paragraphs: [
+          "Read your results properly before reacting. Note your total points and each subject grade, and check whether any university offer conditions are met.",
+        ],
+      },
+      {
+        heading: "If a grade looks wrong",
+        paragraphs: [
+          "You can request a remark, known as enquiry upon results. It can move a grade up, stay the same, or in rare cases move down, so weigh it where you are close to a boundary that matters for an offer.",
+        ],
+        bullets: [
+          "Act fast, as remark windows are short",
+          "Prioritise subjects tied to a university condition",
+        ],
+      },
+      {
+        heading: "If grades are lower than hoped",
+        paragraphs: [
+          "Contact your university promptly. Offers are sometimes still honoured, and clearing style options exist. A retake is also possible for specific subjects in a later session.",
+        ],
+      },
+      {
+        heading: "Planning a retake",
+        paragraphs: [
+          "If you choose to retake, targeted coaching makes the difference. Wadhwa Institute runs focused revision and past paper practice for retake students. Book a free consultation to plan it.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ib-internal-assessment-tips",
+    title: "IB Internal Assessment: Tips That Lift Every IA",
+    description:
+      "Cross subject tips for scoring well on IB Internal Assessments, from picking a focused question to evaluation and word count, by Wadhwa Institute.",
+    date: "2026-06-24",
+    readMins: 6,
+    intro:
+      "Internal Assessments are worth a large share of your grade in every subject, and they are within your control. The habits that lift an IA are surprisingly similar across subjects. Here they are.",
+    sections: [
+      {
+        heading: "Choose a narrow, answerable question",
+        paragraphs: [
+          "The single biggest mistake is a question that is too broad. A sharp, focused research question is easier to analyse deeply and almost always scores higher than a vague one.",
+        ],
+      },
+      {
+        heading: "Plan against the rubric",
+        paragraphs: [
+          "Every IA has a marking rubric. Read it before you start and structure your work to hit each criterion directly, rather than writing first and hoping it fits.",
+        ],
+        bullets: [
+          "Map each section to a rubric criterion",
+          "Leave clear time for analysis and evaluation",
+        ],
+      },
+      {
+        heading: "Evaluate, do not just describe",
+        paragraphs: [
+          "Top band IAs weigh evidence, question assumptions, and reach a justified conclusion. Description alone caps your marks, so build evaluation in from the start.",
+        ],
+      },
+      {
+        heading: "Start early and get feedback",
+        paragraphs: [
+          "Early drafts get better feedback and lower stress. Wadhwa Institute mentors IAs across subjects, within academic integrity rules. Book a free consultation for structured guidance.",
+        ],
+      },
+    ],
+  },
 ];

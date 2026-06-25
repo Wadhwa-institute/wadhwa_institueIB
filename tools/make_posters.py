@@ -111,14 +111,24 @@ def watermark_logo(img, logo, size, opacity, center_y):
     img.alpha_composite(wm, ((W - lw) // 2, center_y - lh // 2))
 
 
+def header_scrim(img, h=210):
+    """Dark band behind the top header so logo + wordmark stay crisp over glow."""
+    band = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    bd = ImageDraw.Draw(band)
+    for y in range(h):
+        a = int(190 * (1 - y / h))
+        bd.line([(0, y), (W, y)], fill=(3, 3, 3, a))
+    img.alpha_composite(band)
+
+
 def place_logo(img, logo, height=88, xy=(56, 52)):
     lh = height
     lw = int(logo.width * (lh / logo.height))
     img.alpha_composite(logo.resize((lw, lh), Image.LANCZOS), xy)
     d = ImageDraw.Draw(img)
     tx = xy[0] + lw + 22
-    text_3d(d, (tx, xy[1] + 6), "WADHWA INSTITUTE", MONT_SB(30), WHITE, shadow=True)
-    d.text((tx, xy[1] + 48), "PREMIUM IB COACHING   ·   GURUGRAM", font=MONT(17), fill=GREEN)
+    text_3d(d, (tx, xy[1] + 6), "WADHWA INSTITUTE", MONT_SB(30), WHITE, shadow=True, stroke=1, stroke_fill=(0, 0, 0))
+    text_3d(d, (tx, xy[1] + 48), "PREMIUM IB COACHING   ·   GURUGRAM", MONT(18), GREEN, shadow=True)
 
 
 # ---------------------------------------------------------------------------
@@ -185,7 +195,8 @@ def pill(d, x, y, text, f, pad=(26, 14)):
     tw = d.textlength(text, font=f)
     h = f.size + pad[1] * 2
     bbox = [x, y, x + tw + pad[0] * 2, y + h]
-    d.rounded_rectangle(bbox, radius=999, fill=(8, 8, 8, 180), outline=GREEN, width=3)
+    # near-solid dark fill so the green label stays high contrast over any photo
+    d.rounded_rectangle(bbox, radius=999, fill=(6, 6, 6, 235), outline=GREEN, width=3)
     d.text((x + pad[0], y + (h - f.size) / 2 - 4), text, font=f, fill=GREEN)
     return bbox[2] - x
 
@@ -212,10 +223,11 @@ def wrap(d, text, f, max_w):
 def promo_poster(logo):
     img = base_canvas()
     watermark_logo(img, logo, 1000, 9, int(H * 0.52))
+    header_scrim(img, 230)
     place_logo(img, logo)
     d = ImageDraw.Draw(img)
 
-    d.text((60, 372), "BOOK A FREE CONSULTATION", font=MONT_SB(26), fill=GREEN)
+    text_3d(d, (60, 372), "BOOK A FREE CONSULTATION", MONT_SB(26), GREEN, shadow=True)
     text_3d(d, (56, 416), "SCORE YOUR", ANTON(150), WHITE, depth=6, depth_color=(40, 40, 40))
     text_3d(d, (56, 576), "PERFECT 7", ANTON(186), GREEN, depth=10, depth_color=GREEN_DARK)
 
@@ -256,6 +268,7 @@ def teacher_poster(logo, cut_file, name, role, subjects, line, out_name):
 
     left_panel(img, 0.60)
     bottom_grad(img, 440)
+    header_scrim(img, 230)
 
     place_logo(img, logo)
     d = ImageDraw.Draw(img)
@@ -278,11 +291,11 @@ def teacher_poster(logo, cut_file, name, role, subjects, line, out_name):
 
     text_3d(d, (x, name_y), name.upper(), name_f, WHITE, depth=7, depth_color=(35, 35, 35))
     role_y = name_y + name_f.size + 28
-    text_3d(d, (x + 4, role_y), role, role_f, GREEN, depth=0)
+    text_3d(d, (x + 4, role_y), role, role_f, GREEN, shadow=True, stroke=1, stroke_fill=(0, 0, 0))
     ly = role_y + 44 + 18
     for ln in line_wrapped:
-        text_3d(d, (x + 4, ly), ln, line_f, WHITE, depth=0)
-        ly += 44
+        text_3d(d, (x + 4, ly), ln, line_f, WHITE, shadow=True)
+        ly += 46
 
     # contact footer
     fy = block_bottom - 40
