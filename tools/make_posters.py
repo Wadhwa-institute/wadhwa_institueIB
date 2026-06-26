@@ -232,7 +232,7 @@ def teacher_poster(logo, cut_file, name, role, subjects, line, tagline, out_name
     text_s(d, (x + 2, role_y), role, role_f, GREEN)
     ly = line_y
     for ln in line_wrapped:
-        text_s(d, (x + 2, ly), ln, line_f, OFFWHITE)
+        text_s(d, (x + 2, ly), ln, line_f, (255, 255, 255), off=(2, 2))
         ly += 46
 
     d.line([x + 2, footer_y + 20, x + 68, footer_y + 20], fill=GREEN, width=7)
