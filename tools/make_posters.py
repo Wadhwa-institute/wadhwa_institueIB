@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """
-Generate premium, 3D-style, share-ready posters for Wadhwa Institute.
+Premium dark-theme posters for Wadhwa Institute.
 
-IMPORTANT — faces are never altered. The only operation on a teacher photo is
-background removal (rembg alpha matting, done earlier). This script only
-*composites* the existing cutout pixels onto a designed background and scales /
-crops them. No generative model touches the person.
+Faces are never altered. The only operation on a teacher photo is background
+removal (rembg, done earlier); this script composites the existing cutout pixels
+onto a designed background. No generative model touches the person.
 
-Run inside the venv:
-    . .venv-posters/bin/activate
-    python tools/make_posters.py
-Outputs 1080x1350 PNGs into public/assets/posters/.
+Design goals (from client feedback): clean dark theme, the real WI logo is
+prominent, and EVERY piece of text is high-contrast and legible (all copy sits
+on a solid dark panel, never floating over the photo).
+
+Run:  . .venv-posters/bin/activate && python tools/make_posters.py
+Output: 1080x1350 PNGs in public/assets/posters/.
 """
 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -18,50 +19,31 @@ import numpy as np
 import os
 
 W, H = 1080, 1350
-GREEN = (143, 240, 0)          # brighter, glossier green
-GREEN_DEEP = (70, 120, 0)
-GREEN_DARK = (28, 50, 0)
-BLACK = (4, 4, 4)
+GREEN = (143, 240, 0)
+GREEN_DEEP = (90, 150, 0)
+GREEN_DARK = (24, 44, 0)
+BASE = (7, 7, 7)
+PANEL = (10, 10, 10)
 WHITE = (255, 255, 255)
-DIM = (200, 205, 198)
+DIM = (205, 210, 200)
 
 FONTS = "/tmp/fonts"
 CUT = "/tmp/cutouts"
 OUT = "public/assets/posters"
 os.makedirs(OUT, exist_ok=True)
 
-
-def font(path, size):
-    return ImageFont.truetype(path, size)
-
-
-ANTON = lambda s: font(f"{FONTS}/Anton.ttf", s)
-MONT = lambda s: font(f"{FONTS}/Montserrat.ttf", s)
-MONT_SB = lambda s: font(f"{FONTS}/Montserrat.ttf", s)
+ANTON = lambda s: ImageFont.truetype(f"{FONTS}/Anton.ttf", s)
+OSWALD = lambda s: ImageFont.truetype(f"{FONTS}/Oswald.ttf", s)
+MONT = lambda s: ImageFont.truetype(f"{FONTS}/Montserrat.ttf", s)
 
 
-# ---------------------------------------------------------------------------
-# TEXT with 3D extrusion + shadow for legibility and depth
-# ---------------------------------------------------------------------------
-def text_3d(d, xy, text, f, fill, depth=0, depth_color=(0, 0, 0),
-            shadow=True, stroke=0, stroke_fill=(0, 0, 0)):
+def text_s(d, xy, text, f, fill, shadow=(0, 0, 0), off=(3, 3), anchor=None):
+    """Text with a hard drop shadow for guaranteed legibility."""
     x, y = xy
-    if shadow:
-        d.text((x + 4, y + 5), text, font=f, fill=(0, 0, 0))
-    # extrusion layers (down-right), darkening toward the back
-    for i in range(depth, 0, -1):
-        t = i / max(depth, 1)
-        c = tuple(int(depth_color[k] * (0.4 + 0.6 * t)) for k in range(3))
-        d.text((x + i, y + i), text, font=f, fill=c)
-    if stroke:
-        d.text((x, y), text, font=f, fill=fill, stroke_width=stroke, stroke_fill=stroke_fill)
-    else:
-        d.text((x, y), text, font=f, fill=fill)
+    d.text((x + off[0], y + off[1]), text, font=f, fill=shadow, anchor=anchor)
+    d.text((x, y), text, font=f, fill=fill, anchor=anchor)
 
 
-# ---------------------------------------------------------------------------
-# BACKGROUND
-# ---------------------------------------------------------------------------
 def radial(size, center, max_r, color, max_alpha, steps=30):
     layer = Image.new("RGBA", size, (0, 0, 0, 0))
     dr = ImageDraw.Draw(layer)
@@ -73,72 +55,42 @@ def radial(size, center, max_r, color, max_alpha, steps=30):
     return layer.filter(ImageFilter.GaussianBlur(60))
 
 
-def vignette(size, strength=150):
-    layer = Image.new("RGBA", size, (0, 0, 0, 0))
-    dr = ImageDraw.Draw(layer)
-    w, h = size
-    for i in range(40):
-        a = int(strength * (i / 40))
-        inset = int(i * 9)
-        dr.rectangle([inset, inset, w - inset, h - inset], outline=(0, 0, 0, a), width=10)
-    return layer.filter(ImageFilter.GaussianBlur(30))
-
-
 def base_canvas():
-    img = Image.new("RGBA", (W, H), BLACK + (255,))
-    # vertical tone: slightly green-tinted black top, deep black bottom
-    grad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    gd = ImageDraw.Draw(grad)
-    for y in range(H):
-        t = y / H
-        g = int(14 * (1 - t))
-        gd.line([(0, y), (W, y)], fill=(6, 10 + g, 6, 255))
-    img.alpha_composite(grad)
-    img.alpha_composite(radial((W, H), (int(W * 0.9), int(H * -0.04)), 900, GREEN, 70))
-    img.alpha_composite(radial((W, H), (int(W * 0.08), int(H * 1.02)), 760, GREEN, 42))
-    img.alpha_composite(vignette((W, H), 170))
+    img = Image.new("RGBA", (W, H), BASE + (255,))
+    img.alpha_composite(radial((W, H), (int(W * 0.9), int(H * -0.02)), 820, GREEN, 46))
     d = ImageDraw.Draw(img)
-    d.rounded_rectangle([16, 16, W - 16, H - 16], radius=30, outline=GREEN + (120,), width=3)
+    d.rounded_rectangle([16, 16, W - 16, H - 16], radius=28, outline=GREEN + (150,), width=3)
     return img
 
 
-def watermark_logo(img, logo, size, opacity, center_y):
-    lw = size
-    lh = int(logo.height * (lw / logo.width))
-    wm = logo.resize((lw, lh), Image.LANCZOS)
-    a = wm.split()[3].point(lambda p: int(p * opacity / 100))
-    wm.putalpha(a)
-    img.alpha_composite(wm, ((W - lw) // 2, center_y - lh // 2))
+def load_logo():
+    return Image.open(f"{CUT}/logo-mark.png").convert("RGBA")
 
 
-def header_scrim(img, h=210):
-    """Dark band behind the top header so logo + wordmark stay crisp over glow."""
-    band = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    bd = ImageDraw.Draw(band)
-    for y in range(h):
-        a = int(190 * (1 - y / h))
-        bd.line([(0, y), (W, y)], fill=(3, 3, 3, a))
-    img.alpha_composite(band)
+def top_brand_bar(img, logo):
+    """Solid dark top strip with the real logo + wordmark, always legible."""
+    bar_h = 200
+    strip = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(strip)
+    for y in range(bar_h):
+        a = int(235 * (1 - y / bar_h) ** 1.3)
+        sd.line([(0, y), (W, y)], fill=(4, 4, 4, a))
+    img.alpha_composite(strip)
 
-
-def place_logo(img, logo, height=88, xy=(56, 52)):
-    lh = height
+    lh = 100
     lw = int(logo.width * (lh / logo.height))
-    img.alpha_composite(logo.resize((lw, lh), Image.LANCZOS), xy)
+    img.alpha_composite(logo.resize((lw, lh), Image.LANCZOS), (56, 44))
     d = ImageDraw.Draw(img)
-    tx = xy[0] + lw + 22
-    text_3d(d, (tx, xy[1] + 6), "WADHWA INSTITUTE", MONT_SB(30), WHITE, shadow=True, stroke=1, stroke_fill=(0, 0, 0))
-    text_3d(d, (tx, xy[1] + 48), "PREMIUM IB COACHING   ·   GURUGRAM", MONT(18), GREEN, shadow=True)
+    tx = 56 + lw + 22
+    text_s(d, (tx, 52), "WADHWA INSTITUTE", OSWALD(40), WHITE, off=(2, 2))
+    d.text((tx, 104), "PREMIUM IB COACHING  ·  GURUGRAM", font=OSWALD(24), fill=GREEN)
+    return tx, 52
 
 
-# ---------------------------------------------------------------------------
-# PERSON: normalize by HEAD WIDTH so both teachers look equally sized
-# ---------------------------------------------------------------------------
 def head_metrics(cutout):
     a = np.array(cutout)[..., 3]
     ys, xs = np.where(a > 30)
-    top = ys.min()
-    h = ys.max() - top
+    top = ys.min(); h = ys.max() - top
     band = top + int(h * 0.10)
     row = np.where(a[band] > 30)[0]
     head_w = (row.max() - row.min()) if len(row) else cutout.width
@@ -146,65 +98,28 @@ def head_metrics(cutout):
     return top, head_w, head_cx
 
 
-def framed_person(cutout, target_head_w, target_head_top):
-    """Scale by head width, return (image, paste_x_anchor_for_headcx, paste_y)."""
-    top, head_w, head_cx = head_metrics(cutout)
-    scale = target_head_w / head_w
-    nw, nh = int(cutout.width * scale), int(cutout.height * scale)
-    person = cutout.resize((nw, nh), Image.LANCZOS)
-    new_top = int(top * scale)
-    new_cx = int(head_cx * scale)
-    return person, new_cx, new_top
-
-
 def green_rim(person):
     alpha = person.split()[3]
     halo = Image.new("RGBA", person.size, (0, 0, 0, 0))
-    solid = Image.new("RGBA", person.size, GREEN + (255,))
-    halo.paste(solid, (0, 0), alpha)
-    halo = halo.filter(ImageFilter.GaussianBlur(26))
-    halo.putalpha(halo.split()[3].point(lambda p: int(p * 0.6)))
+    halo.paste(Image.new("RGBA", person.size, GREEN + (255,)), (0, 0), alpha)
+    halo = halo.filter(ImageFilter.GaussianBlur(24))
+    halo.putalpha(halo.split()[3].point(lambda p: int(p * 0.55)))
     return halo
 
 
-def left_panel(img, width_frac=0.60):
-    panel = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    pd = ImageDraw.Draw(panel)
-    edge = int(W * width_frac)
-    for x in range(W):
-        if x < edge - 120:
-            a = 225
-        elif x < edge + 120:
-            a = int(225 * (1 - (x - (edge - 120)) / 240))
-        else:
-            a = 0
-        pd.line([(x, 0), (x, H)], fill=(3, 3, 3, max(a, 0)))
-    img.alpha_composite(panel)
-
-
-def bottom_grad(img, h=420):
-    grad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    gd = ImageDraw.Draw(grad)
-    for i in range(h):
-        a = int(235 * (i / h) ** 1.2)
-        gd.line([(0, H - h + i), (W, H - h + i)], fill=(3, 3, 3, a))
-    img.alpha_composite(grad)
-
-
-def pill(d, x, y, text, f, pad=(26, 14)):
+def chip(d, x, y, text, f, padx=26, pady=14):
     tw = d.textlength(text, font=f)
-    h = f.size + pad[1] * 2
-    bbox = [x, y, x + tw + pad[0] * 2, y + h]
-    # near-solid dark fill so the green label stays high contrast over any photo
-    d.rounded_rectangle(bbox, radius=999, fill=(6, 6, 6, 235), outline=GREEN, width=3)
-    d.text((x + pad[0], y + (h - f.size) / 2 - 4), text, font=f, fill=GREEN)
-    return bbox[2] - x
+    h = f.size + pady * 2
+    d.rounded_rectangle([x, y, x + tw + padx * 2, y + h], radius=999,
+                        fill=(6, 6, 6, 240), outline=GREEN, width=3)
+    d.text((x + padx, y + pady - 4), text, font=f, fill=GREEN)
+    return tw + padx * 2
 
 
 def chips(d, x, y, items, f, gap=14):
     cx = x
     for it in items:
-        cx += pill(d, cx, y, it, f) + gap
+        cx += chip(d, cx, y, it, f) + gap
 
 
 def wrap(d, text, f, max_w):
@@ -220,154 +135,134 @@ def wrap(d, text, f, max_w):
 
 
 # ---------------------------------------------------------------------------
-def promo_poster(logo):
-    img = base_canvas()
-    watermark_logo(img, logo, 1000, 9, int(H * 0.52))
-    header_scrim(img, 230)
-    place_logo(img, logo)
-    d = ImageDraw.Draw(img)
-
-    text_3d(d, (60, 372), "BOOK A FREE CONSULTATION", MONT_SB(26), GREEN, shadow=True)
-    text_3d(d, (56, 416), "SCORE YOUR", ANTON(150), WHITE, depth=6, depth_color=(40, 40, 40))
-    text_3d(d, (56, 576), "PERFECT 7", ANTON(186), GREEN, depth=10, depth_color=GREEN_DARK)
-
-    text_3d(d, (62, 812), "Mentor led IB tuition.", MONT(42), WHITE, depth=0)
-    d.text((62, 868), "Online and in person, across Gurugram.", font=MONT(34), fill=DIM)
-
-    chips(d, 62, 1052, ["English", "French", "Business", "Economics", "Maths AA / AI"], MONT_SB(24))
-
-    d.line([62, 1196, 124, 1196], fill=GREEN, width=7)
-    text_3d(d, (144, 1170), "+91 8010436968", ANTON(48), WHITE, depth=4, depth_color=(30, 30, 30))
-    d.text((144, 1230), "wadhwa-institue-ib.com", font=MONT(28), fill=GREEN)
-
-    img.convert("RGB").save(f"{OUT}/promo.png")
-    print("promo.png")
-
-
 def teacher_poster(logo, cut_file, name, role, subjects, line, out_name):
     img = base_canvas()
-    watermark_logo(img, logo, 720, 8, int(H * 0.30))
 
+    # photo, normalized by head width, bleeding from the right
     cutout = Image.open(cut_file).convert("RGBA")
-    # Normalize both teachers to the same head width -> equal visual size.
-    TARGET_HEAD_W = 280
-    person, head_cx, head_top = framed_person(cutout, TARGET_HEAD_W, 0)
-
-    # Anchor: head horizontal center sits at ~75% of width; eyes at ~40% of height
-    # (gives headroom below the chips so the hair never touches them).
-    anchor_x = int(W * 0.75)
+    TARGET_HEAD_W = 300
+    top, head_w, head_cx = head_metrics(cutout)
+    scale = TARGET_HEAD_W / head_w
+    person = cutout.resize((int(cutout.width * scale), int(cutout.height * scale)), Image.LANCZOS)
+    head_cx_s = int(head_cx * scale); head_top_s = int(top * scale)
+    anchor_x = int(W * 0.72)
     eyes_from_top = int(H * 0.40)
-    eyes_in_person = head_top + int(TARGET_HEAD_W * 0.62)  # eyes ~0.62*headwidth below hairline
-    px = anchor_x - head_cx
-    py = eyes_from_top - eyes_in_person
-    # keep person bleeding off bottom
-    py = min(py, H - person.height + 40) if person.height + py < H else py
-
+    eyes_in = head_top_s + int(TARGET_HEAD_W * 0.62)
+    px = anchor_x - head_cx_s
+    py = eyes_from_top - eyes_in
     img.alpha_composite(green_rim(person), (px, py))
     img.alpha_composite(person, (px, py))
 
-    left_panel(img, 0.60)
-    bottom_grad(img, 440)
-    header_scrim(img, 230)
+    # SOLID lower panel so all text is legible (the key fix). Starts higher and
+    # is fully opaque under the text so nothing competes with the photo.
+    panel_top = 760
+    panel = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    pd = ImageDraw.Draw(panel)
+    feather = 130
+    for y in range(panel_top, H):
+        if y < panel_top + feather:
+            a = int(252 * (y - panel_top) / feather)
+        else:
+            a = 252
+        pd.line([(0, y), (W, y)], fill=(8, 8, 8, a))
+    img.alpha_composite(panel)
 
-    place_logo(img, logo)
+    top_brand_bar(img, logo)
     d = ImageDraw.Draw(img)
 
-    # subject chips under the logo
-    chips(d, 58, 196, subjects, MONT_SB(24))
+    # Lay the text block out bottom-up so the pitch never collides with the footer.
+    x = 60
+    name_f, role_f, line_f = ANTON(100), OSWALD(34), MONT(30)
+    line_wrapped = wrap(d, line, line_f, 640)
 
-    # ---- lower-left text block with proper vertical rhythm ----
-    x = 56
-    name_f = ANTON(108)
-    role_f = MONT_SB(34)
-    line_f = MONT(31)
-
-    line_wrapped = wrap(d, line, line_f, 600)
-    # compute block height from the bottom up
-    contact_h = 110
-    block_bottom = H - 70
+    footer_y = H - 120          # phone + site
     line_block_h = len(line_wrapped) * 44
-    name_y = block_bottom - contact_h - 24 - line_block_h - 24 - 44 - 24 - name_f.size
+    line_y = footer_y - 36 - line_block_h
+    role_y = line_y - 56
+    name_y = role_y - name_f.size - 6
+    chips_y = name_y - 78
 
-    text_3d(d, (x, name_y), name.upper(), name_f, WHITE, depth=7, depth_color=(35, 35, 35))
-    role_y = name_y + name_f.size + 28
-    text_3d(d, (x + 4, role_y), role, role_f, GREEN, shadow=True, stroke=1, stroke_fill=(0, 0, 0))
-    ly = role_y + 44 + 18
+    chips(d, x, chips_y, subjects, OSWALD(26))
+    text_s(d, (x, name_y), name.upper(), name_f, WHITE, off=(4, 4))
+    text_s(d, (x + 2, role_y), role, role_f, GREEN, off=(2, 2))
+    ly = line_y
     for ln in line_wrapped:
-        text_3d(d, (x + 4, ly), ln, line_f, WHITE, shadow=True)
-        ly += 46
+        text_s(d, (x + 2, ly), ln, line_f, WHITE, off=(2, 2))
+        ly += 44
 
-    # contact footer
-    fy = block_bottom - 40
-    d.line([x + 4, fy + 18, x + 64, fy + 18], fill=GREEN, width=7)
-    text_3d(d, (x + 84, fy - 8), "+91 8010436968", ANTON(40), WHITE, depth=3, depth_color=(30, 30, 30))
-    d.text((x + 84, fy + 40), "wadhwa-institue-ib.com", font=MONT(24), fill=GREEN)
+    d.line([x + 2, footer_y + 20, x + 70, footer_y + 20], fill=GREEN, width=7)
+    text_s(d, (x + 92, footer_y - 6), "+91 8010436968", ANTON(42), WHITE, off=(2, 2))
+    d.text((x + 92, footer_y + 50), "wadhwa-institue-ib.com", font=OSWALD(26), fill=GREEN)
 
     img.convert("RGB").save(f"{OUT}/{out_name}")
     print(out_name)
 
 
-def center_logo(img, logo, height, top):
-    lh = height
-    lw = int(logo.width * (lh / logo.height))
-    img.alpha_composite(logo.resize((lw, lh), Image.LANCZOS), ((W - lw) // 2, top))
-    return top + lh
+def promo_poster(logo):
+    img = base_canvas()
+    img.alpha_composite(radial((W, H), (int(W * 0.1), int(H * 1.02)), 700, GREEN, 30))
+    top_brand_bar(img, logo)
+    d = ImageDraw.Draw(img)
 
+    d.text((60, 360), "BOOK A FREE CONSULTATION", font=OSWALD(30), fill=GREEN)
+    text_s(d, (56, 410), "SCORE YOUR", ANTON(150), WHITE, off=(5, 5))
+    text_s(d, (56, 572), "PERFECT 7", ANTON(190), GREEN, off=(5, 5))
 
-def ctext(d, cy, text, f, fill, **kw):
-    tw = d.textlength(text, font=f)
-    text_3d(d, ((W - tw) // 2, cy), text, f, fill, **kw)
+    text_s(d, (62, 820), "Mentor led IB tuition.", OSWALD(44), WHITE, off=(2, 2))
+    d.text((62, 880), "Online and in person, across Gurugram.", font=OSWALD(34), fill=DIM)
+
+    chips(d, 62, 1040, ["English", "French", "Business", "Economics", "Maths AA / AI"], OSWALD(26))
+
+    fy = 1190
+    d.line([62, fy + 20, 130, fy + 20], fill=GREEN, width=7)
+    text_s(d, (150, fy - 6), "+91 8010436968", ANTON(48), WHITE, off=(2, 2))
+    d.text((150, fy + 52), "wadhwa-institue-ib.com", font=OSWALD(28), fill=GREEN)
+
+    img.convert("RGB").save(f"{OUT}/promo.png")
+    print("promo.png")
 
 
 def quote_poster(logo):
-    img = Image.new("RGBA", (W, H), BLACK + (255,))
-    # vertical tone + soft centered glow (kept gentle so edges stay clean)
-    grad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    gd = ImageDraw.Draw(grad)
-    for y in range(H):
-        g = int(12 * (1 - y / H))
-        gd.line([(0, y), (W, y)], fill=(6, 10 + g, 6, 255))
-    img.alpha_composite(grad)
-    img.alpha_composite(radial((W, H), (W // 2, int(H * 0.40)), 760, GREEN, 34))
-    img.alpha_composite(vignette((W, H), 180))
-    ImageDraw.Draw(img).rounded_rectangle([16, 16, W - 16, H - 16], radius=30, outline=GREEN + (120,), width=3)
+    img = base_canvas()
+    img.alpha_composite(radial((W, H), (W // 2, int(H * 0.42)), 760, GREEN, 30))
 
-    # The perfect logo, large and centered, with a soft glow halo behind it.
-    lw = 330
+    lw = 340
     lh = int(logo.height * (lw / logo.width))
     big = logo.resize((lw, lh), Image.LANCZOS)
-    glow_src = Image.new("RGBA", big.size, GREEN + (0,))
-    glow_src.paste(Image.new("RGBA", big.size, GREEN + (255,)), (0, 0), big.split()[3])
-    glow_src = glow_src.filter(ImageFilter.GaussianBlur(30))
-    glow_src.putalpha(glow_src.split()[3].point(lambda p: int(p * 0.45)))
-    logo_top = 130
-    img.alpha_composite(glow_src, ((W - lw) // 2, logo_top))
+    halo = Image.new("RGBA", big.size, (0, 0, 0, 0))
+    halo.paste(Image.new("RGBA", big.size, GREEN + (255,)), (0, 0), big.split()[3])
+    halo = halo.filter(ImageFilter.GaussianBlur(30))
+    halo.putalpha(halo.split()[3].point(lambda p: int(p * 0.4)))
+    logo_top = 150
+    img.alpha_composite(halo, ((W - lw) // 2, logo_top))
     img.alpha_composite(big, ((W - lw) // 2, logo_top))
 
     d = ImageDraw.Draw(img)
-    ctext(d, logo_top + lh + 26, "WADHWA INSTITUTE", MONT_SB(34), WHITE, shadow=True, stroke=1, stroke_fill=(0, 0, 0))
-    ctext(d, logo_top + lh + 80, "PREMIUM IB COACHING   ·   GURUGRAM", MONT(20), GREEN, shadow=True)
+    def ctext(cy, text, f, fill, off=(2, 2)):
+        tw = d.textlength(text, font=f)
+        text_s(d, ((W - tw) // 2, cy), text, f, fill, off=off)
 
-    # quote, centered, large, with big quotation mark
-    ctext(d, 690, "“", ANTON(150), GREEN, depth=6, depth_color=GREEN_DARK)
-    qf = ANTON(76)
+    ctext(logo_top + lh + 28, "WADHWA INSTITUTE", OSWALD(40), WHITE)
+    ctext(logo_top + lh + 84, "PREMIUM IB COACHING  ·  GURUGRAM", OSWALD(24), GREEN)
+
+    ctext(690, '"', ANTON(150), GREEN, off=(4, 4))
+    qf = ANTON(78)
     lines = ["EXCELLENCE MUST", "BE CHASED,", "SCORES AND GOOD", "FORTUNE WILL FOLLOW."]
-    qy = 828
+    qy = 838
     for i, ln in enumerate(lines):
-        color = GREEN if i >= 2 else WHITE
-        ctext(d, qy, ln, qf, color, depth=5, depth_color=(30, 30, 30) if color == WHITE else GREEN_DARK)
+        ctext(qy, ln, qf, GREEN if i >= 2 else WHITE, off=(4, 4))
         qy += 94
 
-    qy += 24
-    d.line([(W // 2 - 44, qy), (W // 2 + 44, qy)], fill=GREEN, width=6)
-    ctext(d, qy + 26, "wadhwa-institue-ib.com", MONT(28), DIM)
+    qy += 26
+    d.line([(W // 2 - 46, qy), (W // 2 + 46, qy)], fill=GREEN, width=6)
+    ctext(qy + 26, "wadhwa-institue-ib.com", OSWALD(30), DIM)
 
     img.convert("RGB").save(f"{OUT}/quote.png")
     print("quote.png")
 
 
 def main():
-    logo = Image.open(f"{CUT}/logo-mark.png").convert("RGBA")
+    logo = load_logo()
     quote_poster(logo)
     promo_poster(logo)
     teacher_poster(
