@@ -1,146 +1,253 @@
-# Wadhwa Institute — SEO Keyword List (100+)
+# Wadhwa Institute — SEO Keyword Bank
 
-Search terms prospective students/parents are likely to type. Use these for:
-- **Google Search Console** (track which you rank for)
-- **Google Ads / Meta Ads** campaigns
-- **Page copy, headings, and blog posts** (use naturally — don't keyword-stuff)
-- Picking the few most relevant terms for each page's title/description
+Comprehensive target-search list for Wadhwa Institute (premium IB coaching, Sector 55,
+Gurugram). Use these for on-page copy, blog topics, landing pages, Google/Meta ad
+targeting, and directory listings. Grouped by intent. Deduplicated.
 
-> Tip: the highest-intent terms combine **subject + level + location** (e.g. "IB Economics HL tutor Gurgaon").
+> Spelling note: target BOTH "Gurugram" (official) and "Gurgaon" (common). Cover HL/SL,
+> AA/AI, and Ab Initio/B/A variants everywhere.
 
 ---
 
-## Branded
-1. Wadhwa Institute
-2. Wadhwa Institute Gurugram
-3. Wadhwa Institute Gurgaon
-4. Wadhwa Institute IB
-5. Wadhwa Institute Sector 55
-6. Wadhwa IB coaching
-7. Wadhwa Institute reviews
-8. Wadhwa Institute IB results
+## 0. Brand & brand disambiguation (own "Wadhwa Institute")
 
-## Core IB coaching (general)
-9. IB coaching
-10. IB tuition
-11. IB tutor
-12. IB tutors
-13. IB classes
-14. IB home tuition
-15. IB online coaching
-16. IB online tutor
-17. IB Diploma Programme coaching
-18. IB DP tuition
-19. IB MYP tuition
-20. IB exam preparation
-21. IB crash course
-22. IB revision classes
-23. IB one-on-one tutor
-24. IB private tutor
+Several unrelated "Wadhwa" education brands exist in India. We must own our exact brand
+and separate ourselves from them in search. Target:
 
-## Location (Gurugram / Gurgaon / NCR)
-25. IB coaching in Gurugram
-26. IB coaching in Gurgaon
-27. IB tuition in Gurugram
-28. IB tutor in Gurgaon
-29. IB classes in Gurugram
-30. best IB coaching in Gurugram
-31. best IB tuition in Gurgaon
-32. top IB tutors in Gurgaon
-33. IB coaching near me
-34. IB tuition near me
-35. IB tutor Sector 55 Gurugram
-36. IB coaching Sushant Lok
-37. IB tuition DLF Phase Gurgaon
-38. IB coaching Sohna Road
-39. IB tutor Golf Course Road
-40. IB classes South City Gurgaon
-41. IB coaching Cyber City Gurgaon
-42. IB tuition Palam Vihar
-43. IB tutor Nirvana Country
-44. IB coaching Sector 56 Gurgaon
-45. IB tuition Delhi NCR
+- Wadhwa Institute
+- Wadhwa Institute IB
+- Wadhwa Institute Gurugram
+- Wadhwa Institute Gurgaon
+- Wadhwa Institute Sector 55
+- Wadhwa IB coaching
+- Wadhwa IB tuition
+- Wadhwa Institute reviews
+- Wadhwa Institute fees
+- Wadhwa Institute contact
+- Wadhwa Institute Sushant Lok
+- Wadhwa IB classes Gurugram
 
-## IB Economics
-46. IB Economics tutor
-47. IB Economics tuition
-48. IB Economics HL tutor
-49. IB Economics SL coaching
-50. IB Economics Paper 3 help
-51. IB Economics IA help
-52. IB Economics coaching Gurgaon
-53. IB Economics online tutor
-54. IB Economics evaluation help
-55. IB Economics past papers
+Unrelated "Wadhwa" education entities (NOT us — listed so we word our brand distinctly
+and never target their terms):
+- Wadhwa Career Institute (Faridkot / Sri Muktsar Sahib — NEET/JEE/NDA coaching)
+- Wadhwa Classes (Rohini / Noida — commerce, CPT, accounts)
+- Udit Wadhwa Classes (Muzaffarnagar)
+- Vikas Wadhwa Classes (New Delhi — BBA/commerce)
+- Mohit Wadhwa Classes (Kaithal)
+- Wadhwani Foundation / Wadhwani Skilling (skilling non-profit)
+- Shreya Wadhwa (independent IGCSE/IB visual-arts educator)
+- Sonali Wadhwa (independent IB Biology tutor)
 
-## IB Business Management
-56. IB Business Management tutor
-57. IB Business Management tuition
-58. IB Business Management HL coaching
-59. IB Business Management IA help
-60. IB Business Management case study help
-61. IB Business Management Paper 1
-62. IB Business Management online tutor
-63. IB BM tutor Gurgaon
-64. IB Business and Management coaching
+---
 
-## IB Mathematics
-65. IB Maths tutor
-66. IB Mathematics tuition
-67. IB Math AA tutor
-68. IB Math AI tutor
-69. IB Maths AA HL coaching
-70. IB Maths AI SL tutor
-71. IB Math exploration IA help
-72. IB Maths GDC help
-73. IB Maths online tutor Gurgaon
-74. IB Maths past paper practice
+## 1. Core local head terms (highest priority)
 
-## IB English
-75. IB English tutor
-76. IB English tuition
-77. IB English HL coaching
-78. IB English Language and Literature tutor
-79. IB English Literature tutor
-80. IB English Paper 1 analysis help
-81. IB English Paper 2 essay help
-82. IB English individual oral (IO) help
-83. IB English B tutor
+- IB coaching Gurugram
+- IB coaching Gurgaon
+- IB coaching in Gurugram
+- IB coaching in Gurgaon
+- best IB coaching Gurugram
+- best IB coaching in Gurgaon
+- IB tuition Gurugram
+- IB tuition Gurgaon
+- IB tutor Gurugram
+- IB tutor Gurgaon
+- IB home tutor Gurgaon
+- IB home tutor Gurugram
+- IB online tutor Gurgaon
+- IB classes Gurugram
+- IB classes Gurgaon
+- IB coaching Sector 55
+- IB tutor Sector 55
+- IB coaching Sushant Lok
+- IB tuition DLF Gurgaon
+- IB tutor Golf Course Road
+- IB coaching South City Gurgaon
+- IB coaching Sohna Road
+- IB tuition Delhi NCR
+- IB tutor near me
+- IB coaching near me
+- IB classes near me
+- IB Diploma coaching Gurugram
+- IB DP tutor Gurgaon
 
-## IB French
-84. IB French tutor
-85. IB French tuition
-86. IB French B tutor
-87. IB French SL coaching
-88. IB French ab initio tutor
-89. IB French oral exam preparation
-90. IB French online classes
-91. IB French tutor Gurgaon
+## 2. Subject: Economics
 
-## IB components & high-intent
-92. IB Internal Assessment help
-93. IB IA help
-94. IB Extended Essay help
-95. IB EE guidance
-96. IB TOK essay help
-97. IB Theory of Knowledge tutor
-98. IB predicted grade improvement
-99. how to score 7 in IB
-100. IB retake coaching
-101. IB mock exam preparation
-102. IB past papers practice
-103. IB grade 7 strategy
-104. IB last-minute revision
-105. IB assignment help
+- IB Economics tutor
+- IB Economics tutor Gurgaon
+- IB Economics tuition Gurugram
+- IB Economics home tutor Gurgaon
+- IB Economics coaching
+- IB Economics HL tutor
+- IB Economics SL tutor
+- IB Economics Paper 1 help
+- IB Economics Paper 3 tutor
+- IB Economics IA help
+- IB Economics commentary help
+- how to score 7 in IB Economics
+- IB Economics HL vs SL
+- IB Economics evaluation technique
+- IB micro macro economics tutor
 
-## School-targeted (nearby IB schools)
-106. Pathways School Gurgaon IB tuition
-107. Pathways Aravali IB coaching
-108. Heritage Xperiential IB tutor
-109. Scottish High International IB tuition
-110. GD Goenka World School IB coaching
-111. Lancers International School IB tutor
-112. The Shri Ram School IB tuition
-113. Excelsior American School IB coaching
-114. DPS International Edge IB tuition
-115. IB schools Gurgaon tuition
+## 3. Subject: Business Management
+
+- IB Business Management tutor
+- IB Business Management tutor Gurgaon
+- IB Business Management tuition Gurugram
+- IB Business Management home tutor
+- IB Business Management coaching
+- IB Business Management HL tutor
+- IB Business Management SL tutor
+- IB Business Management IA help
+- IB Business Management case study help
+- IB Business Management Paper 1 tutor
+- IB BM tutor Gurgaon
+- IB business studies tutor
+
+## 4. Subject: Mathematics (AA & AI)
+
+- IB Maths tutor
+- IB Maths tutor Gurgaon
+- IB Maths tuition Gurugram
+- IB Maths home tutor Gurgaon
+- IB Mathematics tutor
+- IB Maths AA tutor
+- IB Maths AI tutor
+- IB Maths AA SL tutor
+- IB Maths AI SL tutor
+- IB Maths AA HL tutor
+- IB Maths AI HL tutor
+- Maths AA vs AI
+- IB Maths Analysis and Approaches tutor
+- IB Maths Applications and Interpretation tutor
+- IB Maths Exploration IA help
+- IB Maths GDC help
+- IB Maths past papers practice
+- IB Maths SL tutor Gurgaon
+
+## 5. Subject: English
+
+- IB English tutor
+- IB English tutor Gurgaon
+- IB English tuition Gurugram
+- IB English home tutor
+- IB English Language and Literature tutor
+- IB English Literature tutor
+- IB English Paper 1 unseen analysis
+- IB English Paper 2 comparative essay
+- IB English Individual Oral help
+- IB English HL essay help
+- IB English SL tutor
+- IB English HL tutor
+
+## 6. Subject: French
+
+- IB French tutor
+- IB French tutor Gurgaon
+- IB French tuition Gurugram
+- IB French home tutor
+- IB French Ab Initio tutor
+- IB French B tutor
+- IB French B SL tutor
+- IB French A tutor
+- IB French oral practice
+- IB French individual oral tutor
+- IB French writing help
+- learn French Gurgaon IB
+- IB French SL tutor
+- IB French HL tutor
+
+## 7. IB tasks, core & assessment
+
+- IB Internal Assessment help
+- IB IA help Gurgaon
+- IB Extended Essay help
+- IB Extended Essay guidance
+- IB TOK essay help
+- IB TOK exhibition help
+- IB Theory of Knowledge tutor
+- IB Exploration help Maths
+- IB past papers practice
+- IB predicted grades help
+- IB mock exam preparation
+- IB retake coaching
+- IB re-mark enquiry upon results
+- IB individual oral preparation
+- IB command terms guide
+- IB mark scheme guidance
+- IB exam strategy
+- IB revision classes Gurgaon
+- IB CAS guidance
+
+## 8. Program / curriculum terms
+
+- IB DP coaching
+- IB Diploma Programme tuition
+- IB MYP tutor Gurgaon
+- IGCSE to IB transition tutor
+- IGCSE IB coaching Gurgaon
+- IB HL SL coaching
+- IB standard level tuition
+- IB higher level tuition
+- IB one to one tuition
+- IB one on one tutor
+- IB small group coaching
+- IB crash course Gurgaon
+- IB Year 1 tutor
+- IB Year 2 tutor
+
+## 9. Online / mode / audience
+
+- IB online classes India
+- IB online tuition India
+- IB online tutor India
+- live IB classes online
+- IB tutor online Delhi NCR
+- IB tuition for CBSE switchers
+- IB coaching for beginners
+- affordable IB tuition Gurgaon
+- premium IB coaching Gurugram
+- experienced IB tutors Gurgaon
+- IB tutors with results
+- IB coaching with free consultation
+
+## 10. Outcome / aspiration
+
+- score 7 in IB
+- how to score 7 in IB
+- how to get a 7 in IB
+- improve IB grade
+- IB grade 7 coaching
+- perfect 7 IB Gurgaon
+- IB university preparation
+- IB high scorers Gurgaon
+
+## 11. Long-tail questions (blog + FAQ targets)
+
+- how to choose IB subjects
+- which IB Maths should I take AA or AI
+- is IB harder than CBSE
+- IB vs CBSE which is better
+- how is the IB graded
+- how to write a 7 scoring IB IA
+- how to prepare for IB final exams
+- best IB coaching centre near Sector 55 Gurugram
+- how much does IB tuition cost in Gurgaon
+- how to improve IB predicted grades
+- time management tips for IB students
+- how to pick an IB coaching centre in Gurugram
+
+---
+
+## Location modifiers (combine with any subject term)
+
+Sector 55, Sushant Lok, Sushant Lok II, DLF Phase 1, DLF Phase 2, DLF Phase 3,
+DLF Phase 4, DLF Phase 5, Golf Course Road, Golf Course Extension, Sohna Road,
+South City 1, South City 2, Cyber City, Palam Vihar, Nirvana Country, Sector 56,
+Sector 54, MG Road Gurgaon, Gurgaon, Gurugram, Delhi NCR, Delhi.
+
+## Intent modifiers (combine with any subject term)
+
+tutor, home tutor, online tutor, tuition, classes, coaching, coaching centre,
+one to one, one on one, private tutor, near me, best, top, experienced, fees,
+cost, HL, SL, AA, AI, Ab Initio, IA help, past papers, revision, crash course.

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getLanding, landings } from "@/lib/landings";
+import { getLanding, landingKeywords, landings } from "@/lib/landings";
 import { siteContact, siteUrl, subjects } from "@/lib/site-data";
 
 type Params = { landing: string };
@@ -23,6 +23,7 @@ export async function generateMetadata({
   return {
     title: landing.metaTitle,
     description: landing.metaDescription,
+    keywords: landingKeywords(landing),
     alternates: { canonical: `/${landing.slug}` },
     openGraph: {
       title: `${landing.metaTitle} | Wadhwa Institute`,
