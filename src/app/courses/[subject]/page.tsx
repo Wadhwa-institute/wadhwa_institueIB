@@ -19,9 +19,22 @@ export async function generateMetadata({
     return { title: "Subject not found" };
   }
 
+  // Per-subject keywords (relevant to THIS subject only, plus shared locale terms).
+  const subjectKeywords = [
+    `${currentSubject.name} tutor`,
+    `${currentSubject.name} tutor Gurgaon`,
+    `${currentSubject.name} tuition Gurugram`,
+    `${currentSubject.name} home tutor`,
+    `${currentSubject.name} HL SL`,
+    "IB coaching Gurugram",
+    "IB tutor near me",
+    "Wadhwa Institute",
+  ];
+
   return {
     title: `${currentSubject.name} Coaching`,
     description: currentSubject.description,
+    keywords: subjectKeywords,
     alternates: { canonical: `/courses/${currentSubject.slug}` },
     openGraph: {
       title: `${currentSubject.name} Coaching | Wadhwa Institute`,

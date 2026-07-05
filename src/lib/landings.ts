@@ -27,7 +27,26 @@ export type Landing = {
   relatedSubjects?: string[];
   /** Service.serviceType for JSON-LD */
   serviceType: string;
+  /** Optional explicit meta keywords; if omitted, derived from the h1 + locale. */
+  keywords?: string[];
 };
+
+// Locale terms every local landing shares. Combined with the page's own h1 to
+// produce a small, RELEVANT keyword set per page (never a global stuffed blob).
+const LOCALE_KEYWORDS = [
+  "IB coaching Gurugram",
+  "IB coaching Gurgaon",
+  "IB tutor Gurgaon",
+  "IB home tutor Gurgaon",
+  "IB tutor near me",
+  "IB coaching Sector 55",
+  "Wadhwa Institute",
+];
+
+export function landingKeywords(l: Landing): string[] {
+  if (l.keywords && l.keywords.length) return l.keywords;
+  return [l.h1, ...LOCALE_KEYWORDS];
+}
 
 const AREAS =
   "Sector 55, Sushant Lok, DLF Phases 1–5, Golf Course Road, Sohna Road, South City, Cyber City and across Delhi NCR";
