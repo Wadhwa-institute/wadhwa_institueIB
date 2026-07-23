@@ -20,6 +20,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/contact`, lastModified, changeFrequency: "yearly", priority: 0.7 },
     { url: `${siteUrl}/app`, lastModified, changeFrequency: "monthly", priority: 0.6 },
     { url: `${siteUrl}/privacy-policy`, lastModified, changeFrequency: "yearly", priority: 0.3 },
+    // App-specific legal pages, linked from inside the iOS app (App Store requires
+    // a publicly reachable privacy policy).
+    { url: `${siteUrl}/privacy`, lastModified, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${siteUrl}/terms`, lastModified, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const subjectRoutes: MetadataRoute.Sitemap = subjects.map((subject) => ({
