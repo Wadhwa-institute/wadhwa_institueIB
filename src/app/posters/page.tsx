@@ -15,6 +15,12 @@ const posters = [
     file: "wadhwa-institute-promo.png",
   },
   {
+    title: "Bhavya Wadhwa, Founder",
+    note: "Founder who teaches IB Economics and Business Management, HL and SL.",
+    src: "/assets/posters/founder.png",
+    file: "wadhwa-institute-founder.png",
+  },
+  {
     title: "Excellence Quote",
     note: "“Excellence must be chased, scores and good fortune will follow.”",
     src: "/assets/posters/quote.png",
