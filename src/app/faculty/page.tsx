@@ -5,7 +5,7 @@ import { siteContact, siteUrl, teachers } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "Our IB Faculty — Meet Your Mentors",
   description:
-    "Meet the mentors behind Wadhwa Institute — an IB Mathematics specialist (AA SL & AI SL) and a French teacher with 15+ years of IB experience. Mentor-led IB coaching in Gurugram.",
+    "Meet the team behind Wadhwa Institute — founder Bhavya Wadhwa (Economics Hons, B.Ed, University of Delhi), an IB Mathematics specialist (AA SL & AI SL), and an IB French teacher with 15+ years of experience. Mentor-led IB coaching in Gurugram.",
   alternates: { canonical: "/faculty" },
   openGraph: {
     title: "Our IB Faculty | Wadhwa Institute",
@@ -18,6 +18,15 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "Person",
+      name: "Bhavya Wadhwa",
+      jobTitle: "Founder & Mentor",
+      image: `${siteUrl}/assets/founder.jpg`,
+      worksFor: { "@id": `${siteUrl}/#organization` },
+      alumniOf: { "@type": "CollegeOrUniversity", name: "University of Delhi" },
+      knowsAbout: ["IB Economics", "IB Diploma Programme", "teaching", "mentoring"],
+    },
     ...teachers.map((t) => ({
       "@type": "Person",
       name: t.name,
@@ -61,6 +70,74 @@ export default function FacultyPage() {
             specialist mentor who knows the IB syllabus, knows the examiner, and learns how
             <em> you</em> think — then builds the plan around it.
           </p>
+        </div>
+      </section>
+
+      {/* FOUNDER */}
+      <section
+        id="founder"
+        className="reveal relative scroll-mt-24 overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)]"
+      >
+        <div className="grid gap-0 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          {/* PHOTO */}
+          <div className="relative min-h-[380px] overflow-hidden bg-[var(--black-3)] sm:min-h-[480px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/founder.jpg"
+              alt="Bhavya Wadhwa, Founder of Wadhwa Institute"
+              className="h-full w-full object-cover object-top"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--black-2)] via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4 rounded-2xl border border-[var(--green)] bg-[var(--black)]/80 px-4 py-2 backdrop-blur">
+              <p className="font-display text-2xl leading-none text-[var(--green)]">DU</p>
+              <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[var(--white-dim)]">
+                Economics Hons · B.Ed
+              </p>
+            </div>
+          </div>
+
+          {/* TEXT */}
+          <div className="space-y-5 p-6 sm:p-10">
+            <p className="eyebrow">Founder &amp; mentor</p>
+            <h2 className="font-display text-4xl uppercase leading-none text-[var(--white)] sm:text-5xl">
+              Bhavya Wadhwa
+            </h2>
+            <p className="font-serif-italic text-xl text-[var(--green)]">
+              Where a good teacher makes all the difference
+            </p>
+            <p className="text-[14px] leading-8 text-[var(--white-dim)]">
+              Wadhwa Institute began with one belief of Bhavya Wadhwa: that the right teacher can
+              change how a student sees a subject, and their score. He holds an Economics Honours
+              degree and a B.Ed from the University of Delhi, and he has spent years turning that
+              training into results students can feel.
+            </p>
+            <p className="text-[14px] leading-8 text-[var(--white-dim)]">
+              Students describe Bhavya as sharp, patient, and genuinely easy to talk to. He
+              explains hard ideas simply, keeps the room engaged, and treats every learner as
+              capable of a 7. That standard runs through everyone who now teaches here.
+            </p>
+            <ul className="grid gap-2 pt-1 sm:grid-cols-2">
+              {[
+                "Economics Honours, University of Delhi",
+                "B.Ed, University of Delhi",
+                "Clear, patient, student-first teaching",
+                "Set the standard the whole team follows",
+              ].map((h) => (
+                <li key={h} className="flex gap-3 text-[13px] leading-6 text-[var(--white)]">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--green)]" />
+                  {h}
+                </li>
+              ))}
+            </ul>
+            <div className="pt-2">
+              <Link
+                href="/contact"
+                className="btn-primary inline-flex rounded-full px-6 py-3 text-xs uppercase tracking-[0.2em]"
+              >
+                Talk to us
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
