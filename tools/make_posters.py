@@ -302,6 +302,14 @@ def main():
     quote_poster(logo)
     promo_poster(logo)
     teacher_poster(
+        logo, f"{CUT}/founder-cutout.png",
+        "Bhavya Wadhwa", "Founder  ·  IB Economics & Business Management",
+        ["Economics HL / SL", "Business Mgmt HL / SL"],
+        "Teaches Economics and Business Management at HL and SL, with a masters in Economics from Delhi University.",
+        "Founder. Economist. Teacher.",
+        "founder.png",
+    )
+    teacher_poster(
         logo, f"{CUT}/teacher-maths-cutout.png",
         "Harshika Lakhina", "IB Mathematics  ·  AA SL & AI SL",
         ["Maths AA SL", "Maths AI SL"],

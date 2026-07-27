@@ -113,6 +113,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------------- FOUNDER ---------------- */}
+      <section className="reveal relative overflow-hidden rounded-[28px] border border-[var(--white-faint)] bg-[var(--black-2)]">
+        <div className="grid gap-0 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <div className="relative min-h-[320px] overflow-hidden bg-[var(--black-3)] sm:min-h-[400px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/founder.jpg"
+              alt="Bhavya Wadhwa, Founder of Wadhwa Institute"
+              className="h-full w-full object-cover object-top"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--black-2)] via-transparent to-transparent" />
+          </div>
+          <div className="space-y-4 p-6 sm:p-10">
+            <p className="eyebrow">Meet the founder</p>
+            <h2 className="font-display text-4xl uppercase leading-none text-[var(--white)] sm:text-5xl">
+              Bhavya Wadhwa
+            </h2>
+            <p className="text-sm uppercase tracking-[0.16em] text-[var(--green)]">
+              Founder · Teaches IB Economics &amp; Business Management
+            </p>
+            <p className="text-[14px] leading-8 text-[var(--white-dim)]">
+              Bhavya founded Wadhwa Institute and still teaches here himself, taking IB Economics
+              and IB Business Management at both HL and SL. He holds a master&rsquo;s in Economics,
+              an Economics Honours degree, and a B.Ed from the University of Delhi. Students find
+              him sharp with the subject, patient, and easy to learn from.
+            </p>
+            <Link
+              href="/faculty#founder"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[var(--green)]"
+            >
+              Read more about the team <span className="pulse-arrow">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ---------------- QUICK NAV ---------------- */}
       <section className="reveal space-y-6">
         <p className="eyebrow">Where to next</p>

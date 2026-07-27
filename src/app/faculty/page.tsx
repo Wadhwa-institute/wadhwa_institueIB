@@ -21,11 +21,18 @@ const jsonLd = {
     {
       "@type": "Person",
       name: "Bhavya Wadhwa",
-      jobTitle: "Founder & Mentor",
-      image: `${siteUrl}/assets/founder.jpg`,
+      jobTitle: "Founder and IB Economics & Business Management teacher",
+      image: `${siteUrl}/assets/posters/founder.png`,
       worksFor: { "@id": `${siteUrl}/#organization` },
       alumniOf: { "@type": "CollegeOrUniversity", name: "University of Delhi" },
-      knowsAbout: ["IB Economics", "IB Diploma Programme", "teaching", "mentoring"],
+      hasCredential: "MA Economics, Economics Honours, B.Ed (University of Delhi)",
+      knowsAbout: [
+        "IB Economics",
+        "IB Business Management",
+        "IB Diploma Programme",
+        "teaching",
+        "mentoring",
+      ],
     },
     ...teachers.map((t) => ({
       "@type": "Person",
@@ -91,37 +98,37 @@ export default function FacultyPage() {
             <div className="absolute bottom-4 left-4 rounded-2xl border border-[var(--green)] bg-[var(--black)]/80 px-4 py-2 backdrop-blur">
               <p className="font-display text-2xl leading-none text-[var(--green)]">DU</p>
               <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[var(--white-dim)]">
-                Economics Hons · B.Ed
+                MA Economics · B.Ed
               </p>
             </div>
           </div>
 
           {/* TEXT */}
           <div className="space-y-5 p-6 sm:p-10">
-            <p className="eyebrow">Founder &amp; mentor</p>
+            <p className="eyebrow">Founder &amp; teacher</p>
             <h2 className="font-display text-4xl uppercase leading-none text-[var(--white)] sm:text-5xl">
               Bhavya Wadhwa
             </h2>
             <p className="font-serif-italic text-xl text-[var(--green)]">
-              Where a good teacher makes all the difference
+              Founder, and still the teacher in the room
             </p>
             <p className="text-[14px] leading-8 text-[var(--white-dim)]">
-              Wadhwa Institute began with one belief of Bhavya Wadhwa: that the right teacher can
-              change how a student sees a subject, and their score. He holds an Economics Honours
-              degree and a B.Ed from the University of Delhi, and he has spent years turning that
-              training into results students can feel.
+              Bhavya Wadhwa started this institute and still teaches here himself. He takes IB
+              Economics and IB Business Management at both Higher and Standard Level, and he holds
+              a master&rsquo;s in Economics along with an Economics Honours degree and a B.Ed from
+              the University of Delhi.
             </p>
             <p className="text-[14px] leading-8 text-[var(--white-dim)]">
-              Students describe Bhavya as sharp, patient, and genuinely easy to talk to. He
-              explains hard ideas simply, keeps the room engaged, and treats every learner as
-              capable of a 7. That standard runs through everyone who now teaches here.
+              Students find him sharp with the subject and easy to talk to. He breaks hard ideas
+              down until they make sense, keeps a class engaged, and holds every student to a real
+              7. That is the standard he set, and it is the one the whole team teaches by.
             </p>
             <ul className="grid gap-2 pt-1 sm:grid-cols-2">
               {[
-                "Economics Honours, University of Delhi",
-                "B.Ed, University of Delhi",
-                "Clear, patient, student-first teaching",
-                "Set the standard the whole team follows",
+                "Teaches IB Economics, HL and SL",
+                "Teaches IB Business Management, HL and SL",
+                "Master's in Economics, University of Delhi",
+                "Economics Honours and B.Ed, University of Delhi",
               ].map((h) => (
                 <li key={h} className="flex gap-3 text-[13px] leading-6 text-[var(--white)]">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--green)]" />
