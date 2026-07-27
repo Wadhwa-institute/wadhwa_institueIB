@@ -96,9 +96,11 @@ export default function FacultyPage() {
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--black-2)] via-transparent to-transparent" />
             <div className="absolute bottom-4 left-4 rounded-2xl border border-[var(--green)] bg-[var(--black)]/80 px-4 py-2 backdrop-blur">
-              <p className="font-display text-2xl leading-none text-[var(--green)]">DU</p>
+              <p className="text-sm font-semibold leading-tight text-[var(--green)]">
+                Economics &amp; Business Management
+              </p>
               <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[var(--white-dim)]">
-                MA Economics · B.Ed
+                Expert
               </p>
             </div>
           </div>
