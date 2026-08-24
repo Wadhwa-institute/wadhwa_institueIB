@@ -20,7 +20,7 @@ const sections = [
   {
     title: "2. Eligibility & Accounts",
     content:
-      "The App is provided for students enrolled with Wadhwa Institute. Access requires signing in with a valid phone number, verified by a one-time SMS code. You are responsible for maintaining control of the phone number and device used to access your account, and for all activity that occurs under it. Accounts are personal and must not be shared or transferred.",
+      "The App is free and open to any student studying the IB Diploma Programme. Access requires signing in with a valid phone number, verified by a one-time SMS code. You are responsible for maintaining control of the phone number and device used to access your account, and for all activity that occurs under it. Accounts are personal and must not be shared or transferred.",
   },
   {
     title: "3. Study Material & Intellectual Property",
@@ -50,7 +50,7 @@ const sections = [
   {
     title: "8. Fees & Enrolment",
     content:
-      "Access to the App is provided as part of enrolment with Wadhwa Institute. Fees, refunds, and cancellations are governed by the enrolment agreement applicable to your programme, which prevails over these Terms. The App itself does not sell content or process payments.",
+      "The App and all study material within it are provided free of charge. There are no in-app purchases, subscriptions, or payments of any kind. Fees for Wadhwa Institute's separate in-person and online coaching programmes are governed by the enrolment agreement for that programme and are unrelated to the App.",
   },
   {
     title: "9. Limitation of Liability",

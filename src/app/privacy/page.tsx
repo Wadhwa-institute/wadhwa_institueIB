@@ -26,7 +26,7 @@ const sections = [
   {
     title: "3. How We Use It",
     content:
-      "To authenticate you and keep you signed in; to display your own progress on your profile; and to allow authorised institute staff to view study activity so they can support enrolled students. We do not use your data for advertising, profiling, or automated decision-making, and we do not use third-party ad or tracking SDKs.",
+      "To authenticate you and keep you signed in; to display your own progress on your profile; and to allow authorised institute staff to view aggregate study activity so they can improve the study material. We do not use your data for advertising, profiling, or automated decision-making, and we do not use third-party ad or tracking SDKs.",
   },
   {
     title: "4. Consent & Legal Basis",
