@@ -16,12 +16,12 @@ const sections = [
   {
     title: "1. Scope",
     content:
-      "This Privacy Policy applies to the Wadhwa Institute IB mobile application (the “App”). It explains what personal data the App collects, why, and how you can remove it. Wadhwa Institute acts as a “Data Fiduciary” under India’s Digital Personal Data Protection Act, 2023. For the website, see our main Privacy Policy, Terms & Legal page.",
+      "This Privacy Policy applies to the Wadhwa Institute IB mobile application (the “App”). The App is published on the Apple App Store and operated by Bhavya Wadhwa, founder of Wadhwa Institute, Gurugram (“we”, “us”). It explains what personal data the App collects, why, and how you can remove it. Wadhwa Institute acts as a “Data Fiduciary” under India’s Digital Personal Data Protection Act, 2023. For the website, see our main Privacy Policy, Terms & Legal page.",
   },
   {
     title: "2. Information the App Collects",
     content:
-      "Phone number — used to sign you in via a one-time SMS code (OTP) and to identify your account. Display name — if you choose to provide one, shown on your profile. Study activity — the time you spend reading notes, which notes you have opened, your daily study streak, and how many notes you have downloaded. The App does not collect your location, contacts, photos, camera data, or advertising identifiers.",
+      "Phone number — used to sign you in via a one-time SMS code (OTP) and to identify your account. Display name — if you choose to provide one, shown on your profile. Profile photo — if you choose to add one, a small compressed copy is stored with your account and shown only on your profile. Study activity — the time you spend reading notes, which notes you have opened, your daily study streak, and how many notes you have downloaded. The App does not collect your location, contacts, photo library, camera data, or advertising identifiers.",
   },
   {
     title: "3. How We Use It",
@@ -36,7 +36,7 @@ const sections = [
   {
     title: "5. Children's & Students' Data",
     content:
-      "Many of our learners are under 18. In line with Section 9 of the DPDP Act, we obtain verifiable consent from a parent or lawful guardian before processing a child’s personal data. The App does not carry out behavioural tracking, profiling, or targeted advertising directed at children. If you believe a minor’s data has been provided without appropriate consent, contact us and we will remove it.",
+      "Many of our learners are under 18. Users under 18 should use the App with the knowledge and consent of a parent or lawful guardian, in line with Section 9 of the DPDP Act. The App does not carry out behavioural tracking, profiling, or targeted advertising directed at children. If you believe a minor’s data has been provided without appropriate consent, contact us and we will remove it.",
   },
   {
     title: "6. Storage, Security & Sharing",
@@ -82,7 +82,7 @@ export default function AppPrivacyPage() {
             Act, 2023 and the DPDP Rules, 2025.
           </p>
           <p className="text-xs uppercase tracking-[0.16em] text-[var(--white-dim)]">
-            Last updated: 12 July 2026
+            Last updated: 17 October 2026
           </p>
         </div>
       </section>

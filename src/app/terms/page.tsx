@@ -15,7 +15,7 @@ const sections = [
   {
     title: "1. Acceptance of These Terms",
     content:
-      "These Terms of Service govern your use of the Wadhwa Institute IB mobile application (the “App”). By downloading, signing in to, or using the App you agree to these Terms. If you do not agree, please do not use the App.",
+      "These Terms of Service govern your use of the Wadhwa Institute IB mobile application (the “App”). The App is published on the Apple App Store and operated by Bhavya Wadhwa, founder of Wadhwa Institute, Gurugram (“we”, “us”). By downloading, signing in to, or using the App you agree to these Terms. If you do not agree, please do not use the App.",
   },
   {
     title: "2. Eligibility & Accounts",
@@ -48,9 +48,9 @@ const sections = [
       "The App and its content are provided for educational purposes on an “as-is” basis. While we strive for accuracy, we do not warrant that the material is complete or error-free, and we do not guarantee any specific academic outcome, grade, or score. Individual results depend on each student’s effort, starting level, and exam session.",
   },
   {
-    title: "8. Fees & Enrolment",
+    title: "8. Free of Charge",
     content:
-      "The App and all study material within it are provided free of charge. There are no in-app purchases, subscriptions, or payments of any kind. Fees for Wadhwa Institute's separate in-person and online coaching programmes are governed by the enrolment agreement for that programme and are unrelated to the App.",
+      "The App and all study material within it are free. Anyone can download the App, create an account with a phone number, and read every note. There are no in-app purchases, subscriptions, paid features, or payments of any kind, and nothing in the App is locked or reserved for paying users.",
   },
   {
     title: "9. Limitation of Liability",
@@ -85,7 +85,7 @@ export default function AppTermsPage() {
             including account rules and permitted use of our study material.
           </p>
           <p className="text-xs uppercase tracking-[0.16em] text-[var(--white-dim)]">
-            Last updated: 12 July 2026
+            Last updated: 17 October 2026
           </p>
         </div>
       </section>
