@@ -444,7 +444,6 @@ export const navLinks = [
   { label: "Results", href: "/results" },
   { label: "Reviews", href: "/reviews" },
   { label: "Blog", href: "/blog" },
-  { label: "App", href: "/app" },
   { label: "Contact", href: "/contact" },
   { label: "Legal", href: "/privacy-policy" },
 ];

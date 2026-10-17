@@ -18,7 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/reviews`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/blog`, lastModified, changeFrequency: "weekly", priority: 0.7 },
     { url: `${siteUrl}/contact`, lastModified, changeFrequency: "yearly", priority: 0.7 },
-    { url: `${siteUrl}/app`, lastModified, changeFrequency: "monthly", priority: 0.6 },
     { url: `${siteUrl}/privacy-policy`, lastModified, changeFrequency: "yearly", priority: 0.3 },
     // App-specific legal pages, linked from inside the iOS app (App Store requires
     // a publicly reachable privacy policy).

@@ -68,6 +68,11 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // The old /app "download & unlock premium" page was removed: the app is free for
+  // everyone (sign in, read notes) with nothing to buy or unlock. Old links go home.
+  async redirects() {
+    return [{ source: "/app", destination: "/", permanent: true }];
+  },
   async headers() {
     return [
       {
